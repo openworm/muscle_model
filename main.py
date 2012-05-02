@@ -1,5 +1,15 @@
 """
-Simulation of C.Elegans muscle cell
+Simulation of C.Elegans muscle cell with three currents
+and one calcium pump.
+
+This is still at a very early stage, being optimized on
+CamGrid using neuronoptimizer. The model represented
+here requires the publically-unavailable nrntools
+module from the nrndev library. Please email
+author for these libraries.
+
+Author:Mike Vella
+email:mv333@cam.ac.uk
 """
 
 from neuron import h
