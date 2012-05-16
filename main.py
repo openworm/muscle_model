@@ -6,7 +6,7 @@ This is still at a very early stage, being optimized on
 CamGrid using neuronoptimizer. The model represented
 here requires the publically-unavailable nrntools
 module from the nrndev library. Please email
-author for these libraries.
+author (vellamike@gmail.com) for these libraries.
 
 Author:Mike Vella
 email:mv333@cam.ac.uk
