@@ -18,6 +18,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 #from nrndev import nrntools
 
+def set_section_mechanism(sec, mech, mech_attribute, mech_value): #Is this passing by reference, do you need to state that explicitly in Python?
+    for seg in sec:
+        setattr(getattr(seg, mech), mech_attribute, mech_value)
 
 muscle=h.Section()
 muscle_part_2=h.Section()
@@ -29,6 +32,10 @@ muscle_part_2.insert('na')
 muscle.insert('kv')
 muscle.insert('canrgc')
 muscle.insert('cad2')
+
+set_section_mechanism(muscle,'canrgc','gbar',0.1)
+set_section_mechanism(muscle,'kv','gbar',20)
+set_section_mechanism(muscle,'na','gbar',100)
 
 stim=h.IClamp(muscle(0.5))
 stim.delay=100
