@@ -1,0 +1,13 @@
+Simulation of C.Elegans muscle cell electrical
+properties based on Boyle and Cohen 2008.
+
+This model includes the following currents:
+    - k_fast
+    - k_slow
+    - Ca
+    - leak
+
+Author:Mike Vella
+email:mv333@cam.ac.uk
+
+If you contribute to the project please add your name to the Authors field
