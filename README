@@ -11,3 +11,13 @@ Author:Mike Vella
 email:mv333@cam.ac.uk
 
 If you contribute to the project please add your name to the Authors field
+
+Running model
+-------------
+
+To run model install pyramidal and its dependencies as described here: 
+http://pyramidal.readthedocs.org/en/latest/install.html
+
+Then execute the command:
+
+	>>>python ./pyramidal_implementation/main.py
