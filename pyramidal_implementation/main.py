@@ -30,7 +30,6 @@ passive = kinetics.PassiveProperties(init_vm=-60.0,
 #Create a LeakCurrent object:
 leak = kinetics.LeakCurrent(em=-60)
 
-
 #get a Morphology object from the compartment:
 morphology = compartment.morphology
 
@@ -38,14 +37,16 @@ morphology = compartment.morphology
 morphology.passive_properties = passive
 morphology.leak_current = leak
 
-
+ca_attributes = {'gbar':0e-3}#'tau_speedup':1}
+ca = kinetics.Nmodl('ca_boyle',ca_attributes)
+morphology[0].insert(ca)
 
 
 
 #create a current clamp stimulus - we need to find one which is the same as the current
 #which was injected during our experimental data recording
 stim = kinetics.IClamp(current=2e-3,
-                       delay=10,
+                       delay=1,
                        duration=300)
 
 #insert the stimulus into the morphology
@@ -53,9 +54,9 @@ morphology[0].insert(stim)
 
 #create k_fast ion channel:
 k_fast = kinetics.HHChannel(name = 'k_fast',
-                                specific_gbar = 0.0,
+                                specific_gbar = 0,
                                 ion = 'k',
-                                e_rev = -55.0,
+                                e_rev = -64.0,
                                 x_power = 4.0,
                                 y_power = 1.0)
 
@@ -197,7 +198,7 @@ morphology[0].insert(k_slow)
 #moose_env.show_simulation()
 
 #create the NEURON environment
-neuron_env = envs.NeuronEnv(sim_time=320,dt=1e-4)
+neuron_env = envs.NeuronEnv(sim_time=5,dt=1e-6)
 
 #now should be able to autogenerate these really:
 #sodium_attributes = {'gbar':120e2}
