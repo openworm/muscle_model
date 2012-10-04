@@ -20,7 +20,7 @@ NEURON {
 
 
 PARAMETER {
-    gbar     = 0      (pS/um2)
+    gbar     = 100      (pS/um2)
     eca  = 100.0    (mV)
     v                                 (mV)
     dt                                (ms)
@@ -28,7 +28,8 @@ PARAMETER {
     vmax     = 150    (mV)
     cai 	= .000050 (mM)		: initial [Ca]i = 50 nM
     cao 	= 2	(mM)		: [Ca]o = 2 mM
-
+    etau = 1    (ms)
+    ftau = 1    (ms)
 }
 
 
@@ -48,9 +49,7 @@ ASSIGNED {
     ica    (mA/cm2)
     gca    (pS/um2)
     einf
-    etau (ms)
     finf
-    ftau (ms)
 }
 
 
@@ -101,12 +100,11 @@ PROCEDURE trates(v) {
 
 PROCEDURE rates(vm) {
 
-    etau = 1e-0
     einf = 1e-0
-    ftau = 1e-0
     finf = 1e-0
 
 }
+
 
 
 
