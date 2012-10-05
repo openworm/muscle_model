@@ -22,7 +22,7 @@ compartment = ml.Segment(length=100,proximal_diameter=50,distal_diameter=50)
 
 #Create a PassiveProperties object:
 passive = kinetics.PassiveProperties(init_vm=-60.0,
-                                     rm=1/0.3,
+                                     rm=1/0.3, #mv added 1e3factor
                                      cm=30e-12,
                                      ra=0.03
                                      )
@@ -37,7 +37,7 @@ morphology = compartment.morphology
 morphology.passive_properties = passive
 morphology.leak_current = leak
 
-ca_attributes = {'gbar':0e-3}#'tau_speedup':1}
+ca_attributes = {'gbar':0.5e9}#'tau_speedup':1}
 ca = kinetics.Nmodl('ca_boyle',ca_attributes)
 morphology[0].insert(ca)
 
@@ -198,7 +198,7 @@ morphology[0].insert(k_slow)
 #moose_env.show_simulation()
 
 #create the NEURON environment
-neuron_env = envs.NeuronEnv(sim_time=5,dt=1e-6)
+neuron_env = envs.NeuronEnv(sim_time=5,dt=1e-4)
 
 #now should be able to autogenerate these really:
 #sodium_attributes = {'gbar':120e2}
