@@ -8,7 +8,7 @@
 
         <notes>K slow channel from Boyle and Cohen 2008</notes>
 
-        <gateHH id="n" instances="3">
+        <gateHH id="n" instances="1">
 
             <timeCourse type="fixedTimeCourse" tau="25 ms"/>
             <steadyState type="HHSigmoidVariable" rate="1" scale="15.9 mV" midpoint="19.9 mV"/>

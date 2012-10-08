@@ -11,8 +11,8 @@
         <morphology id="morphology_SingleCompMuscleCell">
 
             <segment id="0" name="Body">
-                <proximal x="0.0" y="0.0" z="0.0" diameter="0.01"/>
-                <distal x="0.0" y="0.0" z="0.1" diameter="0.01"/>
+                <proximal x="0.0" y="0.0" z="0.0" diameter="1"/>
+                <distal x="0.0" y="0.0" z="10" diameter="1"/>
             </segment>
 
         </morphology>
