@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  http://neuroml.svn.sourceforge.net/viewvc/neuroml/NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+    id="SingleCompMuscleCell">
+
+    <cell id="SingleCompMuscleCell">
+
+        <notes>Only muscle cell body...</notes>
+
+        <morphology id="morphology_SingleCompMuscleCell">
+
+            <segment id="0" name="Body">
+                <proximal x="0.0" y="0.0" z="0.0" diameter="0.01"/>
+                <distal x="0.0" y="0.0" z="0.1" diameter="0.01"/>
+            </segment>
+
+        </morphology>
+
+
+        <biophysicalProperties id="biophys">
+
+            <membraneProperties>
+
+                <channelDensity condDensity="0.0330033 mS_per_cm2" id="Leak_all" ionChannel="Leak" erev="10 mV" ion="non_specific"/>
+
+                <channelDensity condDensity="0.9084216 mS_per_cm2" id="k_slow_all" ionChannel="k_slow" erev="-64.3 mV" ion="k"/>
+
+                <spikeThresh value="0 mV"/>
+
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+
+                <initMembPotential value="-65.0 mV"/>
+
+            </membraneProperties>
+
+            <intracellularProperties>
+
+                <resistivity value="0.1 kohm_cm"/>
+
+            </intracellularProperties>
+
+        </biophysicalProperties>
+
+    </cell>
+</neuroml>

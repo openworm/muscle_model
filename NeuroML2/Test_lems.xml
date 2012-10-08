@@ -1,0 +1,79 @@
+<Lems>
+
+
+<!-- Specify which component to run -->
+<DefaultRun component="sim1"/>
+
+<!-- Include core NeuroML2 ComponentType definitions -->
+<Include file="NeuroML2CoreTypes/Cells.xml"/>
+<Include file="NeuroML2CoreTypes/Networks.xml"/>
+<Include file="NeuroML2CoreTypes/Simulation.xml"/>
+
+<Include file="Leak.nml"/>
+<Include file="k_slow.nml"/>
+<Include file="SingleCompMuscleCell.nml"/>
+
+
+
+<pulseGenerator id="pulseGen1" delay="5ms" duration="20ms" amplitude="100 pA" />
+<pulseGenerator id="pulseGen2" delay="5ms" duration="20ms" amplitude="200 pA" />
+<pulseGenerator id="pulseGen3" delay="5ms" duration="20ms" amplitude="300 pA" />
+
+
+<network id="net1">
+    <extracellularProperties temperature="32degC"/>
+    <population id="mc1" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc2" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc3" component="SingleCompMuscleCell" size="1"/>
+    <explicitInput target="mc1[0]" input="pulseGen1"/>
+    <explicitInput target="mc2[0]" input="pulseGen2"/>
+    <explicitInput target="mc3[0]" input="pulseGen3"/>
+</network>
+
+
+
+<Simulation id="sim1" length="40ms" step="0.01ms" target="net1">
+
+    <Display id="d1" title="Voltage" timeScale="1ms">
+        <Line id="l1" quantity="mc1[0]/v" scale="1mV"  color="#ffffff" save="v1.dat"/>
+        <Line id="l2" quantity="mc2[0]/v" scale="1mV"  color="#ffffdd" save="v2.dat"/>
+        <Line id="l3" quantity="mc3[0]/v" scale="1mV"  color="#ffffbb" save="v3.dat"/>
+    </Display>
+    <!--
+     <Display id="d2" title="AB example: rate variables" timeScale="1ms">
+        
+        <Line id="l2" quantity="sspnPop[0]/biophys/membraneProperties/naFChans/naF/m/q" scale="1"  color="#000000" save="naF_m.dat"/>
+        <Line id="l3" quantity="sspnPop[0]/biophys/membraneProperties/naFChans/naF/h/q" scale="1"  color="#ff0000" save="naF_h.dat"/>
+        <Line id="l4" quantity="sspnPop[0]/biophys/membraneProperties/kAfChans/kAf/m/q" scale="1"  color="#0000ff" save="kAf_m.dat"/>
+        <Line id="l5" quantity="sspnPop[0]/biophys/membraneProperties/kAfChans/kAf/h/q" scale="1"  color="#00ffff" save="kAf_h.dat"/>
+        <Line id="l6" quantity="sspnPop[0]/biophys/membraneProperties/kDrChans/KDr/m/q" scale="1"  color="#ff00ff" save="kDr_m.dat"/>
+        <Line id="l6" quantity="sspnPop[0]/biophys/membraneProperties/kIRChans/kIR/m/q" scale="1"  color="#3f0aaf" save="kIR_m.dat"/>
+        <Line id="l7" quantity="sspnPop[0]/biophys/membraneProperties/kAsChans/kAs/m/q" scale="1"  color="#472910" save="kAs_m.dat"/>
+        <Line id="l8" quantity="sspnPop[0]/biophys/membraneProperties/kAsChans/kAs/h/q" scale="1"  color="#173456" save="kAs_h.dat"/>
+        <Line id="l9" quantity="sspnPop[0]/biophys/membraneProperties/CaRChansN/CaR/m/q" scale="1"  color="#668800" save="CaR_m.dat"/>
+        <Line id="l10" quantity="sspnPop[0]/biophys/membraneProperties/CaRChansN/CaR/h/q" scale="1"  color="#007700" save="CaR_h.dat"/>
+        <Line id="l11" quantity="sspnPop[0]/biophys/membraneProperties/SKChans/SK/m/q" scale="1"  color="#777700" save="sk_m.dat"/>
+    </Display>
+
+
+    <Display id="d4" title="AB example: small currents" timeScale="1ms">
+        <Line id="li2" quantity="sspnPop[0]/biophys/membraneProperties/naFChans/i" scale="1nA"  color="#00aa00" save="i_naf.dat"/>
+        <Line id="li5" quantity="sspnPop[0]/biophys/membraneProperties/kIRChans/i" scale="1nA"  color="#3a0f3a" save="i_kir.dat"/>
+        <Line id="li6" quantity="sspnPop[0]/biophys/membraneProperties/kAsChans/i" scale="1nA"  color="#4444aa" save="i_kas.dat"/>
+    </Display>
+    
+    <Display id="d3" title="AB example: large currents" timeScale="1ms">
+        <Line id="li1" quantity="sspnPop[0]/pulseGen1/i" scale="1nA"  color="#000000" save="i.dat"/>
+        <Line id="li3" quantity="sspnPop[0]/biophys/membraneProperties/kAfChans/i" scale="1nA"  color="#00aaaa" save="i_kaf.dat"/>
+        <Line id="li4" quantity="sspnPop[0]/biophys/membraneProperties/kDrChans/i" scale="1nA"  color="#aa00aa" save="i_kdr.dat"/>
+        <Line id="li5" quantity="sspnPop[0]/biophys/membraneProperties/CaRChansN/i" scale="1nA"  color="#007700" save="i_carn.dat"/>
+        <Line id="li6" quantity="sspnPop[0]/biophys/membraneProperties/SKChans/i" scale="1nA"  color="#777700" save="i_sk.dat"/>
+    </Display>
+    -->
+
+
+
+</Simulation>
+
+
+</Lems>
