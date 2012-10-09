@@ -12,10 +12,11 @@
 <Include file="Leak.nml"/>
 <Include file="k_slow.nml"/>
 <Include file="k_fast.nml"/>
+<Include file="ca_boyle.nml"/>
 <Include file="SingleCompMuscleCell.nml"/>
 
 
-<pulseGenerator id="offsetToMin70" delay="0ms" duration="1000ms" amplitude="-4.88 pA" />
+<pulseGenerator id="offsetToMin70" delay="0ms" duration="1000ms" amplitude="-500 pA" />
 
 <pulseGenerator id="pulseGen1" delay="10ms" duration="20ms" amplitude="100 pA" />
 <pulseGenerator id="pulseGen2" delay="10ms" duration="20ms" amplitude="200 pA" />
@@ -71,13 +72,17 @@
         <Line id="l1" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/k_slow/n/q" scale="1"  color="#000000" save="k_slow_n.dat"/>
         <Line id="l2" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/k_fast/p/q" scale="1"  color="#0000ff" save="k_fast_p.dat"/>
         <Line id="l3" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/k_fast/q/q" scale="1"  color="#00ffff" save="k_fast_q.dat"/>
+        <Line id="l4" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/ca_boyle/e/q" scale="1"  color="#ff00ff" save="ca_boyle_e.dat"/>
+        <Line id="l5" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/ca_boyle/f/q" scale="1"  color="#ffff00" save="ca_boyle_f.dat"/>
     </Display>
    
 
-    <Display id="d4" title="Currents at 700 pA" timeScale="1ms">
+    <Display id="d4" title="Current densities at 700 pA" timeScale="1ms">
         <Line id="li0" quantity="mc7[0]/biophys/membraneProperties/Leak_all/iDensity" scale="1nA"  color="#550000" save="i_l.dat"/>
         <Line id="li1" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/iDensity" scale="1nA"  color="#005500" save="i_ks.dat"/>
         <Line id="li2" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/iDensity" scale="1nA"  color="#000055" save="i_kf.dat"/>
+        <Line id="li3" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/iDensity" scale="1nA"  color="#fff555" save="i_ca.dat"/>
+       
     </Display>
 
 </Simulation>
