@@ -28,7 +28,7 @@ passive = kinetics.PassiveProperties(init_vm=-60.0,
                                      )
 
 #Create a LeakCurrent object:
-leak = kinetics.LeakCurrent(em=-60)
+leak = kinetics.LeakCurrent(em=-20e-3)
 
 #get a Morphology object from the compartment:
 morphology = compartment.morphology
@@ -45,9 +45,9 @@ morphology[0].insert(ca)
 
 #create a current clamp stimulus - we need to find one which is the same as the current
 #which was injected during our experimental data recording
-stim = kinetics.IClamp(current=2e-3,
+stim = kinetics.IClamp(current=0.1,
                        delay=1,
-                       duration=300)
+                       duration=3)
 
 #insert the stimulus into the morphology
 morphology[0].insert(stim)
