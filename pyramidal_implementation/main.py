@@ -54,15 +54,15 @@ morphology[0].insert(stim)
 
 #create k_fast ion channel:
 k_fast = kinetics.HHChannel(name = 'k_fast',
-                                specific_gbar = 0,
+                                specific_gbar = 400.0,
                                 ion = 'k',
-                                e_rev = -64.0,
+                                e_rev = -55.0,
                                 x_power = 4.0,
                                 y_power = 1.0)
 
 #create k_slow ion channel:
 k_slow = kinetics.HHChannel(name = 'k_slow',
-                               specific_gbar = 0.0,
+                               specific_gbar = 436.0,
                                ion = 'k',
                                e_rev = -64.3,
                                x_power = 1.0,
@@ -79,36 +79,36 @@ k_slow = kinetics.HHChannel(name = 'k_slow',
 #create dicts containing gating parameters:
 k_fast_m_params = {'A_A': 434.8,
                'A_B': 0.0,
-               'A_C': 0.0,
+               'A_C': 1.0,
                'A_D': 8.1,
                'A_F': -7.4,
                'B_A': 434.8,
                'B_B': 0.0,
-               'B_C': 0.0,
-               'B_D': 55.0,
-               'B_F': 10000.0}
-coeff = 1
-k_fast_h_params = {'A_A': 0.13 * coeff,
+               'B_C': 1.0,
+               'B_D': 8.1,
+               'B_F': 7.4}
+
+k_fast_h_params = {'A_A': 6.6,
                'A_B': 0.0,
-               'A_C': 0.0,
+               'A_C': 1.0,
                'A_D': 15.6,
                'A_F': 10.0,
-               'B_A': 0.13 * coeff,
+               'B_A': 6.6,
                'B_B': 0.0,
-               'B_C': 0.0,
-               'B_D': 55.0,
-               'B_F': 10000.0}
+               'B_C': 1.0,
+               'B_D': 15.6,
+               'B_F': -10.0}
 
 k_slow_m_params = {'A_A': 40.0,
                    'A_B': 0.0,
-                   'A_C': 0.0,
+                   'A_C': 1.0,
                    'A_D': -19.9,
                    'A_F': -15.9,
                    'B_A': 40.0,
                    'B_B': 0.0,
-                   'B_C': 0.0,
-                   'B_D': 64.3,
-                   'B_F': 10000.0}
+                   'B_C': 1.0,
+                   'B_D': -19.9,
+                   'B_F': 15.9}
 
 #'''k_slow_h_params = {'A_A': 0.0, # Not used.
 #               'A_B': 0.0,
