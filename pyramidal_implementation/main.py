@@ -18,18 +18,26 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 #First build a compartment: - Question - what are some more sensible dimensions to be using?
-compartment = ml.Segment(length=500,proximal_diameter=500,distal_diameter=500)
+compartment = ml.Segment(length=100,proximal_diameter=50,distal_diameter=50)
 
 #Create a PassiveProperties object:
+<<<<<<< HEAD
 passive = kinetics.PassiveProperties(init_vm=-58.0,
                                      rm=1/0.3,
+=======
+passive = kinetics.PassiveProperties(init_vm=-60.0,
+                                     rm=1/0.3, #mv added 1e3factor
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
                                      cm=30e-12,
                                      ra=0.03
                                      )
 
 #Create a LeakCurrent object:
 leak = kinetics.LeakCurrent(em=-20e-3)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
 
 #get a Morphology object from the compartment:
 morphology = compartment.morphology
@@ -38,9 +46,19 @@ morphology = compartment.morphology
 morphology.passive_properties = passive
 morphology.leak_current = leak
 
+ca_attributes = {'gbar':0.5e9}#'tau_speedup':1}
+ca = kinetics.Nmodl('ca_boyle',ca_attributes)
+morphology[0].insert(ca)
+
+
+
 #create a current clamp stimulus - we need to find one which is the same as the current
 #which was injected during our experimental data recording
+<<<<<<< HEAD
 stim = kinetics.IClamp(current=0.0,
+=======
+stim = kinetics.IClamp(current=0.1,
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
                        delay=1,
                        duration=3)
 
@@ -65,7 +83,11 @@ morphology[0].insert(ca_pump)
 
 #create k_fast ion channel:
 k_fast = kinetics.HHChannel(name = 'k_fast',
+<<<<<<< HEAD
                                 specific_gbar = 100.0,
+=======
+                                specific_gbar = 400.0,
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
                                 ion = 'k',
                                 e_rev = -55.0,
                                 x_power = 4.0,
@@ -73,7 +95,11 @@ k_fast = kinetics.HHChannel(name = 'k_fast',
 
 #create k_slow ion channel:
 k_slow = kinetics.HHChannel(name = 'k_slow',
+<<<<<<< HEAD
                                specific_gbar = 0.0,
+=======
+                               specific_gbar = 436.0,
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
                                ion = 'k',
                                e_rev = -64.3,
                                x_power = 1.0,
@@ -86,15 +112,24 @@ k_slow = kinetics.HHChannel(name = 'k_slow',
 #                               e_rev = 49.1,
 #                               x_power = 2.0,
 #                               y_power = 1.0)
+<<<<<<< HEAD
 #
 #create dicts containing gating parameters:
 k_fast_m_params = {'A_A': 434.8,
                'A_B': 0.0,
                'A_C': 0.0,
+=======
+
+#create dicts containing gating parameters:
+k_fast_m_params = {'A_A': 434.8,
+               'A_B': 0.0,
+               'A_C': 1.0,
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
                'A_D': 8.1,
                'A_F': -7.4,
                'B_A': 434.8,
                'B_B': 0.0,
+<<<<<<< HEAD
                'B_C': 0.0,
                'B_D': 55.0,
                'B_F': 10000.0}
@@ -113,10 +148,31 @@ k_fast_h_params = {'A_A': 0.13 * coeff,
 k_slow_m_params = {'A_A': 40.0,
                    'A_B': 0.0,
                    'A_C': 0.0,
+=======
+               'B_C': 1.0,
+               'B_D': 8.1,
+               'B_F': 7.4}
+
+k_fast_h_params = {'A_A': 6.6,
+               'A_B': 0.0,
+               'A_C': 1.0,
+               'A_D': 15.6,
+               'A_F': 10.0,
+               'B_A': 6.6,
+               'B_B': 0.0,
+               'B_C': 1.0,
+               'B_D': 15.6,
+               'B_F': -10.0}
+
+k_slow_m_params = {'A_A': 40.0,
+                   'A_B': 0.0,
+                   'A_C': 1.0,
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
                    'A_D': -19.9,
                    'A_F': -15.9,
                    'B_A': 40.0,
                    'B_B': 0.0,
+<<<<<<< HEAD
                    'B_C': 0.0,
                    'B_D': 64.3,
                    'B_F': 10000.0}
@@ -131,6 +187,22 @@ k_slow_m_params = {'A_A': 40.0,
 #            'B_C': 0.0,
 #            'B_D': 0.0,
 #            'B_F': 0.0}'''
+=======
+                   'B_C': 1.0,
+                   'B_D': -19.9,
+                   'B_F': 15.9}
+
+#'''k_slow_h_params = {'A_A': 0.0, # Not used.
+#               'A_B': 0.0,
+#               'A_C': 0.0,
+#               'A_D': 0.0,
+#               'A_F': 0.0,
+#               'B_A': 0.0,
+#               'B_B': 0.0,
+#               'B_C': 0.0,
+#               'B_D': 0.0,
+#               'B_F': 0.0}'''
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
 
 #ca_m_params = {'A_A': 10000.0,
 #               'A_B': 0.0,
@@ -178,19 +250,31 @@ k_slow.setup_alpha(gate = 'X',
 #                       vdivs = 1500,
 #                       vmin = -300,
 #                       vmax = 1200)'''
+<<<<<<< HEAD
 #
+=======
+
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
 #ca.setup_alpha(gate = 'X',
 #                       params = ca_m_params,
 #                       vdivs = 300,
 #                       vmin = -150,
 #                       vmax = 150)
+<<<<<<< HEAD
 #
+=======
+
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
 #ca.setup_alpha(gate = 'Y',
 #                       params = ca_h_params,
 #                       vdivs = 300,
 #                       vmin = -150,
 #                       vmax = 150)
+<<<<<<< HEAD
 #
+=======
+
+>>>>>>> 22719f87f12f0ff1ddaed236d359e2042da25f37
 #insert the channels:
 morphology[0].insert(k_fast)
 morphology[0].insert(k_slow)

@@ -1,4 +1,6 @@
 #Compiled mechanisms#
-pyramidal_implementation/x86_64/*
+x86_64
 *~
+NeuroML2/*.dat
+
 

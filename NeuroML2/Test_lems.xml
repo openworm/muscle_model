@@ -1,0 +1,91 @@
+<Lems>
+
+
+<!-- Specify which component to run -->
+<DefaultRun component="sim1"/>
+
+<!-- Include core NeuroML2 ComponentType definitions -->
+<Include file="NeuroML2CoreTypes/Cells.xml"/>
+<Include file="NeuroML2CoreTypes/Networks.xml"/>
+<Include file="NeuroML2CoreTypes/Simulation.xml"/>
+
+<Include file="Leak.nml"/>
+<Include file="k_slow.nml"/>
+<Include file="k_fast.nml"/>
+<Include file="ca_boyle.nml"/>
+<Include file="SingleCompMuscleCell.nml"/>
+
+
+<pulseGenerator id="offsetToMin70" delay="0ms" duration="1000ms" amplitude="-500 pA" />
+
+<pulseGenerator id="pulseGen1" delay="10ms" duration="20ms" amplitude="100 pA" />
+<pulseGenerator id="pulseGen2" delay="10ms" duration="20ms" amplitude="200 pA" />
+<pulseGenerator id="pulseGen3" delay="10ms" duration="20ms" amplitude="300 pA" />
+<pulseGenerator id="pulseGen4" delay="10ms" duration="20ms" amplitude="400 pA" />
+<pulseGenerator id="pulseGen5" delay="10ms" duration="20ms" amplitude="500 pA" />
+<pulseGenerator id="pulseGen6" delay="10ms" duration="20ms" amplitude="600 pA" />
+<pulseGenerator id="pulseGen7" delay="10ms" duration="20ms" amplitude="700 pA" />
+
+
+<network id="net1">
+    <population id="mc1" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc2" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc3" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc4" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc5" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc6" component="SingleCompMuscleCell" size="1"/>
+    <population id="mc7" component="SingleCompMuscleCell" size="1"/>
+
+    <explicitInput target="mc1[0]" input="offsetToMin70"/>
+    <explicitInput target="mc2[0]" input="offsetToMin70"/>
+    <explicitInput target="mc3[0]" input="offsetToMin70"/>
+    <explicitInput target="mc4[0]" input="offsetToMin70"/>
+    <explicitInput target="mc5[0]" input="offsetToMin70"/>
+    <explicitInput target="mc6[0]" input="offsetToMin70"/>
+    <explicitInput target="mc7[0]" input="offsetToMin70"/>
+
+    <explicitInput target="mc1[0]" input="pulseGen1"/>
+    <explicitInput target="mc2[0]" input="pulseGen2"/>
+    <explicitInput target="mc3[0]" input="pulseGen3"/>
+    <explicitInput target="mc4[0]" input="pulseGen4"/>
+    <explicitInput target="mc5[0]" input="pulseGen5"/>
+    <explicitInput target="mc6[0]" input="pulseGen6"/>
+    <explicitInput target="mc7[0]" input="pulseGen7"/>
+</network>
+
+
+
+<Simulation id="sim1" length="50ms" step="0.01ms" target="net1">
+
+    <Display id="d1" title="Voltage" timeScale="1ms">
+        <Line id="l1" quantity="mc1[0]/v" scale="1mV"  color="#ffffff" save="v1.dat"/>
+        <Line id="l2" quantity="mc2[0]/v" scale="1mV"  color="#ffffdd" save="v2.dat"/>
+        <Line id="l3" quantity="mc3[0]/v" scale="1mV"  color="#ffffbb" save="v3.dat"/>
+        <Line id="l4" quantity="mc4[0]/v" scale="1mV"  color="#ffddbb" save="v4.dat"/>
+        <Line id="l5" quantity="mc5[0]/v" scale="1mV"  color="#ffbbbb" save="v5.dat"/>
+        <Line id="l6" quantity="mc6[0]/v" scale="1mV"  color="#ddffbb" save="v6.dat"/>
+        <Line id="l7" quantity="mc7[0]/v" scale="1mV"  color="#bbffbb" save="v7.dat"/>
+    </Display>
+  
+     <Display id="d2" title="Rate variables at 700 pA" timeScale="1ms">
+
+        <Line id="l1" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/k_slow/n/q" scale="1"  color="#000000" save="k_slow_n.dat"/>
+        <Line id="l2" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/k_fast/p/q" scale="1"  color="#0000ff" save="k_fast_p.dat"/>
+        <Line id="l3" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/k_fast/q/q" scale="1"  color="#00ffff" save="k_fast_q.dat"/>
+        <Line id="l4" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/ca_boyle/e/q" scale="1"  color="#ff00ff" save="ca_boyle_e.dat"/>
+        <Line id="l5" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/ca_boyle/f/q" scale="1"  color="#ffff00" save="ca_boyle_f.dat"/>
+    </Display>
+   
+
+    <Display id="d4" title="Current densities at 700 pA" timeScale="1ms">
+        <Line id="li0" quantity="mc7[0]/biophys/membraneProperties/Leak_all/iDensity" scale="1nA"  color="#550000" save="i_l.dat"/>
+        <Line id="li1" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/iDensity" scale="1nA"  color="#005500" save="i_ks.dat"/>
+        <Line id="li2" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/iDensity" scale="1nA"  color="#000055" save="i_kf.dat"/>
+        <Line id="li3" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/iDensity" scale="1nA"  color="#fff555" save="i_ca.dat"/>
+       
+    </Display>
+
+</Simulation>
+
+
+</Lems>
