@@ -22,7 +22,7 @@ compartment = ml.Segment(length=100,proximal_diameter=50,distal_diameter=50)
 
 #Create a PassiveProperties object:
 passive = kinetics.PassiveProperties(init_vm=-60.0,
-                                     rm=1/0.3, #mv added 1e3factor
+                                     rm=1/0.3,
                                      cm=30e-12,
                                      ra=0.03
                                      )
@@ -45,12 +45,29 @@ morphology[0].insert(ca)
 
 #create a current clamp stimulus - we need to find one which is the same as the current
 #which was injected during our experimental data recording
+
 stim = kinetics.IClamp(current=0.1,
                        delay=1,
                        duration=3)
 
 #insert the stimulus into the morphology
 morphology[0].insert(stim)
+
+#calcium:
+ca_attributes = {'gCaL':10.0}
+ca = kinetics.Nmodl('ICaL',ca_attributes)
+morphology[0].insert(ca)
+
+
+#calcium pump:
+ca_pump_attributes = {} # {'gbar':100}
+ca_pump = kinetics.Nmodl('ca_pump',ca_pump_attributes)
+morphology[0].insert(ca_pump)
+
+#calcium pump:
+#cad_attributes = {} # {'gbar':100}
+#cad = kinetics.Nmodl('cad',cad_attributes)
+#morphology[0].insert(cad)
 
 #create k_fast ion channel:
 k_fast = kinetics.HHChannel(name = 'k_fast',
@@ -84,9 +101,27 @@ k_fast_m_params = {'A_A': 434.8,
                'A_F': -7.4,
                'B_A': 434.8,
                'B_B': 0.0,
-               'B_C': 1.0,
-               'B_D': 8.1,
-               'B_F': 7.4}
+               'B_C': 0.0,
+               'B_D': 55.0,
+               'B_F': 10000.0}
+coeff = 1
+k_fast_h_params = {'A_A': 0.13 * coeff,
+               'A_B': 0.0,
+               'A_C': 0.0,
+               'A_D': 15.6,
+               'A_F': 10.0,
+               'B_A': 0.13 * coeff,
+               'B_B': 0.0,
+               'B_C': 0.0,
+               'B_D': 55.0,
+               'B_F': 10000.0}
+
+k_slow_m_params = {'A_A': 40.0,
+                   'A_B': 0.0,
+                   'A_C': 0.0,
+                   'B_C': 1.0,
+                   'B_D': 8.1,
+                   'B_F': 7.4}
 
 k_fast_h_params = {'A_A': 6.6,
                'A_B': 0.0,
@@ -179,6 +214,7 @@ k_slow.setup_alpha(gate = 'X',
 #                       vdivs = 300,
 #                       vmin = -150,
 #                       vmax = 150)
+
 
 #insert the channels:
 morphology[0].insert(k_fast)
