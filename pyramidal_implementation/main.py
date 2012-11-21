@@ -22,13 +22,13 @@ compartment = ml.Segment(length=100,proximal_diameter=50,distal_diameter=50)
 
 #Create a PassiveProperties object:
 passive = kinetics.PassiveProperties(init_vm=-60.0,
-                                     rm=1/0.3, #mv added 1e3factor
+                                     rm=1/0.3,
                                      cm=30e-12,
                                      ra=0.03
                                      )
 
 #Create a LeakCurrent object:
-leak = kinetics.LeakCurrent(em=-60)
+leak = kinetics.LeakCurrent(em=-20e-3)
 
 #get a Morphology object from the compartment:
 morphology = compartment.morphology
@@ -45,24 +45,41 @@ morphology[0].insert(ca)
 
 #create a current clamp stimulus - we need to find one which is the same as the current
 #which was injected during our experimental data recording
-stim = kinetics.IClamp(current=2e-3,
+
+stim = kinetics.IClamp(current=0.1,
                        delay=1,
-                       duration=300)
+                       duration=3)
 
 #insert the stimulus into the morphology
 morphology[0].insert(stim)
 
+#calcium:
+ca_attributes = {'gCaL':10.0}
+ca = kinetics.Nmodl('ICaL',ca_attributes)
+morphology[0].insert(ca)
+
+
+#calcium pump:
+ca_pump_attributes = {} # {'gbar':100}
+ca_pump = kinetics.Nmodl('ca_pump',ca_pump_attributes)
+morphology[0].insert(ca_pump)
+
+#calcium pump:
+#cad_attributes = {} # {'gbar':100}
+#cad = kinetics.Nmodl('cad',cad_attributes)
+#morphology[0].insert(cad)
+
 #create k_fast ion channel:
 k_fast = kinetics.HHChannel(name = 'k_fast',
-                                specific_gbar = 0,
+                                specific_gbar = 400.0,
                                 ion = 'k',
-                                e_rev = -64.0,
+                                e_rev = -55.0,
                                 x_power = 4.0,
                                 y_power = 1.0)
 
 #create k_slow ion channel:
 k_slow = kinetics.HHChannel(name = 'k_slow',
-                               specific_gbar = 0.0,
+                               specific_gbar = 436.0,
                                ion = 'k',
                                e_rev = -64.3,
                                x_power = 1.0,
@@ -79,7 +96,7 @@ k_slow = kinetics.HHChannel(name = 'k_slow',
 #create dicts containing gating parameters:
 k_fast_m_params = {'A_A': 434.8,
                'A_B': 0.0,
-               'A_C': 0.0,
+               'A_C': 1.0,
                'A_D': 8.1,
                'A_F': -7.4,
                'B_A': 434.8,
@@ -102,13 +119,31 @@ k_fast_h_params = {'A_A': 0.13 * coeff,
 k_slow_m_params = {'A_A': 40.0,
                    'A_B': 0.0,
                    'A_C': 0.0,
+                   'B_C': 1.0,
+                   'B_D': 8.1,
+                   'B_F': 7.4}
+
+k_fast_h_params = {'A_A': 6.6,
+               'A_B': 0.0,
+               'A_C': 1.0,
+               'A_D': 15.6,
+               'A_F': 10.0,
+               'B_A': 6.6,
+               'B_B': 0.0,
+               'B_C': 1.0,
+               'B_D': 15.6,
+               'B_F': -10.0}
+
+k_slow_m_params = {'A_A': 40.0,
+                   'A_B': 0.0,
+                   'A_C': 1.0,
                    'A_D': -19.9,
                    'A_F': -15.9,
                    'B_A': 40.0,
                    'B_B': 0.0,
-                   'B_C': 0.0,
-                   'B_D': 64.3,
-                   'B_F': 10000.0}
+                   'B_C': 1.0,
+                   'B_D': -19.9,
+                   'B_F': 15.9}
 
 #'''k_slow_h_params = {'A_A': 0.0, # Not used.
 #               'A_B': 0.0,
@@ -179,6 +214,7 @@ k_slow.setup_alpha(gate = 'X',
 #                       vdivs = 300,
 #                       vmin = -150,
 #                       vmax = 150)
+
 
 #insert the channels:
 morphology[0].insert(k_fast)
