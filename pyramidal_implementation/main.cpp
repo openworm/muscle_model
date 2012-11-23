@@ -50,7 +50,7 @@ public:
 
 
   double run(){
-    // Call a method of the class with no parameters, example here is to call it twice:                   
+    // Call a method of the class
     double membranePotential;
     pValue = PyObject_CallMethod(pInstance, "run", NULL);
     
