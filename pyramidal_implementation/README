@@ -1,0 +1,6 @@
+#compile the PyramidalSimulation object:
+g++ -c PyramidalSimulation.cpp -I /usr/include/python2.7/ -I ./ -l python2.7 -o PyramidalSimulation.o
+#invoke the linker:
+g++ example.cpp PyramidalSimulation.o -I /usr/include/python2.7/ -I ./ -l python2.7 -o simulation
+
+
