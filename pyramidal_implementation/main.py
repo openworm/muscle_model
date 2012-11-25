@@ -8,11 +8,22 @@ import pyramidal.environments as envs
 from matplotlib import pyplot as plt
 import numpy as np
 
-
 class muscle_simulation():
-    def __init__(self):
+    def __init__(self,
+                 k_fast_specific_gbar = 36.0,
+                 k_slow_specific_gbar = 0.0,
+                 ca_channel_specific_gbar = 120):
+
+        self.k_fast_specific_gbar = float(k_fast_specific_gbar)
+        self.k_slow_specific_gbar = float(k_slow_specific_gbar)
+        self.ca_channel_specific_gbar = float(ca_channel_specific_gbar)
+        print 'debug..'
+        print self.ca_channel_specific_gbar
+        
         #First build a compartment:
-        self.compartment = ml.Segment(length=500,proximal_diameter=500,distal_diameter=500)
+        self.compartment = ml.Segment(length=500,
+                                      proximal_diameter=500,
+                                      distal_diameter=500)
 
         #Create a PassiveProperties object:
         self.passive = kinetics.PassiveProperties(init_vm=-40.0,
@@ -41,7 +52,7 @@ class muscle_simulation():
 
         #create Ca ion channel:
         ca_channel = kinetics.HHChannel(name = 'ca',
-                                        specific_gbar = 120.0,
+                                        specific_gbar = self.ca_channel_specific_gbar,
                                         ion = 'ca',
                                         e_rev = 125.0,
                                         x_power = 3.0,
@@ -49,14 +60,14 @@ class muscle_simulation():
 
         #create K fast ion channel:
         k_fast = kinetics.HHChannel(name = 'kfast',
-                                       specific_gbar = 36.0,
+                                       specific_gbar = self.k_fast_specific_gbar,
                                        ion = 'k',
                                        e_rev = -12.0,
                                        x_power = 4.0,
                                        y_power = 0.0)
 
         k_slow = kinetics.HHChannel(name = 'kslow',
-                                       specific_gbar = 0.0,
+                                       specific_gbar = self.k_slow_specific_gbar,
                                        ion = 'k',
                                        e_rev = -12.0,
                                        x_power = 4.0,
