@@ -21,7 +21,12 @@ pyplot.show()
 
 analysis_var={'peak_delta':0.0,'baseline':5,'dvdt_threshold':0.0}
 
-analysis=traceanalysis.IClampAnalysis(v,t,analysis_var,start_analysis=150,end_analysis=900)
+analysis=traceanalysis.IClampAnalysis(v,t,analysis_var,
+				      start_analysis=0,
+				      end_analysis=5000,
+				      smooth_data=True,
+				      show_smoothed_data=True,
+				      smoothing_window_len=33)
 
 analysis.analyse()
 print analysis.analysis_results
