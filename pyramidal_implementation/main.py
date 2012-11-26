@@ -24,13 +24,13 @@ class muscle_simulation():
                                       distal_diameter=500)
 
         #Create a PassiveProperties object:
-        self.passive = kinetics.PassiveProperties(init_vm=-40.0,
+        self.passive = kinetics.PassiveProperties(init_vm=-30.0,
                                              rm=1/0.3,
                                              cm=1.0,
                                              ra=0.03)
 
         #Create a LeakCurrent object:
-        self.leak = kinetics.LeakCurrent(em=-40.0)
+        self.leak = kinetics.LeakCurrent(em=-30.0)
 
 
         #get a Morphology object from the compartment:
@@ -41,8 +41,8 @@ class muscle_simulation():
         self.morphology.leak_current = self.leak
 
         #create a current clamp stimulus:
-        self.stim = kinetics.IClamp(current=0.25,
-                               delay=0.0,
+        self.stim = kinetics.IClamp(current=0.10,
+                               delay=100.0,
                                duration=1000.0)
 
         #insert the stimulus into the morphology

@@ -24,17 +24,17 @@ if len(params)>1:
 else:
     simulation = main.muscle_simulation()
 
-simulation.run(1000)
+simulation.run(1100)
 simulation.plot()
 v = numpy.array(simulation.neuron_env.rec_v)
 t = numpy.array(simulation.neuron_env.rec_t)
 
 #now need to do some analysis
 
-analysis_var={'peak_delta':0.0,'baseline':100,'dvdt_threshold':0.0,'peak_threshold':15}
+analysis_var={'peak_delta':0.0,'baseline':100,'dvdt_threshold':0.0,'peak_threshold':20}
 
 analysis=traceanalysis.IClampAnalysis(v,t,analysis_var,
-				      start_analysis=0,
+				      start_analysis=100,
 				      end_analysis=1000,
 				      smooth_data=False)
 
