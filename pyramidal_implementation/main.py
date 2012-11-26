@@ -40,14 +40,21 @@ class muscle_simulation():
         self.morphology.passive_properties = self.passive
         self.morphology.leak_current = self.leak
 
-        #create a current clamp stimulus:
+        #create two current clamp stimuli:
         self.stim = kinetics.IClamp(current=0.10,
                                delay=100.0,
                                duration=1000.0)
 
+        #problem with Pyramidal here, inserting this overrides the previous?!
+        #create a current clamp stimulus:
+#        self.stim2 = kinetics.IClamp(current=0.10,
+#                               delay=600.0,
+#                               duration=500.0)
+
+        
         #insert the stimulus into the morphology
         self.morphology[0].insert(self.stim)
-
+        
         #create Ca ion channel:
         ca_channel = kinetics.HHChannel(name = 'ca',
                                         specific_gbar = self.ca_channel_specific_gbar,

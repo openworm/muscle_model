@@ -10,7 +10,9 @@ import numpy
 
 targets = {'average_minimum': -0.13176587745945925, 'spike_frequency_adaptation': 0.0044486257825030575, 'trough_phase_adaptation': 0.0062869350891550874, 'mean_spike_frequency': 20.021290851441854, 'average_maximum': 17.254637946650821, 'trough_decay_exponent': 0.010134228692010657, 'interspike_time_covar': 0.05713062265256301, 'min_peak_no': 19, 'spike_width_adaptation': 5.6532961458987453e-18, 'max_peak_no': 20, 'first_spike_time': 20.604120000000002, 'peak_decay_exponent': 0.0031603942712837966}
 
-weights = {'average_minimum': 0.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
+{'peak_linear_gradient': -0.56430775335585726, 'average_minimum': 32.9139683819512, 'spike_frequency_adaptation': 0.054102950823597951, 'trough_phase_adaptation': -0.032339835206814785, 'mean_spike_frequency': 170.75638755391191, 'average_maximum': 52.484330488178259, 'trough_decay_exponent': 0.082997586003614746, 'interspike_time_covar': 0.67343012507213718, 'min_peak_no': 27, 'spike_broadening': 0.0, 'spike_width_adaptation': 5.196371093168479e-17, 'max_peak_no': 28, 'first_spike_time': 105.37999999997665, 'peak_decay_exponent': -0.074000673186574759}
+
+weights = {'peak_linear_gradient': 50,'average_minimum': 0.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
 
 params=sys.argv[1:]
 

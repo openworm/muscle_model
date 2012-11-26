@@ -31,8 +31,8 @@ fitness_filename = 'evaluations'
 my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename)
 
 my_optimizer=optimizers.CustomOptimizerA(max_constraints,min_constraints,my_evaluator,
-                                  population_size=200,
-                                  max_evaluations=4000,
+                                  population_size=10,
+                                  max_evaluations=100,
                                   num_selected=10,
                                   num_offspring=10,
                                   num_elites=1,
