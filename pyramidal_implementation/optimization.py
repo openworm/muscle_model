@@ -8,7 +8,7 @@ from optimalneuron import controllers
 
 #first off we need to make an evaluator,
 
-parameters = ['axon_gbar_na','axon_gbar_kv','axon_gbar_kv3']
+parameters = ['axon_gbar_na','axon_gbar_kv','axon_gbar_kv3'] # these are unused, ignore them - they're all wrong
 
 #manual_vals=[50,50,2000,70,70,5,0.1,28.0,49.0,-73.0,23.0] # Example of how to set a seed
 min_constraints = [0,0,0]
@@ -31,8 +31,8 @@ fitness_filename = 'evaluations'
 my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename)
 
 my_optimizer=optimizers.CustomOptimizerA(max_constraints,min_constraints,my_evaluator,
-                                  population_size=10,
-                                  max_evaluations=100,
+                                  population_size=30,
+                                  max_evaluations=300,
                                   num_selected=10,
                                   num_offspring=10,
                                   num_elites=1,

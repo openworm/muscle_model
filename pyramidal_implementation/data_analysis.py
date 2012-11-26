@@ -16,8 +16,8 @@ t_final = len(v)*dt
 
 t = np.linspace(t_init,t_final,len(v))*1000
 
-#pyplot.plot(t,v)
-#pyplot.show()
+pyplot.plot(t,v)
+pyplot.show()
 
 analysis_var={'peak_delta':0.0,'baseline':5,'dvdt_threshold':0.0}
 
