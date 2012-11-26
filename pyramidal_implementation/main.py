@@ -41,9 +41,9 @@ class muscle_simulation():
         self.morphology.leak_current = self.leak
 
         #create a current clamp stimulus:
-        self.stim = kinetics.IClamp(current=0.2,
-                               delay=10.0,
-                               duration=100.0)
+        self.stim = kinetics.IClamp(current=0.25,
+                               delay=0.0,
+                               duration=1000.0)
 
         #insert the stimulus into the morphology
         self.morphology[0].insert(self.stim)
