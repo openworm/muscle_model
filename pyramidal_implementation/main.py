@@ -17,8 +17,6 @@ class muscle_simulation():
         self.k_fast_specific_gbar = float(k_fast_specific_gbar)
         self.k_slow_specific_gbar = float(k_slow_specific_gbar)
         self.ca_channel_specific_gbar = float(ca_channel_specific_gbar)
-        print 'debug..'
-        print self.ca_channel_specific_gbar
         
         #First build a compartment:
         self.compartment = ml.Segment(length=500,
