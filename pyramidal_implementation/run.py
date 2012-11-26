@@ -5,10 +5,13 @@ import sys
 import main
 import numpy
 import random
-import traceanalysis
+from optimalneuron import traceanalysis
 import numpy
 
-target_data_path = 
+targets = {'average_minimum': -0.13176587745945925, 'spike_frequency_adaptation': 0.0044486257825030575, 'trough_phase_adaptation': 0.0062869350891550874, 'mean_spike_frequency': 20.021290851441854, 'average_maximum': 17.254637946650821, 'trough_decay_exponent': 0.010134228692010657, 'interspike_time_covar': 0.05713062265256301, 'min_peak_no': 19, 'spike_width_adaptation': 5.6532961458987453e-18, 'max_peak_no': 20, 'first_spike_time': 20.604120000000002, 'peak_decay_exponent': 0.0031603942712837966}
+
+weights = {'average_minimum': 1.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 1.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 1.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
+
 params=sys.argv[1:]
 
 if len(params)>1:
@@ -21,51 +24,33 @@ if len(params)>1:
 else:
     simulation = main.muscle_simulation()
 
-simulation.run(100)
-simulation.plot()
-voltage = numpy.array(simulation.neuron_env.rec_v)
+simulation.run(1000)
+#simulation.plot()
+v = numpy.array(simulation.neuron_env.rec_v)
+t = numpy.array(simulation.neuron_env.rec_t)
 
 #now need to do some analysis
 
-#------------------------------------------
-# STEP 1 - Obtain targets
-#-------------------------------------------
+analysis_var={'peak_delta':0.0,'baseline':5,'dvdt_threshold':0.0}
 
-t,v_raw=traceanalysis.load_csv_data(target_data_path)
-v=numpy.array(v_raw)
-v_smooth=list(traceanalysis.smooth(v))
-analysis=traceanalysis.IClampAnalysis(
-    v_smooth,t,analysis_var,start_analysis=analysis_start_time,
-    end_analysis=analysis_end_time) 
-analysis.analyse()
-self.targets=analysis.analysis_results
-print('Obtained targets are:')
-print(self.targets)
-
-#-------------------------------------
-# STEP 2 - Get fitness
-#-------------------------------------
-
-analysis=traceanalysis.IClampAnalysis(exp_data.samples,
-                                      exp_data.t,self.analysis_var,
-                                      self.analysis_start_time,
-                                      self.analysis_end_time,
-                                      target_data_path=self.target_data_path)
-
-print 'staritng analysis'
+analysis=traceanalysis.IClampAnalysis(v,t,analysis_var,
+				      start_analysis=0,
+				      end_analysis=5000,
+				      smooth_data=False)
 
 analysis.analyse()
 
-print 'obtaining fitness'
+print analysis.analysis_results
 
-fitness=analysis.evaluate_fitness(self.targets,
-                                  self.weights,cost_function=
-                                  traceanalysis.normalised_cost_function)
+fitness=analysis.evaluate_fitness(targets,
+				  weights,
+				  cost_function=
+				  traceanalysis.normalised_cost_function)
 
 #--------------------------------------------------
-# STEP 3 - write the fitness to the fitness file:
+# write the fitness to the fitness file:
 #--------------------------------------------------
-
+print str(fitness)
 evaluations_file = open('evaluations','a')
-evaluations_file.write(fitness+'\n')
+evaluations_file.write(str(fitness)+'\n')
 evaluations_file.close()
