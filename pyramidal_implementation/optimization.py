@@ -1,5 +1,5 @@
 """
-Script to optimize Basket cell current injection response
+Script to optimize C elegans cell current injection response (simplified version of current ramp)
 """
 
 from optimalneuron import optimizers
@@ -12,7 +12,7 @@ parameters = ['axon_gbar_na','axon_gbar_kv','axon_gbar_kv3'] # these are unused,
 
 #manual_vals=[50,50,2000,70,70,5,0.1,28.0,49.0,-73.0,23.0] # Example of how to set a seed
 min_constraints = [0.0,0.0,0,20.0]
-max_constraints = [2000.0,5.0,7000.0,200.0]
+max_constraints = [2000.0,0.0,7000.0,200.0]
 
 ##the following block is uncommented because we're using dumb evalutation
 #analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':2}
@@ -31,8 +31,8 @@ fitness_filename = 'evaluations'
 my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename)
 
 my_optimizer=optimizers.CustomOptimizerA(max_constraints,min_constraints,my_evaluator,
-                                  population_size=100,
-                                  max_evaluations=300,
+                                  population_size=500,
+                                  max_evaluations=2000,
                                   num_selected=10,
                                   num_offspring=10,
                                   num_elites=1,

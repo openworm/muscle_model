@@ -15,7 +15,7 @@ plot_sim = False
 
 targets = {'peak_linear_gradient': 0.0126455, 'average_minimum': 32.9139683819512, 'spike_frequency_adaptation': 0.054102950823597951, 'trough_phase_adaptation': -0.032339835206814785, 'mean_spike_frequency': 170.75638755391191, 'average_maximum': 52.484330488178259, 'trough_decay_exponent': 0.082997586003614746, 'interspike_time_covar': 0.67343012507213718, 'min_peak_no': 27, 'spike_width_adaptation': 5.196371093168479e-17, 'max_peak_no': 28, 'first_spike_time': 105.37999999997665, 'peak_decay_exponent': -0.074000673186574759}
 
-weights = {'peak_linear_gradient': 50,'average_minimum': 0.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
+weights = {'peak_linear_gradient': 20,'average_minimum': 0.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
 
 params=sys.argv[1:]
 
@@ -46,7 +46,7 @@ t = numpy.array(simulation.neuron_env.rec_t)
 
 #now need to do some analysis
 
-analysis_var={'peak_delta':0.0,'baseline':100,'dvdt_threshold':0.0,'peak_threshold':20}
+analysis_var={'peak_delta':0.0,'baseline':100,'dvdt_threshold':0.0,'peak_threshold':10}
 
 analysis=traceanalysis.IClampAnalysis(v,t,analysis_var,
 				      start_analysis=100,
