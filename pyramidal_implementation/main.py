@@ -13,8 +13,12 @@ class muscle_simulation():
                  k_fast_specific_gbar = 36.0,
                  k_slow_specific_gbar = 0.0,
                  ca_channel_specific_gbar = 120,
-		 ca_h_A_F = 20):
+		 ca_h_A_F = 20,
+		 tau_factor = 1.0):
 
+	print 'tau factor is:'
+	print tau_factor
+	tau_factor = float(tau_factor)
         self.k_fast_specific_gbar = float(k_fast_specific_gbar)
         self.k_slow_specific_gbar = float(k_slow_specific_gbar)
         self.ca_channel_specific_gbar = float(ca_channel_specific_gbar)
@@ -81,46 +85,46 @@ class muscle_simulation():
 
 
         #create dicts containing gating parameters:
-        ca_m_params = {'A_A':0.1 * (25.0), 
-                       'A_B': -0.1,
+        ca_m_params = {'A_A':0.1 *25.0*tau_factor, 
+                       'A_B': -0.1*tau_factor,
                        'A_C': -1.0,
                        'A_D': -25.0,
                        'A_F':-10.0,
-                       'B_A': 4.0,
-                       'B_B': 0.0,
+                       'B_A': 4.0*tau_factor,
+                       'B_B': 0.0*tau_factor,
                        'B_C': 0.0,
                        'B_D': 0.0,
                        'B_F': 18.0}
 
-        ca_h_params = {'A_A': 0.07,
-                       'A_B': 0.0,  
+        ca_h_params = {'A_A': 0.07*tau_factor,
+                       'A_B': 0.0*tau_factor,  
                        'A_C': 0.0,  
                        'A_D': 0.0,  
                        'A_F': ca_h_A_F, #20
-                       'B_A': 1.0,  
-                       'B_B': 0.0,  
+                       'B_A': 1.0*tau_factor,  
+                       'B_B': 0.0*tau_factor,  
                        'B_C': 1.0,  
                        'B_D': -30.0,
                        'B_F': -10.0}
 
-        k_fast_n_params = {'A_A': 0.01*(10.0),
-                      'A_B': -0.01, #0.01
+        k_fast_n_params = {'A_A': 0.01*(10.0)*tau_factor,
+                      'A_B': -0.01*tau_factor, #0.01
                       'A_C': -1.0,
                       'A_D': -10.0,
                       'A_F': -10.0,
-                      'B_A': 0.125,
-                      'B_B': 0.0,
+                      'B_A': 0.125*tau_factor,
+                      'B_B': 0.0*tau_factor,
                       'B_C': 0.0,
                       'B_D': 0.0,
                       'B_F': 80.0}
 
-        k_fast_h_params = {'A_A': 6.6,
-                       'A_B': 0.0,
+        k_fast_h_params = {'A_A': 6.6*tau_factor,
+                       'A_B': 0.0*tau_factor,
                        'A_C': 1.0,
                        'A_D': 15.6,
                        'A_F': 10.0,
-                       'B_A': 6.6,
-                       'B_B': 0.0,
+                       'B_A': 6.6*tau_factor,
+                       'B_B': 0.0*tau_factor,
                        'B_C': 1.0,
                        'B_D': 15.6,
                        'B_F': -10.0}

@@ -1,4 +1,4 @@
-import numpy as np
+#import numpy as np
 from matplotlib import pyplot
 from optimalneuron import traceanalysis
 
