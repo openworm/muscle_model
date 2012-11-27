@@ -1,5 +1,6 @@
 """
 Script to optimize C elegans cell current injection response (simplified version of current ramp)
+-uses 25pA current injection instead of current ramp
 """
 
 from optimalneuron import optimizers
