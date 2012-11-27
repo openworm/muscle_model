@@ -12,16 +12,17 @@ class muscle_simulation():
     def __init__(self,
                  k_fast_specific_gbar = 36.0,
                  k_slow_specific_gbar = 0.0,
-                 ca_channel_specific_gbar = 120):
+                 ca_channel_specific_gbar = 120,
+		 ca_h_A_F = 20):
 
         self.k_fast_specific_gbar = float(k_fast_specific_gbar)
         self.k_slow_specific_gbar = float(k_slow_specific_gbar)
         self.ca_channel_specific_gbar = float(ca_channel_specific_gbar)
         
-        #First build a compartment:
-        self.compartment = ml.Segment(length=500,
-                                      proximal_diameter=500,
-                                      distal_diameter=500)
+        #First build a compartment, I infered these dimensions from the hyperpolarizing pulses
+        self.compartment = ml.Segment(length=800,
+                                      proximal_diameter=800,
+                                      distal_diameter=800)
 
         #Create a PassiveProperties object:
         self.passive = kinetics.PassiveProperties(init_vm=-30.0,
@@ -41,7 +42,7 @@ class muscle_simulation():
         self.morphology.leak_current = self.leak
 
         #create two current clamp stimuli:
-        self.stim = kinetics.IClamp(current=0.10,
+        self.stim = kinetics.IClamp(current=0.25,
                                delay=100.0,
                                duration=1000.0)
 
@@ -59,7 +60,7 @@ class muscle_simulation():
         ca_channel = kinetics.HHChannel(name = 'ca',
                                         specific_gbar = self.ca_channel_specific_gbar,
                                         ion = 'ca',
-                                        e_rev = 125.0,
+                                        e_rev = 20.0,
                                         x_power = 3.0,
                                         y_power = 1.0)
 
@@ -67,20 +68,20 @@ class muscle_simulation():
         k_fast = kinetics.HHChannel(name = 'kfast',
                                        specific_gbar = self.k_fast_specific_gbar,
                                        ion = 'k',
-                                       e_rev = -12.0,
+                                       e_rev = -10.0,
                                        x_power = 4.0,
                                        y_power = 0.0)
 
         k_slow = kinetics.HHChannel(name = 'kslow',
                                        specific_gbar = self.k_slow_specific_gbar,
                                        ion = 'k',
-                                       e_rev = -12.0,
+                                       e_rev = -10.0,
                                        x_power = 4.0,
                                        y_power = 0.0)
 
 
         #create dicts containing gating parameters:
-        ca_m_params = {'A_A':0.1 * (25.0),
+        ca_m_params = {'A_A':0.1 * (25.0), 
                        'A_B': -0.1,
                        'A_C': -1.0,
                        'A_D': -25.0,
@@ -91,11 +92,11 @@ class muscle_simulation():
                        'B_D': 0.0,
                        'B_F': 18.0}
 
-        ca_h_params = {'A_A': 0.07, 
+        ca_h_params = {'A_A': 0.07,
                        'A_B': 0.0,  
                        'A_C': 0.0,  
                        'A_D': 0.0,  
-                       'A_F': 20.0, 
+                       'A_F': ca_h_A_F, #20
                        'B_A': 1.0,  
                        'B_B': 0.0,  
                        'B_C': 1.0,  
@@ -103,7 +104,7 @@ class muscle_simulation():
                        'B_F': -10.0}
 
         k_fast_n_params = {'A_A': 0.01*(10.0),
-                      'A_B': -0.01,
+                      'A_B': -0.01, #0.01
                       'A_C': -1.0,
                       'A_D': -10.0,
                       'A_F': -10.0,
@@ -126,7 +127,7 @@ class muscle_simulation():
 
         k_slow_n_params = {'A_A': 0.01*(10.0),
                       'A_B': -0.01,
-                      'A_C': -1.0,
+                      'A_C': -2.0,
                       'A_D': -10.0,
                       'A_F': -10.0,
                       'B_A': 0.125,
