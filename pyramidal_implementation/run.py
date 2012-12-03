@@ -2,7 +2,7 @@
 #reading by the main evaluator
 
 #e.g usage:
-#  $ python run.py 16.130067085410197 0.0 237.5393647187672
+# python run.py 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6
 
 import sys
 import main
