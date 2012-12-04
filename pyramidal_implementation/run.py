@@ -32,7 +32,7 @@ def overlay_result_with_data(data_file_name,t_sim,v_sim,
 
 
 plot_sim = False
-plot_overlay = True
+plot_overlay = False
 #tau_factor = 1.0
 
 targets = {'peak_linear_gradient': 0.0126455, 'average_minimum': 32.9139683819512, 'spike_frequency_adaptation': 0.054102950823597951, 'trough_phase_adaptation': -0.032339835206814785, 'mean_spike_frequency': 170.75638755391191, 'average_maximum': 52.484330488178259, 'trough_decay_exponent': 0.082997586003614746, 'interspike_time_covar': 0.67343012507213718, 'min_peak_no': 27, 'spike_width_adaptation': 5.196371093168479e-17, 'max_peak_no': 28, 'first_spike_time': 105.37999999997665, 'peak_decay_exponent': -0.074000673186574759}
