@@ -37,7 +37,7 @@ plot_overlay = False
 
 targets = {'peak_linear_gradient': 0.0126455, 'average_minimum': 32.9139683819512, 'spike_frequency_adaptation': 0.054102950823597951, 'trough_phase_adaptation': -0.032339835206814785, 'mean_spike_frequency': 170.75638755391191, 'average_maximum': 52.484330488178259, 'trough_decay_exponent': 0.082997586003614746, 'interspike_time_covar': 0.67343012507213718, 'min_peak_no': 20, 'spike_width_adaptation': 5.196371093168479e-17, 'max_peak_no': 20, 'first_spike_time': 105.37999999997665, 'peak_decay_exponent': -0.074000673186574759}
 
-weights = {'peak_linear_gradient': 20,'average_minimum': 0.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
+weights = {'peak_linear_gradient': 20,'average_minimum': 5.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0}
 
 params=sys.argv[1:]
 
@@ -48,13 +48,16 @@ if len(params)>1:
     print params[3]
     print params[4]
     print params[5]
-    
-    simulation = main.muscle_simulation(k_fast_specific_gbar=params[0],
-                                        k_slow_specific_gbar=params[1],
-                                        ca_channel_specific_gbar=params[2],
-					ca_h_A_F=params[3],
-                                        ca_tau_factor=params[4],
-                                        k_tau_factor=params[5])
+    print params[6]
+
+    evaluations_file=params[0]
+
+    simulation = main.muscle_simulation(k_fast_specific_gbar=params[1],
+                                        k_slow_specific_gbar=params[2],
+                                        ca_channel_specific_gbar=params[3],
+					ca_h_A_F=params[4],
+                                        ca_tau_factor=params[5],
+                                        k_tau_factor=params[6])
     
     
 
@@ -95,7 +98,7 @@ fitness=analysis.evaluate_fitness(targets,
 # write the fitness to the fitness file:
 #--------------------------------------------------
 print str(fitness)
-evaluations_file = open('evaluations','a')
+evaluations_file = open(evaluations_file,'a')
 evaluations_file.write(str(fitness)+'\n')
 evaluations_file.close()
 

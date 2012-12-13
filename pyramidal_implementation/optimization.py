@@ -29,13 +29,13 @@ max_constraints = [2000.0,0.0,7000.0,200.0, 1.0,1.0]
 my_controller=controllers.CLIController('ipython run.py')
 fitness_filename = 'evaluations'
 
-my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename)
+my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename,threads_number=4)
 
 my_optimizer=optimizers.CustomOptimizerA(max_constraints,min_constraints,my_evaluator,
-                                  population_size=500,
-                                  max_evaluations=2000,
-                                  num_selected=10,
-                                  num_offspring=10,
+                                  population_size=10,
+                                  max_evaluations=30,
+                                  num_selected=2,
+                                  num_offspring=2,
                                   num_elites=1,
                                   seeds=None)
 my_optimizer.optimize()
