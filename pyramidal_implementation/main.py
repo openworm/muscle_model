@@ -9,6 +9,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 class muscle_simulation():
+
     def __init__(self,
                  k_fast_specific_gbar = 36.0,
                  k_slow_specific_gbar = 0.0,
@@ -17,8 +18,6 @@ class muscle_simulation():
                  k_tau_factor = 1.0,
                  ca_tau_factor = 1.0,
 		 nocompile = True):
-
-
 
 	#	print 'tau factor is:'
 	#	print tau_factor
@@ -154,30 +153,31 @@ class muscle_simulation():
                                    vmin = -30,
                                    vmax = 120)
 	    
-	    ca_channel.setup_alpha(gate = 'Y',
-	    			       params = ca_h_params,
-	    			       vdivs = 150,
-	    			       vmin = -30,
-	    			       vmax = 120)
+    	    ca_channel.setup_alpha(gate = 'Y',
+    	    			       params = ca_h_params,
+    	    			       vdivs = 150,
+    	    			       vmin = -30,
+    	    			       vmax = 120)
+    	    
+    	    k_fast.setup_alpha(gate = 'X',
+    	    		      params = k_fast_n_params,
+    	    		      vdivs = 150,
+    	    		      vmin = -30,
+    	    		      vmax = 120)
 	    
-	    k_fast.setup_alpha(gate = 'X',
-	    		      params = k_fast_n_params,
-	    		      vdivs = 150,
-	    		      vmin = -30,
-	    		      vmax = 120)
+    	    k_fast.setup_alpha(gate = 'Y',
+    	    		       params = k_fast_h_params,
+    	    		       vdivs = 300,
+    	    		       vmin = -150,
+    	    		       vmax = 150)
 	    
-	    k_fast.setup_alpha(gate = 'Y',
-	    		       params = k_fast_h_params,
-	    		       vdivs = 300,
-	    		       vmin = -150,
-	    		       vmax = 150)
-	    
-	    k_slow.setup_alpha(gate = 'X',
-	    		      params = k_slow_n_params,
-	    		      vdivs = 150,
-	    		      vmin = -30,
-		              vmax = 120)
+    	    k_slow.setup_alpha(gate = 'X',
+    	    		      params = k_slow_n_params,
+    	    		      vdivs = 150,
+    	    		      vmin = -30,
+    		              vmax = 120)
 	else:
+
 	    ca_attributes = {'gbar': self.ca_channel_specific_gbar,
 			     'h_A_F': ca_h_A_F,
 			     'm_A_A': 0.1 *25.0*ca_tau_factor, 
@@ -207,7 +207,7 @@ class muscle_simulation():
 
 	    ca_channel = kinetics.Nmodl('ca',ca_attributes)
 	    k_fast = kinetics.Nmodl('kfast',kfast_attributes)
-	    k_slow = kinetics.Nmodl('kfast',kslow_attributes)
+	    k_slow = kinetics.Nmodl('kslow',kslow_attributes)
 
         #insert the channels:
         self.morphology[0].insert(ca_channel)

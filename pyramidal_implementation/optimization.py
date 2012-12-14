@@ -13,7 +13,10 @@ parameters = ['axon_gbar_na','axon_gbar_kv','axon_gbar_kv3'] # these are unused,
 
 #manual_vals=[50,50,2000,70,70,5,0.1,28.0,49.0,-73.0,23.0] # Example of how to set a seed
 min_constraints = [0.0,0.0,0,20.0, 0.0, 0.0]
-max_constraints = [2000.0,0.0,7000.0,200.0, 1.0,1.0]
+#--nocompile = TRUE
+max_constraints = [200000.0,0.0,700000.0,200.0, 1.0,1.0]
+#--nocompile = FALSE
+#max_constraints = [2000.0,0.0,7000.0,200.0, 1.0,1.0]
 
 ##the following block is uncommented because we're using dumb evalutation
 #analysis_var={'peak_delta':0,'baseline':0,'dvdt_threshold':2}
