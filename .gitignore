@@ -1,6 +1,7 @@
-#Compiled mechanisms#
+*.pyc
 x86_64
 *~
+/data
 NeuroML2/*.dat
 
 

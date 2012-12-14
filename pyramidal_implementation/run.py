@@ -41,6 +41,8 @@ weights = {'peak_linear_gradient': 20,'average_minimum': 5.0, 'spike_frequency_a
 
 params=sys.argv[1:]
 
+evaluations_file = 'evaluations0'
+
 if len(params)>1:
     print params[0]
     print params[1]

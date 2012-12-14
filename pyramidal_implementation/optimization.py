@@ -26,15 +26,15 @@ max_constraints = [2000.0,0.0,7000.0,200.0, 1.0,1.0]
 #we really need to think about this deeply, separating the nrnproject logic from the neuronoptimizer
 #may be quite hard
 
-my_controller=controllers.CLIController('ipython run.py')
+my_controller=controllers.CLIController('python run.py')
 fitness_filename = 'evaluations'
 
-my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename,threads_number=4)
+my_evaluator=evaluators.DumbEvaluator(my_controller,fitness_filename,threads_number=128)
 
 my_optimizer=optimizers.CustomOptimizerA(max_constraints,min_constraints,my_evaluator,
-                                  population_size=10,
-                                  max_evaluations=30,
-                                  num_selected=2,
+                                  population_size=1280,
+                                  max_evaluations=6400,
+                                  num_selected=1000,
                                   num_offspring=2,
                                   num_elites=1,
                                   seeds=None)
