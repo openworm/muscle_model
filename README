@@ -1,5 +1,11 @@
-Simulation of C.Elegans muscle cell electrical
-properties based on Boyle and Cohen 2008.
+This repository contains the following:
+
+1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
+2. Optimization script for model above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
+3. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
+
+1.Simulation of C.Elegans muscle cell electrical properties
+-----------------------------------------------------------
 
 This model includes the following currents:
     - k_fast
