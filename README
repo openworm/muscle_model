@@ -46,9 +46,7 @@ Running optimization
 To run model install Optimal Neuron and its dependencies as described here: 
 http://optimal-neuron.readthedocs.org/en/latest/installation.html
 
-Remove any mod files (such as manual_ca) from the pyramidal_implementation repository as this will interfere with the optimizer behaviour, run the command:
-
-       $rm *mod
+Remove any mod files (such as ca.mod) from the pyramidal_implementation repository as this will interfere with the optimizer behaviour, the optimizer is designed to run with the manual_*.mod files which are located in the /mod_file directory and need to be the only mod files present in the /pyramidal directory before execution of the optimization script.
 
 The current optimization is set up to use features extracted from the data file, the feature values are:
 
@@ -59,9 +57,10 @@ and corresponding weights:
 'peak_linear_gradient': 20,'average_minimum': 5.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0
 
 Then run:
+
      >>>python optimization.py
 
 The optimizer will execute on 64 threads and display the results. Play with optimization.py to change #threads, #population #max_evaluations etc.
 
-3. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
-==============================================================================================================
+3. C++ Module for SPH/muscle_model integration
+==============================================
