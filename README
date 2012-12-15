@@ -64,3 +64,16 @@ The optimizer will execute on 64 threads and display the results. Play with opti
 
 3. C++ Module for SPH/muscle_model integration
 ==============================================
+
+NOTE: This is still at an alpha stage, but has been demonstrated to function as expected.
+
+to compile and run (temp notes with hardcoded paths - replace with your own path) 
+run the following commands from inside curdir:
+ 
+$ export PYTHONPATH="/home/mike/dev/cpp_pyramidal_integration/"
+OR
+export PYTHONPATH=$PYTHONPATH:/home/mike/dev/muscle_model/pyramidal_implementation/
+$ g++ main.cpp -l python2.7 -o sim -I /usr/include/python2.7/
+$ ./sim
+
+The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
