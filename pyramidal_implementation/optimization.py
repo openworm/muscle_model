@@ -9,7 +9,7 @@ from optimalneuron import controllers
 
 #first off we need to make an evaluator,
 
-parameters = ['axon_gbar_na','axon_gbar_kv','axon_gbar_kv3'] # these are unused, ignore them - they're all wrong
+#parameters = ['axon_gbar_na','axon_gbar_kv','axon_gbar_kv3'] # these are unused, ignore them - they're all wrong
 
 #manual_vals=[50,50,2000,70,70,5,0.1,28.0,49.0,-73.0,23.0] # Example of how to set a seed
 min_constraints = [0.0,0.0,0,20.0, 0.0, 0.0]

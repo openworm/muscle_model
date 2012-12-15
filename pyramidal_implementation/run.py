@@ -2,7 +2,7 @@
 #reading by the main evaluator
 
 # example usage:
-# python run.py eval_file0 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6 --nocompile --plotoverlay
+# python run.py eval_file0 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6 --compile --plotoverlay
 
 import sys
 import main
