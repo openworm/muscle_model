@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  http://neuroml.svn.sourceforge.net/viewvc/neuroml/NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
     id="ca_boyle">
 
     <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="k">
 
         <notes>Ca channel from Boyle and Cohen 2008</notes>
 
-        <gateHH id="e" instances="2">
+        <gateHHtauInf id="e" instances="2">
 
             <timeCourse type="fixedTimeCourse" tau="0.1 ms"/>
             <steadyState type="HHSigmoidVariable" rate="1" scale="6.7 mV" midpoint="-3.4 mV"/>
             
-        </gateHH>
+        </gateHHtauInf>
 
 <!-- Problem!!! -->
         <!-- This is "inactivation": B&C 2008 p172 -->
         <!-- but the scale value from Table A1 (kf) is positive, i.e. steady state is zero for v<<midpoint and 1 for v>>midpoint -->
         <!-- couple this with a very slow time course & the ion channel never conducts as e^2 x f is always ~0 -->
-        <gateHH id="f" instances="1">
+        <gateHHtauInf id="f" instances="1">
 
             <timeCourse type="fixedTimeCourse" tau="151 ms"/>
             <steadyState type="HHSigmoidVariable" rate="1" scale="5 mV" midpoint="25.2 mV"/>
 
-        </gateHH>
+        </gateHHtauInf>
 
         <!-- No Ca dependent inactivation added yet! Note the (1+(h-1)alphaCa) expression means this part is always >= 0.727 and <= 1 -->
         

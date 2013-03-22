@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  http://neuroml.svn.sourceforge.net/viewvc/neuroml/NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
     id="k_fast">
 
     <ionChannel id="k_fast" conductance="10pS" type="ionChannelHH" species="k">
 
         <notes>K fast channel from Boyle and Cohen 2008</notes>
 
-        <gateHH id="p" instances="4">
+        <gateHHtauInf id="p" instances="4">
 
             <timeCourse type="fixedTimeCourse" tau="2.3 ms"/>
             <steadyState type="HHSigmoidVariable" rate="1" scale="7.4 mV" midpoint="-8.1 mV"/>
 
-        </gateHH>
+        </gateHHtauInf>
         
-        <gateHH id="q" instances="1">
+        <gateHHtauInf id="q" instances="1">
 
             <timeCourse type="fixedTimeCourse" tau="150 ms"/>
             <steadyState type="HHSigmoidVariable" rate="1" scale="-10 mV" midpoint="-15.6 mV"/>
 
-        </gateHH>
+        </gateHHtauInf>
 
     </ionChannel>
 
