@@ -74,30 +74,30 @@
 
 <Simulation id="sim1" length="30ms" step="0.0025ms" target="net1">
 
-    <Display id="d1" title="Voltage responses at 100pA to 700 pA" timeScale="1ms">
+    <Display id="d1" title="Voltage responses to VClamps" timeScale="1ms">
         <Line id="l1" quantity="mc1[0]/v" scale="1mV"  color="#ffffff" save="v1.dat"/>
         <Line id="l2" quantity="mc2[0]/v" scale="1mV"  color="#ffffdd" save="v2.dat"/>
-        <Line id="l3" quantity="mc3[0]/v" scale="1mV"  color="#ffffbb" save="v3.dat"/>
+        <Line id="l3" quantity="mc3[0]/v" scale="1mV"  color="#ffffff" save="v3.dat"/>
         <Line id="l4" quantity="mc4[0]/v" scale="1mV"  color="#ffddbb" save="v4.dat"/>
         <Line id="l5" quantity="mc5[0]/v" scale="1mV"  color="#ffbbbb" save="v5.dat"/>
-        <Line id="l6" quantity="mc6[0]/v" scale="1mV"  color="#ddffbb" save="v6.dat"/>
-        <Line id="l7" quantity="mc7[0]/v" scale="1mV"  color="#bbffbb" save="v7.dat"/>
+        <Line id="l6" quantity="mc6[0]/v" scale="1mV"  color="#ddffff" save="v6.dat"/>
+        <Line id="l7" quantity="mc7[0]/v" scale="1mV"  color="#bbffff" save="v7.dat"/>
     </Display>
 
 
     <Display id="d2" title="Currents through voltage clamps" timeScale="1ms">
 
-        <Line id="li1" quantity="mc1[0]/vClamp1/i" scale="1nA"  color="#111fbb" save="i1.dat"/>
-        <Line id="li2" quantity="mc2[0]/vClamp2/i" scale="1nA"  color="#222fbb" save="i2.dat"/>
-        <Line id="li3" quantity="mc3[0]/vClamp3/i" scale="1nA"  color="#333fbb" save="i3.dat"/>
-        <Line id="li4" quantity="mc4[0]/vClamp4/i" scale="1nA"  color="#444fbb" save="i4.dat"/>
-        <Line id="li5" quantity="mc5[0]/vClamp5/i" scale="1nA"  color="#555fbb" save="i5.dat"/>
-        <Line id="li6" quantity="mc6[0]/vClamp6/i" scale="1nA"  color="#666fbb" save="i6.dat"/>
-        <Line id="li7" quantity="mc7[0]/vClamp7/i" scale="1nA"  color="#777fbb" save="i7.dat"/>
-        <Line id="li8" quantity="mc8[0]/vClamp8/i" scale="1nA"  color="#888fbb" save="i8.dat"/>
-        <Line id="li9" quantity="mc9[0]/vClamp9/i" scale="1nA"  color="#999fbb" save="i9.dat"/>
-        <Line id="li10" quantity="mc10[0]/vClamp10/i" scale="1nA"  color="#aaafbb" save="i10.dat"/>
-        <Line id="li11" quantity="mc11[0]/vClamp11/i" scale="1nA"  color="#bbbfbb" save="i11.dat"/>
+        <Line id="li1" quantity="mc1[0]/vClamp1/i" scale="1nA"  color="#111fff" save="i1.dat"/>
+        <Line id="li2" quantity="mc2[0]/vClamp2/i" scale="1nA"  color="#222fff" save="i2.dat"/>
+        <Line id="li3" quantity="mc3[0]/vClamp3/i" scale="1nA"  color="#333fff" save="i3.dat"/>
+        <Line id="li4" quantity="mc4[0]/vClamp4/i" scale="1nA"  color="#444fff" save="i4.dat"/>
+        <Line id="li5" quantity="mc5[0]/vClamp5/i" scale="1nA"  color="#555fff" save="i5.dat"/>
+        <Line id="li6" quantity="mc6[0]/vClamp6/i" scale="1nA"  color="#666fff" save="i6.dat"/>
+        <Line id="li7" quantity="mc7[0]/vClamp7/i" scale="1nA"  color="#777fff" save="i7.dat"/>
+        <Line id="li8" quantity="mc8[0]/vClamp8/i" scale="1nA"  color="#888fff" save="i8.dat"/>
+        <Line id="li9" quantity="mc9[0]/vClamp9/i" scale="1nA"  color="#999fff" save="i9.dat"/>
+        <Line id="li10" quantity="mc10[0]/vClamp10/i" scale="1nA"  color="#aaafff" save="i10.dat"/>
+        <Line id="li11" quantity="mc11[0]/vClamp11/i" scale="1nA"  color="#bbbfff" save="i11.dat"/>
 
     </Display>
   

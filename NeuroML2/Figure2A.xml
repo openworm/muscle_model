@@ -78,7 +78,7 @@
    
 
     <Display id="d4" title="Current densities at 700 pA" timeScale="1ms">
-        <Line id="li0" quantity="mc7[0]/biophys/membraneProperties/Leak_all/iDensity" sca le="1nA"  color="#550000" save="i_l.dat"/>
+        <Line id="li0" quantity="mc7[0]/biophys/membraneProperties/Leak_all/iDensity" scale="1nA"  color="#550000" save="i_l.dat"/>
         <Line id="li1" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/iDensity" scale="1nA"  color="#005500" save="i_ks.dat"/>
         <Line id="li2" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/iDensity" scale="1nA"  color="#000055" save="i_kf.dat"/>
         <Line id="li3" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/iDensity" scale="1nA"  color="#fff555" save="i_ca.dat"/>
