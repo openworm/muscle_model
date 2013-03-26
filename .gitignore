@@ -3,5 +3,7 @@ x86_64
 *~
 /data
 NeuroML2/*.dat
-
+*.ode
+*.png
+*.gv
 
