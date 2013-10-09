@@ -34,8 +34,7 @@ from __future__ import with_statement
 C elegans muscle model
 """
 
-import neuroml.morphology as ml
-import neuroml.kinetics as kinetics
+import neuroml
 import pyramidal.environments as envs
 from matplotlib import pyplot as plt
 import numpy as np
@@ -61,15 +60,15 @@ class muscle_simulation():
 	self.ca_channel_specific_gbar = float(ca_channel_specific_gbar)
 
 	#First build a compartment, I infered these dimensions from the hyperpolarizing pulses
-	self.compartment = ml.Segment(length=800,
-			  proximal_diameter=800,
-			  distal_diameter=800)
+	self.compartment = neuroml.Segment(length=800,
+                                           proximal_diameter=800,
+                                           distal_diameter=800)
 
 	#Create a PassiveProperties object:
 	self.passive = kinetics.PassiveProperties(init_vm=-30.0,
-		     rm=1/0.3,
-		     cm=10.0, #1.0
-		     ra=0.03)
+                                                  rm=1/0.3,
+                                                  cm=10.0, #1.0
+                                                  ra=0.03)
 
 	#Create a LeakCurrent object:
 	self.leak = kinetics.LeakCurrent(em=-30.0)
@@ -275,6 +274,6 @@ class muscle_simulation():
         print self.neuron_env.topology
         
 #example usage:        
-#testsim=muscle_simulation()
-#for i in range(0,100):
-#    print testsim.run(3)
+testsim=muscle_simulation()
+for i in range(0,100):
+    print testsim.run(3)

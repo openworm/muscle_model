@@ -1,4 +1,12 @@
 #------------------------------------
+# WARNING
+#------------------------------------
+
+This implementation is not compatible with the current
+version of libNeuroML, it is currently being rewritten
+by Mike Vella.
+
+#------------------------------------
 # Compilation of C++ interface
 #------------------------------------
 
