@@ -60,9 +60,18 @@ class muscle_simulation():
 	self.ca_channel_specific_gbar = float(ca_channel_specific_gbar)
 
 	#First build a compartment, I infered these dimensions from the hyperpolarizing pulses
-	self.compartment = neuroml.Segment(length=800,
-                                           proximal_diameter=800,
-                                           distal_diameter=800)
+        p = neuroml.Point3DWithDiam(x=0.0,
+                                    y=0.0,
+                                    z=0.0,
+                                    diameter=800.0)
+
+        d = neuroml.Point3DWithDiam(x=800.0,
+                                    y=800.0,
+                                    z=800.0,
+                                    diameter=800.0)
+
+	self.compartment = neuroml.Segment(proximal = p,
+                                           distal = d)
 
 	#Create a PassiveProperties object:
 	self.passive = kinetics.PassiveProperties(init_vm=-30.0,
