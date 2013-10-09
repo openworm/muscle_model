@@ -103,6 +103,5 @@ class test_simulation():
         return self.vector['v_post'][-1]
             
 #example use:
-#a=test_simulation(increment=1)
-#print a.run(do_plot=True)
-#print a.run(do_plot=True)
+a=test_simulation(increment=100)
+print a.run(do_plot=True)
