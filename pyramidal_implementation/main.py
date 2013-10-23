@@ -70,30 +70,53 @@ class muscle_simulation():
                                     z=800.0,
                                     diameter=800.0)
 
-	self.compartment = neuroml.Segment(proximal = p,
-                                           distal = d)
+	compartment = neuroml.Segment(proximal = p,
+                                      distal = d)
 
-	#Create a PassiveProperties object:
-	self.passive = kinetics.PassiveProperties(init_vm=-30.0,
-                                                  rm=1/0.3,
-                                                  cm=10.0, #1.0
-                                                  ra=0.03)
 
+        #create a leak ion channel:
+        leak = neuroml.IonChannel(id="passive",
+                                  type="ionChannelPassive",
+                                  conductance="10pS")
+        
+
+        #create membrane properties:
+        membrane_properties = neuroml.MembraneProperties()
+
+        leak_density = neuroml.ChannelDensity(id="leak",
+                                              ion_channels="passive",
+                                              cond_density="3.0 S_per_m2",
+                                              erev="-54.3mV")
+
+        membrane_properties.channel_densities.append(leak_density)
+        
+
+
+        
+#        self.passive = kinetics.PassiveProperties(init_vm=-30.0,
+#                                                  rm=1/0.3,
+#                                                  cm=10.0, #1.0
+#                                                  ra=0.03)
+
+        #leave leak current out for now
 	#Create a LeakCurrent object:
-	self.leak = kinetics.LeakCurrent(em=-30.0)
+#	self.leak = kinetics.LeakCurrent(em=-30.0)
 
-
-	#get a Morphology object from the compartment:
-	self.morphology = self.compartment.morphology
+	#get a Morphology object from the compartment: (no longer needed?)
+	#self.morphology = self.compartment.morphology
 
 	#insert the passive properties and leak current into the morphology:
-	self.morphology.passive_properties = self.passive
-	self.morphology.leak_current = self.leak
+
+
+
+        self.cell.leak_current = self.leak
+#	self.morphology.passive_properties = self.passive
+#	self.morphology.leak_current = self.leak
 
 	#create two current clamp stimuli:
 	self.stim = kinetics.IClamp(current=0.25,
-			       delay=100.0,
-			       duration=1000.0)
+                                    delay=100.0,
+                                    duration=1000.0)
 
 	#problem with Pyramidal here, inserting this overrides the previous?!
 	#create a current clamp stimulus:
