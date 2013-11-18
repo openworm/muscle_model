@@ -1,0 +1,56 @@
+<Lems>
+
+
+<!-- Specify which component to run -->
+<Target component="sim1"/>
+
+<!-- Include core NeuroML2 ComponentType definitions -->
+<Include file="Cells.xml"/>
+<Include file="Networks.xml"/>
+<Include file="Simulation.xml"/>
+
+<Include file="Leak.nml"/>
+<Include file="k_slow.nml"/>
+<Include file="k_fast.nml"/>
+<Include file="ca_boyle.nml"/>
+<Include file="SingleCompMuscleCell.nml"/>
+
+
+<Include file="Figure2A.net.nml"/>
+
+
+
+<Simulation id="sim1" length="50ms" step="0.01ms" target="net1">
+
+    <Display id="d1" title="Voltage responses at 100pA to 700 pA" timeScale="1ms" xmin="0" xmax="50" ymin="-75" ymax="50">
+        <Line id="cell_100pA" quantity="mc1/0/SingleCompMuscleCell/v" scale="1mV"  color="#ffffff" timeScale="1ms"/>
+        <Line id="cell_200pA" quantity="mc1/1/SingleCompMuscleCell/v" scale="1mV"  color="#ffffdd" timeScale="1ms"/>
+        <Line id="cell_300pA" quantity="mc1/2/SingleCompMuscleCell/v" scale="1mV"  color="#ffffbb" timeScale="1ms"/>
+        <Line id="cell_400pA" quantity="mc1/3/SingleCompMuscleCell/v" scale="1mV"  color="#ffddbb" timeScale="1ms"/>
+        <Line id="cell_500pA" quantity="mc1/4/SingleCompMuscleCell/v" scale="1mV"  color="#ffbbbb" timeScale="1ms"/>
+        <Line id="cell_600pA" quantity="mc1/5/SingleCompMuscleCell/v" scale="1mV"  color="#ddffbb" timeScale="1ms"/>
+        <Line id="cell_700pA" quantity="mc1/6/SingleCompMuscleCell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
+    </Display>
+
+     <Display id="d2" title="Rate variables at 700 pA" timeScale="1ms" xmin="0" xmax="50" ymin="-0.1" ymax="1.1">
+
+        <Line id="k_slow/n" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_slow_all/k_slow/n/q" scale="1"  color="#000000" timeScale="1ms"/>
+        <Line id="k_fast/p" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_fast_all/k_fast/p/q" scale="1"  color="#0000ff" timeScale="1ms"/>
+        <Line id="k_fast/q" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_fast_all/k_fast/q/q" scale="1"  color="#00ffff" timeScale="1ms"/>
+        <Line id="ca_boyle/e" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/ca_boyle_all/ca_boyle/e/q" scale="1"  color="#ff00ff" timeScale="1ms"/>
+        <Line id="ca_boyle/f" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/ca_boyle_all/ca_boyle/f/q" scale="1"  color="#ffff00" timeScale="1ms"/>
+    </Display>
+   
+
+    <Display id="d4" title="Current densities at 700 pA" timeScale="1ms" xmin="0" xmax="50" ymin="-1050" ymax="250">
+        <Line id="Leak" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/Leak_all/iDensity" scale="1uA_per_cm2"  color="#550000" timeScale="1ms"/>
+        <Line id="k_slow" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_slow_all/iDensity" scale="1uA_per_cm2"  color="#005500" timeScale="1ms"/>
+        <Line id="k_fast" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_fast_all/iDensity" scale="1uA_per_cm2"  color="#000055" timeScale="1ms"/>
+        <Line id="ca_boyle" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/ca_boyle_all/iDensity" scale="1uA_per_cm2"  color="#fff555" timeScale="1ms"/>
+       
+    </Display>
+
+</Simulation>
+
+
+</Lems>

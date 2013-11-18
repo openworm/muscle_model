@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta1.xsd" id="network_GranuleCell">
+
+
+    <include href="Leak.nml"/>
+    <include href="k_slow.nml"/>
+    <include href="k_fast.nml"/>
+    <include href="ca_boyle.nml"/>
+    <include href="SingleCompMuscleCell.nml"/>
+
+
+    <pulseGenerator id="offsetToMin70" delay="0ms" duration="1000ms" amplitude="-120 pA" />
+
+    <pulseGenerator id="pulseGen0" delay="10ms" duration="20ms" amplitude="100 pA" />
+    <pulseGenerator id="pulseGen1" delay="10ms" duration="20ms" amplitude="200 pA" />
+    <pulseGenerator id="pulseGen2" delay="10ms" duration="20ms" amplitude="300 pA" />
+    <pulseGenerator id="pulseGen3" delay="10ms" duration="20ms" amplitude="400 pA" />
+    <pulseGenerator id="pulseGen4" delay="10ms" duration="20ms" amplitude="500 pA" />
+    <pulseGenerator id="pulseGen5" delay="10ms" duration="20ms" amplitude="600 pA" />
+    <pulseGenerator id="pulseGen6" delay="10ms" duration="20ms" amplitude="700 pA" />
+
+
+    <network id="net1">
+        <population id="mc1" component="SingleCompMuscleCell" type="populationList">
+            <instance id="0">
+                <location x="0" y="0" z="0"/>
+            </instance>
+            <instance id="1">
+                <location x="10" y="0" z="0"/>
+            </instance>
+            <instance id="2">
+                <location x="20" y="0" z="0"/>
+            </instance>
+            <instance id="3">
+                <location x="30" y="0" z="0"/>
+            </instance>
+            <instance id="4">
+                <location x="40" y="0" z="0"/>
+            </instance>
+            <instance id="5">
+                <location x="50" y="0" z="0"/>
+            </instance>
+            <instance id="6">
+                <location x="60" y="0" z="0"/>
+            </instance>
+        </population>
+
+        
+        <inputList id="offset" component="offsetToMin70" population="mc1">
+            <input id="0" target="../mc1/0/SingleCompMuscleCell" destination="synapses"/>
+            <input id="1" target="../mc1/1/SingleCompMuscleCell" destination="synapses"/>
+            <input id="2" target="../mc1/2/SingleCompMuscleCell" destination="synapses"/>
+            <input id="3" target="../mc1/3/SingleCompMuscleCell" destination="synapses"/>
+            <input id="4" target="../mc1/4/SingleCompMuscleCell" destination="synapses"/>
+            <input id="5" target="../mc1/5/SingleCompMuscleCell" destination="synapses"/>
+            <input id="6" target="../mc1/6/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        
+        
+        <inputList id="pulse0" component="pulseGen0" population="mc1">
+            <input id="0" target="../mc1/0/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="pulse1" component="pulseGen1" population="mc1">
+            <input id="0" target="../mc1/1/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="pulse2" component="pulseGen2" population="mc1">
+            <input id="0" target="../mc1/2/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="pulse3" component="pulseGen3" population="mc1">
+            <input id="0" target="../mc1/3/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="pulse4" component="pulseGen4" population="mc1">
+            <input id="0" target="../mc1/4/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="pulse5" component="pulseGen5" population="mc1">
+            <input id="0" target="../mc1/5/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        <inputList id="pulse6" component="pulseGen6" population="mc1">
+            <input id="0" target="../mc1/6/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+        
+
+    </network>
+
+</neuroml>
