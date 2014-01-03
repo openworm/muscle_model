@@ -1,22 +1,24 @@
 Open Worm muscle model
 ======================
 
-Authors: Mike Vella, Alex Dibert
+Authors: Mike Vella, Alex Dibert, Padraig Gleeson
 email:mv333@cam.ac.uk
 
 If you contribute to the project please add your name to the Authors field
 
-0. Introduction
-===============
+Introduction
+------------
 
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
 2. Optimization script for model above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
 3. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
+4. NeuroML 2/LEMS conversion of the muscle cell model
 
-1.Simulation of C.Elegans muscle cell electrical properties
-===========================================================
+
+1. Simulation of C.Elegans muscle cell electrical properties
+-----------------------------------------------------------
 
 The relevant model is contained in the /pyramidal_implementation folder
 
@@ -26,8 +28,8 @@ This model includes the following currents:
     - Ca
     - leak
 
-Running model
--------------
+### Running model
+
 
 To run model install pyramidal and its dependencies as described here: 
 http://pyramidal.readthedocs.org/en/latest/install.html
@@ -40,8 +42,7 @@ Then execute the command:
 
 This will use the auto-mod file compilation feature of Pyramidal including nrnivmodl compilation and run the model with the best-optimized parameters to-date.
 
-Running optimization
---------------------
+### Running optimization
 
 To run model install Optimal Neuron and its dependencies as described here: 
 http://optimal-neuron.readthedocs.org/en/latest/installation.html
@@ -63,7 +64,7 @@ Then run:
 The optimizer will execute on 64 threads and display the results. Play with optimization.py to change #threads, #population #max_evaluations etc.
 
 3. C++ Module for SPH/muscle_model integration
-==============================================
+----------------------------------------------
 
 NOTE: This is still at an alpha stage, but has been demonstrated to function as expected.
 
@@ -77,3 +78,13 @@ $ g++ main.cpp -l python2.7 -o sim -I /usr/include/python2.7/
 $ ./sim
 
 The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
+
+4. NeuroML 2/LEMS conversion of the muscle cell model
+-----------------------------------------------------
+
+This version of the muscle model reflects an initial attempt to convert the model from: http://www.sciencedirect.com/science/article/pii/S0303264708001408 into NeuroML 2 (http://www.neuroml.org/neuroml2.php).
+
+We're in the process of updating this to match the version in: https://github.com/openworm/muscle_model/tree/master/neuron_implementation
+
+See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
+
