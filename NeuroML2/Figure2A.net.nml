@@ -2,11 +2,11 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta1.xsd" id="network_GranuleCell">
 
 
-    <include href="Leak.nml"/>
-    <include href="k_slow.nml"/>
-    <include href="k_fast.nml"/>
-    <include href="ca_boyle.nml"/>
-    <include href="SingleCompMuscleCell.nml"/>
+    <include href="Leak.channel.nml"/>
+    <include href="k_slow.channel.nml"/>
+    <include href="k_fast.channel.nml"/>
+    <include href="ca_boyle.channel.nml"/>
+    <include href="SingleCompMuscle.cell.nml"/>
 
 
     <pulseGenerator id="offsetToMin70" delay="0ms" duration="1000ms" amplitude="-120 pA" />

@@ -9,11 +9,11 @@
 <Include file="Networks.xml"/>
 <Include file="Simulation.xml"/>
 
-<Include file="Leak.nml"/>
-<Include file="k_slow.nml"/>
-<Include file="k_fast.nml"/>
-<Include file="ca_boyle.nml"/>
-<Include file="SingleCompMuscleCell.nml"/>
+<Include file="Leak.channel.nml"/>
+<Include file="k_slow.channel.nml"/>
+<Include file="k_fast.channel.nml"/>
+<Include file="ca_boyle.channel.nml"/>
+<Include file="SingleCompMuscle.cell.nml"/>
 
 
 <Include file="Figure2A.net.nml"/>
