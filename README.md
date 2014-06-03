@@ -88,3 +88,5 @@ We're in the process of updating this to match the version in: https://github.co
 
 See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
 
+See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
+
