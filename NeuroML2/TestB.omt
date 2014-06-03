@@ -1,0 +1,4 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/borismarin/osb-model-validation  
+# Still in development, subject to change without notice!!
+target: LEMS_Figure2B.xml 
+engine: jNeuroML
