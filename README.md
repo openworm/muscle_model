@@ -90,3 +90,4 @@ See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
 
 See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 
+[![Build Status](https://travis-ci.org/openworm/muscle_model.svg?branch=master)](https://travis-ci.org/openworm/muscle_model)
