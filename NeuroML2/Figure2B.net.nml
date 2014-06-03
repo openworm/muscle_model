@@ -10,17 +10,17 @@
 
     <pulseGenerator id="offsetToMin70" delay="0ms" duration="1000ms" amplitude="-120 pA" />
 
-    <voltageClamp id="vClamp1" delay="5ms" duration="20ms" targetVoltage="-60mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp2" delay="5ms" duration="20ms" targetVoltage="-50mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp3" delay="5ms" duration="20ms" targetVoltage="-40mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp4" delay="5ms" duration="20ms" targetVoltage="-30mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp5" delay="5ms" duration="20ms" targetVoltage="-20mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp6" delay="5ms" duration="20ms" targetVoltage="-10mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp7" delay="5ms" duration="20ms" targetVoltage="0mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp8" delay="5ms" duration="20ms" targetVoltage="10mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp9" delay="5ms" duration="20ms" targetVoltage="20mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp10" delay="5ms" duration="20ms" targetVoltage="30mV" seriesResistance="1ohm"/>
-    <voltageClamp id="vClamp11" delay="5ms" duration="20ms" targetVoltage="40mV" seriesResistance="1ohm"/>
+    <voltageClamp id="vClamp1" delay="5ms" duration="20ms" targetVoltage="-60mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp2" delay="5ms" duration="20ms" targetVoltage="-50mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp3" delay="5ms" duration="20ms" targetVoltage="-40mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp4" delay="5ms" duration="20ms" targetVoltage="-30mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp5" delay="5ms" duration="20ms" targetVoltage="-20mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp6" delay="5ms" duration="20ms" targetVoltage="-10mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp7" delay="5ms" duration="20ms" targetVoltage="0mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp8" delay="5ms" duration="20ms" targetVoltage="10mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp9" delay="5ms" duration="20ms" targetVoltage="20mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp10" delay="5ms" duration="20ms" targetVoltage="30mV" simpleSeriesResistance="100kohm"/>
+    <voltageClamp id="vClamp11" delay="5ms" duration="20ms" targetVoltage="40mV" simpleSeriesResistance="100kohm"/>
 
 
     <network id="net1">
