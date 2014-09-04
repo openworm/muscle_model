@@ -4,6 +4,37 @@
     xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
     id="ca_boyle">
 
+<!-- New subtype of gateHHtauInf, for implementing extra inactivation variable h using alphaCa value -->
+<ComponentType name="gateHHtauInf_boyle"
+               extends="gateHHtauInf"
+               description="Gate which follows the general Hodgkin Huxley formalism">
+
+    <Parameter name="alphaCa" dimension="none"/>
+
+    <Child name="notes" type="notes"/>
+    <Child name="q10Settings" type="baseQ10Settings"/>
+    <Child name="timeCourse" type="baseVoltageDepTime" />
+    <Child name="steadyState" type="baseVoltageDepVariable" />
+    <Exposure name="tau" dimension="time"/>
+    <Exposure name="inf" dimension="none"/>
+    <Exposure name="rateScale" dimension="none"/>
+
+    <Dynamics>
+        <StateVariable name="q" exposure="q" dimension="none"/>
+        <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" select="q10Settings/q10" reduce="multiply" required="false"/>
+        <!-- modified to use alphaCa value (B&C 2008 section 3.1) -->
+        <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="(1+(q-1)*alphaCa)^instances"/>
+        <DerivedVariable name="inf" dimension="none" exposure="inf" select="steadyState/x"/>
+        <DerivedVariable name="tauUnscaled" dimension="time" select="timeCourse/t"/>
+        <DerivedVariable name="tau" dimension="time" exposure="tau" value="tauUnscaled / rateScale"/>
+        <TimeDerivative variable="q" value="(inf - q) / tau"/>
+        <OnStart>
+            <StateAssignment variable="q" value="inf"/>
+        </OnStart>
+    </Dynamics>
+
+</ComponentType>
+
     <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="k">
 
         <notes>Ca channel from Boyle and Cohen 2008</notes>
@@ -27,6 +58,13 @@
         </gateHHtauInf>
 
         <!-- No Ca dependent inactivation added yet! Note the (1+(h-1)alphaCa) expression means this part is always >= 0.727 and <= 1 -->
+        <!-- first attempt to add Ca-dependent inactivation. Still missing Ca concentration dynamics defined in B&C 2008 section 3.1 (not sure how to implement) -->
+        <gateHHtauInf_boyle id="h" instances="1" alphaCa="0.283">
+
+            <timeCourse type="fixedTimeCourse" tau="151 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="5 mV" midpoint="25.2 mV"/>
+
+        </gateHHtauInf_boyle>
         
     </ionChannel>
 
