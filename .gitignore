@@ -1,3 +1,6 @@
+/NeuroML2/LEMS_Test_ca_boyle.xml
+/NeuroML2/LEMS_Test_k_fast.xml
+/NeuroML2/LEMS_Test_k_slow.xml
 *.mod
 *.log
 umac
