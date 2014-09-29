@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/openworm/muscle_model.png?branch=master)](https://travis-ci.org/openworm/muscle_model)
+
 Open Worm muscle model
 ======================
 
