@@ -41,6 +41,8 @@
         <Parameter name="alpha" dimension="none"/>
         <Parameter name="k" dimension="concentration"/>
         <Parameter name="ca_half" dimension="concentration"/>
+        
+        <Constant name="SEC" dimension="time" value="1s"/>
 
         <Exposure name="tau" dimension="time"/>
         <Exposure name="inf" dimension="none"/>
@@ -49,9 +51,11 @@
 
         <Dynamics>
 
+            <DerivedVariable name="rateScale" exposure="rateScale" dimension="none" value="1"/>
+            
             <DerivedVariable name="inf" dimension="none" exposure="inf" value="1 / (1 + (exp( (ca_half - caConc) / k)))"/>
 
-            <DerivedVariable name="tau" dimension="time" exposure="tau" value="0"/>
+            <DerivedVariable name="tau" dimension="time" exposure="tau" value="0 * SEC"/>
             <DerivedVariable name="q" exposure="q" dimension="none" value="inf"/>
             <DerivedVariable name="fcond" exposure="fcond" dimension="none" value="1 +((q-1) * alpha)"/>
 
