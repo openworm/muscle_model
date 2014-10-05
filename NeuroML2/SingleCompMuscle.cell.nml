@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta2.xsd"
     id="SingleCompMuscleCell">
 
     <cell id="SingleCompMuscleCell">
@@ -34,11 +34,13 @@
 
                 <specificCapacitance value="20 uF_per_cm2"/>
 
-                <initMembPotential value="-70.0 mV"/>
+                <initMembPotential value="-75 mV"/>
 
             </membraneProperties>
 
             <intracellularProperties>
+                
+                <species id="ca" ion="ca" concentrationModel="CaPool" initialConcentration="1E-11 mol_per_cm3" initialExtConcentration="2E-6 mol_per_cm3"/>
 
                 <resistivity value="0.1 kohm_cm"/>
 
