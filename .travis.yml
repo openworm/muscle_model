@@ -9,7 +9,7 @@ env:
 
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-    - pip install git+https://github.com/OpenSourceBrain/BlueBrainProjectShowcase
+    - git clone https://github.com/OpenSourceBrain/BlueBrainProjectShowcase
 
 script:
     - python ./BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50  ca_boyle.channel.nml ca_boyle
