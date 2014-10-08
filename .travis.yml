@@ -10,7 +10,7 @@ env:
 install: 
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
     - pip install libNeuroML
-    - pip install airspeed
+    - pip install git+https://github.com/purcell/airspeed.git
     - git clone https://github.com/OpenSourceBrain/BlueBrainProjectShowcase
 
 script:
