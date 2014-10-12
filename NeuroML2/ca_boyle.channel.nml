@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
-    id="ca_boyle">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
+         id="ca_boyle">
 
     <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="k">
 
@@ -29,14 +29,14 @@
 
         </gateHHtauInf>
 
-        <customHGate id="h" instances="1" alpha="0.283" ca_half="6.41e-5 mM" k="-0.01mM" dummy_time="1 ms"/>
+        <customHGate id="h" instances="1" alpha="0.283" ca_half="6.41e-5 mM" k="-0.01mM"/>
 
     </ionChannel>
 
 
     <ComponentType name="customHGate"
-        extends="gateHHtauInf"
-        description="Custom gate for h">
+                   extends="gateHHtauInf"
+                   description="Custom gate for h">
 
         <Parameter name="alpha" dimension="none"/>
         <Parameter name="k" dimension="concentration"/>
