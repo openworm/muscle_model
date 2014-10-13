@@ -38,11 +38,12 @@ script:
     - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_fast.channel.nml k_fast
     - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_slow.channel.nml k_slow
     - cd ../
-    - omv all
+    - omv all -V
     - pwd
     - env
     - ls 
-    - ls ~
+    - ls ~/jnml
+    - ls ~/jnml/jNeuroMLJar
     - ~/jnml/jNeuroMLJar/jnml LEMS_Test_ca_boyle.xml -nogui    
     - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_fast.xml -nogui
     - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_slow.xml -nogui
