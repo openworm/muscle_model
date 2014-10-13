@@ -41,9 +41,10 @@ script:
     - omv all -V
     - pwd
     - env
-    - ls 
-    - ls ~/jnml
-    - ls ~/jnml/jNeuroMLJar
+    - ls -alt 
+    - ls -alt ~/jnml
+    - ls -alt ~/jnml/jNeuroMLJar
+    - cd NeuroML2
     - ~/jnml/jNeuroMLJar/jnml LEMS_Test_ca_boyle.xml -nogui    
     - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_fast.xml -nogui
     - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_slow.xml -nogui
