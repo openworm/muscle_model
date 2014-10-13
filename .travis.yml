@@ -43,8 +43,8 @@ script:
     - env
     - ls 
     - ls ~
-    - jnml LEMS_Test_ca_boyle.xml -nogui    
-    - jnml LEMS_Test_k_fast.xml -nogui
-    - jnml LEMS_Test_k_slow.xml -nogui
+    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_ca_boyle.xml -nogui    
+    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_fast.xml -nogui
+    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_slow.xml -nogui
     
     
