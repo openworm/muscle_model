@@ -16,3 +16,7 @@ NeuroML2/*.dat
 *.png
 *.gv
 
+BoyleCohen2008/*.o
+BoyleCohen2008/program
+
+

@@ -1,0 +1,70 @@
+<Lems>
+
+
+    <!-- Specify which component to run -->
+    <Target component="sim1"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+    <Include file="Leak.channel.nml"/>
+    <Include file="k_slow.channel.nml"/>
+    <Include file="k_fast.channel.nml"/>
+    <Include file="ca_boyle.channel.nml"/>
+    <Include file="CaPool.nml"/>
+    <Include file="SingleCompMuscle.cell.nml"/>
+    
+    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="16nS" tauDecay="10ms" tauRise="3ms"/>
+    
+    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
+    
+    <pulseGenerator id="offset_current" delay="100ms" duration="200ms" amplitude="0.3nA"/>
+    <pulseGenerator id="offsetToMin75" delay="0ms" duration="1000ms" amplitude="-520 pA" />
+
+
+    <network id="net1">
+        
+        <population id="neuron" component="generic_iaf_cell" type="populationList">
+            <instance id="0">
+                <location y="0" x="0" z="0"/>
+            </instance>
+        </population>
+        
+        <population id="muscle" component="SingleCompMuscleCell" type="populationList">
+            <instance id="0">
+                <location y="0" x="50" z="0"/>
+            </instance>
+        </population>
+        
+        <projection id="N_M" postsynapticPopulation="muscle" presynapticPopulation="neuron" synapse="exc_syn_1conns">
+            <connection preCellId="../neuron/0/generic_iaf_cell" postCellId="../muscle/0/SingleCompMuscleCell" id="0"/>
+        </projection>
+       
+        
+        <explicitInput input="offset_current" target="neuron/0/generic_iaf_cell"/>
+        <explicitInput input="offsetToMin75" target="muscle/0/SingleCompMuscleCell"/>
+        
+    
+    </network>
+
+
+    <Simulation id="sim1" length="500ms" step="0.05ms" target="net1">
+
+        <Display id="d1" title="Voltage response neuron (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="40">
+            <Line id="neuron_v" quantity="neuron/0/generic_iaf_cell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="d2" title="Voltage response muscle (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="40">
+            <Line id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
+        </Display>
+    
+        <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-0.0005" ymax="0.0055" timeScale="1ms">
+            <Line id="Ca concentration" timeScale="1ms" quantity="muscle/0/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
+        </Display>
+
+    </Simulation>
+
+
+</Lems>
