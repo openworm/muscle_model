@@ -11,6 +11,7 @@ to optmise the parameters of a muscle cell model for C. elegans.
 
 This will be used by the OpenWorm project to create an [initial model of a muscle cell in NeuroML 2](https://github.com/openworm/muscle_model/tree/master/NeuroML2).
 
+A key matlab script is located at BoyleCohen2008/MatlabSupport/Main_Version/Iclamp.m which, when run, should produce the graphs of the paper.
 
 This code is released under the terms of the MIT license.
 
