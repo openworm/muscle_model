@@ -131,7 +131,7 @@ rec_ica.record(muscle(0.5)._ref_ica)
 h.dt=0.05
 h.finitialize(-70.0)
 neuron.init()
-sim_time=500
+sim_time=2000
 
 if sim_time:
     neuron.run(sim_time)
