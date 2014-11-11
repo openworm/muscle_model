@@ -29,7 +29,7 @@
 
         </gateHHtauInf>
 
-        <customHGate id="h" instances="1" alpha="0.283" ca_half="6.41e-5 mM" k="-0.01mM" dummy_time="1 ms"/>
+        <customHGate id="h" instances="1" alpha="0.283" ca_half="6.41e-5 mM" k="-0.01mM"/>
         
     </ionChannel>
     
