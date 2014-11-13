@@ -12,7 +12,7 @@ from x_inf import *
 getcontext().prec = 28 # decimal precision
 
 # Importing data
-f = open('data/input.csv')
+f = open('../../MatlabSupport/Main_Version/data/input.csv')
 data = f.read().splitlines()
 
 # Model parameters
