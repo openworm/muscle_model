@@ -5,9 +5,11 @@
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-
+from decimal import *
 sys.path += '.'
-from x_inf import *
+from x_inf_decimal import *
+
+getcontext().prec = 28 # decimal precision
 
 # Importing data
 f = open('../../MatlabSupport/Main_Version/data/input.csv')
@@ -15,47 +17,46 @@ data = f.read().splitlines()
 
 # Model parameters
 
-Cmem = float(data[0])
-gKS = float(data[1]) * Cmem
-gKF = float(data[2]) * Cmem
-gCa = float(data[3]) * Cmem
-gL = float(data[4]) * Cmem
-VKS = float(data[5])
-VKF = float(data[6])
-VCa = float(data[7])
-VL = 10e-3; # float(data[8]);
-Vhalf_n = float(data[9])
-Vhalf_p = float(data[10])
-Vhalf_q = float(data[11])
-Vhalf_e = float(data[12])
-Vhalf_f = float(data[13])
-Cahalf_h = float(data[14]) * 1e-9
-k_n = float(data[15])
-k_p = float(data[16])
-k_q = float(data[17])
-k_e = float(data[18])
-k_f = float(data[19])
-k_h = float(data[20]) * 1e-9
-T_n = float(data[21])
-T_p = float(data[22])
-T_q = float(data[23])
-T_e = float(data[24])
-T_f = float(data[25])
-T_Ca = float(data[26])
-alphaCa = float(data[27])
-thiCa = 6.1e-6 / (T_Ca * gCa)
+Cmem = Decimal(data[0])
+gKS = Decimal(data[1]) * Cmem
+gKF = Decimal(data[2]) * Cmem
+gCa = Decimal(data[3]) * Cmem
+gL = Decimal(data[4]) * Cmem
+VKS = Decimal(data[5])
+VKF = Decimal(data[6])
+VCa = Decimal(data[7])
+VL = Decimal('10e-3'); # Decimal(data[8]);
+Vhalf_n = Decimal(data[9])
+Vhalf_p = Decimal(data[10])
+Vhalf_q = Decimal(data[11])
+Vhalf_e = Decimal(data[12])
+Vhalf_f = Decimal(data[13])
+Cahalf_h = Decimal(data[14]) * Decimal('1e-9')
+k_n = Decimal(data[15])
+k_p = Decimal(data[16])
+k_q = Decimal(data[17])
+k_e = Decimal(data[18])
+k_f = Decimal(data[19])
+k_h = Decimal(data[20]) * Decimal('1e-9')
+T_n = Decimal(data[21])
+T_p = Decimal(data[22])
+T_q = Decimal(data[23])
+T_e = Decimal(data[24])
+T_f = Decimal(data[25])
+T_Ca = Decimal(data[26])
+alphaCa = Decimal(data[27])
+thiCa = Decimal('6.1e-6') / (T_Ca * gCa)
 
 # Simulation Parameters
-deltat = 0.01e-3
-duration = 0.03                 #*********************      Duration    Duration   ***************
+deltat = Decimal('0.01e-3')
+duration = Decimal('0.03')                 #*********************      Duration    Duration   ***************
 numpoints = int(round(duration/deltat))
 numtests = 11
-#xaxis = (deltat:deltat:duration) * 1e3
-xaxis = [round(x * 1e3, 2) for x in np.arange(deltat, duration+deltat, deltat)]
+xaxis = [round(x * Decimal('1e3'), 2) for x in np.arange(deltat, duration+deltat, deltat)]
 
 # Input parameters
-onset = int(round(0.002/deltat))
-offset = int(round(0.022/deltat))
+onset = int(round(Decimal('0.002')/deltat))
+offset = int(round(Decimal('0.022')/deltat))
 
 # Variable Declaration
 V = list()
@@ -73,33 +74,33 @@ for i in range(0,numtests):
     V.append(list())
     I_mem.append(list())
     Ca.append(list())
-    n.append(0)
-    p.append(0)
-    q.append(0)
-    e.append(0)
-    f.append(0)
-    h.append(0)
-    I_j.append(0)
+    n.append(Decimal('0'))
+    p.append(Decimal('0'))
+    q.append(Decimal('0'))
+    e.append(Decimal('0'))
+    f.append(Decimal('0'))
+    h.append(Decimal('0'))
+    I_j.append(Decimal('0'))
     for j in range(0,numpoints):
-        V[i].append(0)
-        I_mem[i].append(0)
-        Ca[i].append(0)
-I_j.append(0)
+        V[i].append(Decimal('0'))
+        I_mem[i].append(Decimal('0'))
+        Ca[i].append(Decimal('0'))
+I_j.append(Decimal('0'))
 
 # Input initialization
 for i in range(0,numtests):
     for j in range(0,numpoints):
-        V[i][j] = -70e-3
+        V[i][j] = Decimal('-70e-3')
 
-Vstim = 40e-3
+Vstim = Decimal('40e-3')
 for i in range(0,numtests):
     for j in range(onset-1,offset):
         V[i][j] = Vstim
-    Vstim = Vstim - 10e-3
+    Vstim = Vstim - Decimal('10e-3')
 
 # Variable initialization
 for j in range(0,numtests):
-    Ca[j][0] = 0
+    Ca[j][0] = Decimal('0')
     n[j] = x_inf(V[j][0], Vhalf_n, k_n)
     p[j] = x_inf(V[j][0], Vhalf_p, k_p)
     q[j] = x_inf(V[j][0], Vhalf_q, k_q)
@@ -131,7 +132,7 @@ for j in range(0,numtests):
 
         I_mem[j][i] = (IKS + IKF + ICa)
 
-    plt.plot(xaxis, [x * 1e9 for x in I_mem[j]])
+    plt.plot(xaxis, [x * Decimal('1e9') for x in I_mem[j]])
 
 plt.ylabel('Imem (nA)')
 plt.xlabel('Time (ms)')

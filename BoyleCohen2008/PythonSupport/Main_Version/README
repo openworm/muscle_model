@@ -2,3 +2,10 @@ This is a port of the MatlabSupport code to Python, using NumPy and
 Matplotlib. It could be more elegant, but to make things clearer and aid
 debugging, I've used the same structure as the original Matlab code where
 possible. Comments have also mostly been kept the same.
+
+Some scripts are available in two versions: one using floating-point
+arithmetic, the other using Python's arbitrary-precision Decimal library.
+The floating-point scripts should give results compatible with those of the
+original Matlab scripts, which also use floating-point. The Decimal versions
+of the scripts run more slowly, but do not suffer from floating-point
+round-off errors. The Decimal versions have filenames ending in "_decimal.py".
