@@ -14,61 +14,26 @@ Introduction
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
-2. Optimization script for model above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
+2. Optimization script for the above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
 3. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
 4. NeuroML 2/LEMS conversion of the muscle cell model
 
 
 1. Simulation of C.Elegans muscle cell electrical properties
 -----------------------------------------------------------
+2. Optimization script for the above model
+------------------------------------------
 
-The relevant model is contained in the /pyramidal_implementation folder
+**Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
 
-This model includes the following currents:
-    - k_fast
-    - k_slow
-    - Ca
-    - leak
-
-### Running model
-
-
-To run model install pyramidal and its dependencies as described here: 
-http://pyramidal.readthedocs.org/en/latest/install.html
-
-The relevant model is contained in the /pyramidal_implementation folder, cd to that folder and:
-
-Then execute the command:
-
-     >>>python run.py eval_file0 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6 --compile --plotoverlay
-
-This will use the auto-mod file compilation feature of Pyramidal including nrnivmodl compilation and run the model with the best-optimized parameters to-date.
-
-### Running optimization
-
-To run model install Optimal Neuron and its dependencies as described here: 
-http://optimal-neuron.readthedocs.org/en/latest/installation.html
-
-Remove any mod files (such as ca.mod) from the pyramidal_implementation repository as this will interfere with the optimizer behaviour, the optimizer is designed to run with the manual_*.mod files which are located in the /mod_file directory and need to be the only mod files present in the /pyramidal directory before execution of the optimization script.
-
-The current optimization is set up to use features extracted from the data file, the feature values are:
-
-'peak_linear_gradient': 0.0126455, 'average_minimum': 32.9139683819512, 'spike_frequency_adaptation': 0.054102950823597951, 'trough_phase_adaptation': -0.032339835206814785, 'mean_spike_frequency': 170.75638755391191, 'average_maximum': 52.484330488178259, 'trough_decay_exponent': 0.082997586003614746, 'interspike_time_covar': 0.67343012507213718, 'min_peak_no': 20, 'spike_width_adaptation': 5.196371093168479e-17, 'max_peak_no': 20, 'first_spike_time': 105.37999999997665, 'peak_decay_exponent': -0.074000673186574759
-
-and corresponding weights:
-
-'peak_linear_gradient': 20,'average_minimum': 5.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0
-
-Then run:
-
-     >>>python optimization.py
-
-The optimizer will execute on 64 threads and display the results. Play with optimization.py to change #threads, #population #max_evaluations etc.
+See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/README.md 
 
 3. C++ Module for SPH/muscle_model integration
 ----------------------------------------------
 
-NOTE: This is still at an alpha stage, but has been demonstrated to function as expected.
+**Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
+
+This is still at an alpha stage, but has been demonstrated to function as expected.
 
 to compile and run (temp notes with hardcoded paths - replace with your own path) 
 run the following commands from inside curdir:
