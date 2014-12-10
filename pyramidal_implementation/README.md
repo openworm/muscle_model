@@ -13,11 +13,11 @@ See also https://github.com/openworm/muscle_model/issues/18
 ## Compilation of C++ interface
 
 
-compile the PyramidalSimulation object:
+Compile the PyramidalSimulation object:
 
     g++ -c PyramidalSimulation.cpp -I /usr/include/python2.7/ -I ./ -l python2.7 -o PyramidalSimulation.o
     
-invoke the linker:
+Invoke the linker:
 
     g++ example.cpp PyramidalSimulation.o -I /usr/include/python2.7/ -I ./ -l python2.7 -o simulation
 
@@ -59,7 +59,7 @@ This is saved as redacted_data.txt
 Information previously contained in top level README.md
 =======================================================
 
-~~The relevant model is contained in the /pyramidal_implementation folder~~
+The relevant model is contained in the /pyramidal_implementation folder
 
 This model includes the following currents:
     - k_fast
