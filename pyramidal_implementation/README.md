@@ -1,6 +1,6 @@
-#------------------------------------
-# WARNING
-#------------------------------------
+
+## WARNING
+
 
 This implementation is not compatible with the current
 version of libNeuroML, it is currently being rewritten
@@ -9,19 +9,21 @@ by Mike Vella.
 See also https://github.com/openworm/muscle_model/issues/18
 
 
-#------------------------------------
-# Compilation of C++ interface
-#------------------------------------
 
-#compile the PyramidalSimulation object:
-g++ -c PyramidalSimulation.cpp -I /usr/include/python2.7/ -I ./ -l python2.7 -o PyramidalSimulation.o
-#invoke the linker:
-g++ example.cpp PyramidalSimulation.o -I /usr/include/python2.7/ -I ./ -l python2.7 -o simulation
+## Compilation of C++ interface
 
 
-#------------------------------------
-# Experimental data info
-#------------------------------------
+compile the PyramidalSimulation object:
+
+    g++ -c PyramidalSimulation.cpp -I /usr/include/python2.7/ -I ./ -l python2.7 -o PyramidalSimulation.o
+    
+invoke the linker:
+
+    g++ example.cpp PyramidalSimulation.o -I /usr/include/python2.7/ -I ./ -l python2.7 -o simulation
+
+
+## Experimental data info
+
 
 Denis Turutin described the simulations he sent us as follows:
 
@@ -36,13 +38,14 @@ The experimental data recorded in W05042200_1_1_3_1.txt will be used as a target
 Some Calculations - If Denis' protocol description is correct, total time of execution is 0.1+0.05+2+0.1 = 2.205s. There are 11025 data points in the recording, giving a sampling frequency of 5KHz.
 
 Observations:
+
 1. (initial) Resting potential 30mV
 
 Note: the initial hyperpolarizing step can be used to elicit information about the passive properties of the cell.
 
-#------------------------------------
-# Simulation info.
-#------------------------------------
+
+## Simulation info
+
 
 Initial simulation:
 
@@ -74,7 +77,7 @@ The relevant model is contained in the /pyramidal_implementation folder, cd to t
 
 Then execute the command:
 
-     >>>python run.py eval_file0 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6 --compile --plotoverlay
+     python run.py eval_file0 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6 --compile --plotoverlay
 
 This will use the auto-mod file compilation feature of Pyramidal including nrnivmodl compilation and run the model with the best-optimized parameters to-date.
 
