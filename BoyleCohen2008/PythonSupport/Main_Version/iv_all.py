@@ -103,7 +103,7 @@ for j in range(0,numtests):
 
 
 plt.subplot(1,2,1)
-plt.plot(V, I_Ca, 'k.')
+plt.plot(V, I_Ca)
 plt.ylabel('I_Ca (A/F)')
 plt.xlabel('V (V)')
 plt.xlim(-0.04,0.08)
@@ -111,7 +111,7 @@ plt.ylim(-6,6)
 plt.legend()
 
 plt.subplot(1,2,2)
-plt.plot(V, I_K, 'k.')
+plt.plot(V, I_K)
 plt.ylabel('I_K (A/F)')
 plt.xlabel('V (V)')
 plt.xlim(-0.07,0.04)
