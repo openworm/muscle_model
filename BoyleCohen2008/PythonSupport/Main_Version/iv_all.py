@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#Plotting I-V curves
+# Plotting I-V curves
 
 import sys
 import numpy as np
@@ -14,10 +14,10 @@ from input_vars import * # Global variables from input data file.
 deltat = 0.01e-3
 duration = 0.03                 #*********************      Duration    Duration   ***************
 numpoints = int(round(duration/deltat))
-numtests = 16
+numtests = 160
 #xaxis = (deltat:deltat:duration) * 1e3
 xaxis = [round(x * 1e3, 2) for x in np.arange(deltat, duration+deltat, deltat)]
-nA_AF = 1e10
+V_mV = 1e3
 
 # Input parameters
 onset = int(round(0.002/deltat))
@@ -26,8 +26,11 @@ offset = int(round(0.022/deltat))
 # Variable Declaration
 V = list()
 I_j = list()
+I_mem = list()
 I_Ca = list()
+V_Ca = list()
 I_K = list()
+V_K = list()
 Ca = list()
 n = list()
 p = list()
@@ -38,6 +41,7 @@ h = list()
 
 for i in range(0,numtests):
     V.append(list())
+    I_mem.append(list())
     Ca.append(list())
     n.append(0)
     p.append(0)
@@ -46,12 +50,13 @@ for i in range(0,numtests):
     f.append(0)
     h.append(0)
     I_j.append(0)
-    I_Ca.append(list())
-    I_K.append(list())
+    I_Ca.append(0)
+    V_Ca.append(0)
+    I_K.append(0)
+    V_K.append(0)
     for j in range(0,numpoints):
         V[i].append(0)
-        I_Ca[i].append(0)
-        I_K[i].append(0)
+        I_mem[i].append(0)
         Ca[i].append(0)
 I_j.append(0)
 
@@ -64,7 +69,7 @@ Vstim = 80e-3
 for i in range(0,numtests):
     for j in range(onset-1,offset):
         V[i][j] = Vstim
-    Vstim = Vstim - 10e-3
+    Vstim = Vstim - 1e-3
 
 # Variable initialization
 for j in range(0,numtests):
@@ -89,7 +94,7 @@ for j in range(0,numtests):
         df = (x_inf(V[j][i-1], Vhalf_f, k_f) - f[j])/T_f
         f[j] = f[j] + df*deltat
         h[j] = x_inf(Ca[j][i-1], Cahalf_h, k_h)
-        # H_rec[i] = h[j]
+
         IKS = gKS * n[j] * (V[j][i-1] - VKS)
         IKF = gKF * p[j]**4 * q[j] * (V[j][i-1] - VKF)
         ICa = gCa * e[j]**2 * f[j] * (1 + (h[j] - 1) * alphaCa) * (V[j][i-1] - VCa)
@@ -98,24 +103,27 @@ for j in range(0,numtests):
         dCa = -(Ca[j][i-1]/T_Ca + thiCa*ICa)
         Ca[j][i] = Ca[j][i-1] + dCa*deltat
 
-        I_Ca[j][i] = ICa * nA_AF
-        I_K[j][i] = (IKS + IKF) * nA_AF
+        if (onset < i < offset):
+            if abs(ICa / Cmem) > abs(I_Ca[j]):
+                I_Ca[j] = ICa / Cmem
+                V_Ca[j] = V[j][i] * V_mV
+            if abs(((IKS + IKF) / Cmem)) > abs(I_K[j]):
+                I_K[j] = (IKS + IKF) / Cmem
+                V_K[j] = V[j][i] * V_mV
 
 
 plt.subplot(1,2,1)
-plt.plot(V, I_Ca)
+plt.plot(V_Ca, I_Ca, 'r', label='$I_{Ca}$')
+plt.xlim(-40,80)
+plt.ylim(-8,6)
 plt.ylabel('I_Ca (A/F)')
-plt.xlabel('V (V)')
-plt.xlim(-0.04,0.08)
-plt.ylim(-6,6)
-plt.legend()
+plt.xlabel('V (mV)')
 
 plt.subplot(1,2,2)
-plt.plot(V, I_K)
-plt.ylabel('I_K (A/F)')
-plt.xlabel('V (V)')
-plt.xlim(-0.07,0.04)
+plt.plot(V_K, I_K, 'y', label='$I_{K}$')
+plt.xlim(-70,50)
 plt.ylim(-5,40)
-plt.legend()
+plt.ylabel('I_K (A/F)')
+plt.xlabel('V (mV)')
 
 plt.show()
