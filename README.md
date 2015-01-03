@@ -24,7 +24,7 @@ amplifier and stimulator allows a researcher to either use a [current clamp](htt
 
 Ultimately, we understand from [Hodgkin and Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) that these electrical dynamics of the membrane are fully determined by the dynamics of [ion channels](https://en.wikipedia.org/wiki/Ion_channel) that sit across the membrane.
 
-In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on .  
+In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on real data.  
 This model was expressed as a system of equations and a set of parameters in their publication, as well as C++ and Matlab code.  
 Their original code has been graciously shared with the OpenWorm project under the BoyleCohen2008 directory.  In addition, a Python port of key components of the model
 has been added by OpenWorm contributors (Rayner Lucas).
