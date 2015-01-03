@@ -24,8 +24,10 @@ amplifier and stimulator allows a researcher to either use a [current clamp](htt
 
 Ultimately, we understand from [Hodgkin and Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) that these electrical dynamics of the membrane are fully determined by the dynamics of [ion channels](https://en.wikipedia.org/wiki/Ion_channel) that sit across the membrane.
 
-In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on real data.  
+In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on real data.
+
 This model was expressed as a system of equations and a set of parameters in their publication, as well as C++ and Matlab code.  
+
 Their original code has been graciously shared with the OpenWorm project under the BoyleCohen2008 directory.  In addition, a Python port of key components of the model
 has been added by OpenWorm contributors (Rayner Lucas).
 
@@ -37,24 +39,35 @@ description of the system of equations that make up mathematical models of bioph
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
-2. Optimization script for the above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
-3. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
-4. NeuroML 2/LEMS conversion of the muscle cell model
+2. NeuroML 2/LEMS conversion of the muscle cell model
+3. Optimization script for the above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
+4. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
 
 
 1. Simulation of C.Elegans muscle cell electrical properties
 -----------------------------------------------------------
 
 
+2. NeuroML 2/LEMS conversion of the muscle cell model
+-----------------------------------------------------
 
-2. Optimization script for the above model
+This version of the muscle model reflects an initial attempt to convert the model from: http://www.sciencedirect.com/science/article/pii/S0303264708001408 into NeuroML 2 (http://www.neuroml.org/neuroml2.php).
+
+We're in the process of updating this to match the version in: https://github.com/openworm/muscle_model/tree/master/neuron_implementation
+
+See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
+
+See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
+
+
+3. Optimization script for the above model
 ------------------------------------------
 
 **Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
 
 See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/README.md
 
-3. C++ Module for SPH/muscle_model integration
+4. C++ Module for SPH/muscle_model integration
 ----------------------------------------------
 
 **Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
@@ -71,16 +84,5 @@ $ g++ main.cpp -l python2.7 -o sim -I /usr/include/python2.7/
 $ ./sim
 
 The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
-
-4. NeuroML 2/LEMS conversion of the muscle cell model
------------------------------------------------------
-
-This version of the muscle model reflects an initial attempt to convert the model from: http://www.sciencedirect.com/science/article/pii/S0303264708001408 into NeuroML 2 (http://www.neuroml.org/neuroml2.php).
-
-We're in the process of updating this to match the version in: https://github.com/openworm/muscle_model/tree/master/neuron_implementation
-
-See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
-
-See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 
 [![Build Status](https://travis-ci.org/openworm/muscle_model.svg?branch=master)](https://travis-ci.org/openworm/muscle_model)
