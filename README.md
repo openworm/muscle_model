@@ -18,6 +18,12 @@ of the dynamic properties of electrical excitation of the body wall muscle of th
 
 ![Overview of dynamics we are reproducing](https://cloud.githubusercontent.com/assets/1037756/5602898/094dd1c4-9321-11e4-9d01-bc4b73112951.png)
 
+In the figure above, you can see the basic functionality that we are seeking to reproduce.  The electrical activity of a muscle cell
+can be recorded using an electrode that is stuck into a c. elegans body wall muscle cell.  Connecting the electrode to a sensitive
+amplifier and stimulator allows a researcher to either use a [current clamp](https://en.wikipedia.org/wiki/Electrophysiology#Current_clamp) or [voltage clamp](https://en.wikipedia.org/wiki/Voltage_clamp) mode to control and examine the dynamics of the voltage changes or current flow across the membrane.
+
+Ultimately, we understand from [Hodgkin and Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) that these electrical dynamics of the membrane are fully determined by the dynamics of [ion channels](https://en.wikipedia.org/wiki/Ion_channel) that sit across the membrane.
+
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
