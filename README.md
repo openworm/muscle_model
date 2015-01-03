@@ -13,6 +13,11 @@ If you contribute to the project please add your name to the Authors field
 Introduction
 ------------
 
+This repository contains several different subprojects all related to the construction of a biophysically-detailed model
+of the dynamic properties of electrical excitation of the body wall muscle of the c. elegans.
+
+![Overview of dynamics we are reproducing](https://cloud.githubusercontent.com/assets/1037756/5602898/094dd1c4-9321-11e4-9d01-bc4b73112951.png)
+
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
@@ -23,6 +28,9 @@ This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties
 -----------------------------------------------------------
+
+
+
 2. Optimization script for the above model
 ------------------------------------------
 
