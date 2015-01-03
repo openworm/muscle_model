@@ -13,6 +13,10 @@ This is being used by the OpenWorm project to create an [initial model of a musc
 
 A key matlab script is located at [BoyleCohen2008/MatlabSupport/Main_Version/vclamp.m](https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/MatlabSupport/Main_Version/vclamp.m) which, when run, should produce a main graph of the paper.
 
-A python version of this has been added at [BoyleCohen2008/PythonSupport/Main_Version/vclamp.py](https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/PythonSupport/Main_Version/vclamp.py)
+A python version of this has been added at [BoyleCohen2008/PythonSupport/Main_Version/vclamp.py](https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/PythonSupport/Main_Version/vclamp.py).  When run correctly it should produce the following image:
+
+![vclamp.py running correctly](https://cloud.githubusercontent.com/assets/1037756/5603263/93dc8866-9331-11e4-8696-cc26a85b6208.png)
+
+This reproduces figure 2B of the Boyle & Cohen paper.
 
 This code is released under the terms of the MIT license.
