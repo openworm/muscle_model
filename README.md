@@ -47,6 +47,9 @@ This repository contains the following:
 1. Simulation of C.Elegans muscle cell electrical properties
 -----------------------------------------------------------
 
+The authoritative version of the muscle cell model from Boyle & Cohen has been shared with the project under the [BoyleCohen2008/](BoyleCohen2008/) directory.  Here you will also find a Python port of some of the scripts that demonstrate the dynamics of the muscle model.
+
+A conversion of this model into the NEURON package is available in the [neuron_implementation/](neuron_implementation/) directory.
 
 2. NeuroML 2/LEMS conversion of the muscle cell model
 -----------------------------------------------------
