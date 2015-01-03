@@ -5,7 +5,7 @@ Open Worm muscle model
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/muscle_model?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Authors: Mike Vella, Alex Dibert, Padraig Gleeson
+Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk
 
 If you contribute to the project please add your name to the Authors field
@@ -28,7 +28,7 @@ This repository contains the following:
 
 **Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
 
-See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/README.md 
+See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/README.md
 
 3. C++ Module for SPH/muscle_model integration
 ----------------------------------------------
@@ -37,9 +37,9 @@ See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementatio
 
 This is still at an alpha stage, but has been demonstrated to function as expected.
 
-to compile and run (temp notes with hardcoded paths - replace with your own path) 
+to compile and run (temp notes with hardcoded paths - replace with your own path)
 run the following commands from inside curdir:
- 
+
 $ export PYTHONPATH="/home/mike/dev/cpp_pyramidal_integration/"
 OR
 export PYTHONPATH=$PYTHONPATH:/home/mike/dev/muscle_model/pyramidal_implementation/
