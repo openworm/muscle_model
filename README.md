@@ -24,6 +24,16 @@ amplifier and stimulator allows a researcher to either use a [current clamp](htt
 
 Ultimately, we understand from [Hodgkin and Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) that these electrical dynamics of the membrane are fully determined by the dynamics of [ion channels](https://en.wikipedia.org/wiki/Ion_channel) that sit across the membrane.
 
+In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on .  
+This model was expressed as a system of equations and a set of parameters in their publication, as well as C++ and Matlab code.  
+Their original code has been graciously shared with the OpenWorm project under the BoyleCohen2008 directory.  In addition, a Python port of key components of the model
+has been added by OpenWorm contributors (Rayner Lucas).
+
+For the purposes of re-using the model as a component of the larger OpenWorm project, we have converted the mathematical model of Cohen & Boyle into NeuroML2, an XML-based
+description of the system of equations that make up mathematical models of biophysically-based models of excitable membranes.
+
+
+
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
