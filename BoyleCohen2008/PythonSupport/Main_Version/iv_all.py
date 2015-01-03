@@ -29,6 +29,10 @@ I_j = list()
 I_mem = list()
 I_Ca = list()
 V_Ca = list()
+I_KS = list()
+V_KS = list()
+I_KF = list()
+V_KF = list()
 I_K = list()
 V_K = list()
 Ca = list()
@@ -54,6 +58,10 @@ for i in range(0,numtests):
     V_Ca.append(0)
     I_K.append(0)
     V_K.append(0)
+    I_KS.append(0)
+    V_KS.append(0)
+    I_KF.append(0)
+    V_KF.append(0)
     for j in range(0,numpoints):
         V[i].append(0)
         I_mem[i].append(0)
@@ -107,20 +115,40 @@ for j in range(0,numtests):
             if abs(ICa / Cmem) > abs(I_Ca[j]):
                 I_Ca[j] = ICa / Cmem
                 V_Ca[j] = V[j][i] * V_mV
+            if abs(IKS / Cmem) > abs(I_KS[j]):
+                I_KS[j] = IKS / Cmem
+                V_KS[j] = V[j][i] * V_mV
+            if abs(IKF / Cmem) > abs(I_KF[j]):
+                I_KF[j] = IKF / Cmem
+                V_KF[j] = V[j][i] * V_mV
             if abs(((IKS + IKF) / Cmem)) > abs(I_K[j]):
                 I_K[j] = (IKS + IKF) / Cmem
                 V_K[j] = V[j][i] * V_mV
 
 
-plt.subplot(1,2,1)
+plt.figure(1)
 plt.plot(V_Ca, I_Ca, 'r', label='$I_{Ca}$')
 plt.xlim(-40,80)
 plt.ylim(-8,6)
 plt.ylabel('I_Ca (A/F)')
 plt.xlabel('V (mV)')
 
-plt.subplot(1,2,2)
-plt.plot(V_K, I_K, 'y', label='$I_{K}$')
+plt.figure(2)
+plt.plot(V_KS, I_KS, 'y', label='$I_{Kf}$')
+plt.xlim(-70,50)
+plt.ylim(-5,40)
+plt.ylabel('I_Ks (A/F)')
+plt.xlabel('V (mV)')
+
+plt.figure(3)
+plt.plot(V_KS, I_KF, 'c', label='$I_{Ks}$')
+plt.xlim(-70,50)
+plt.ylim(-5,40)
+plt.ylabel('I_Kf (A/F)')
+plt.xlabel('V (mV)')
+
+plt.figure(4)
+plt.plot(V_K, I_K, 'k', label='$I_{K}$')
 plt.xlim(-70,50)
 plt.ylim(-5,40)
 plt.ylabel('I_K (A/F)')
