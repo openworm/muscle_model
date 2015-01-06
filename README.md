@@ -63,6 +63,44 @@ See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
 See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 
 
+### 2.1 Simulation of muscle cell ion channels
+
+The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the BlueBrainProjectShowcase code and its dependencies as follows:
+
+````
+INSTALLDIR=~/git
+mkdir $INSTALLDIR
+cd $INSTALLDIR
+git clone https://github.com/openworm/muscle_model
+pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+pip install lxml
+git clone https://github.com/NeuralEnsemble/libNeuroML.git
+cd libNeuroML
+git checkout development
+python setup.py install
+cd ..
+git clone https://github.com/LEMS/pylems.git
+cd pylems
+git checkout development
+python setup.py install
+cd ..
+git clone https://github.com/OpenSourceBrain/OSB_API.git
+cd OSB_API/python
+python setup.py install
+pip install git+https://github.com/purcell/airspeed.git
+cd ../..
+git clone https://github.com/openworm/BlueBrainProjectShowcase
+````
+
+This will install the muscle model, the Blue Brain Project code, and all their dependencies into the directory defined by INSTALLDIR.
+
+To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, to create and run a simulation of the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
+
+````
+./analyse_k_fast.sh
+````
+
+
 3. Optimization script for the above model
 ------------------------------------------
 
