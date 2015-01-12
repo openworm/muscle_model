@@ -59,10 +59,20 @@
         <Display id="d2" title="Voltage response muscle (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="40">
             <Line id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
         </Display>
-    
+        
         <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-0.0005" ymax="0.0055" timeScale="1ms">
             <Line id="Ca concentration" timeScale="1ms" quantity="muscle/0/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
         </Display>
+        
+        <OutputFile id="voltage" fileName="nm_v.dat">
+            <OutputColumn id="neuron_v" quantity="neuron/0/generic_iaf_cell/v"/>
+            <OutputColumn id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v"/>
+        </OutputFile>
+        
+        <OutputFile id="CaConcentration" fileName="nm_conc.dat">
+            <OutputColumn id="muscle_ca_conc" quantity="muscle/0/SingleCompMuscleCell/caConc"/>
+        </OutputFile>
+    
 
     </Simulation>
 
