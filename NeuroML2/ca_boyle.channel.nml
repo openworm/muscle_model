@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
          id="ca_boyle">
 
-    <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="k">
+    <ionChannel id="ca_boyle" conductance="10pS" type="ionChannelHH" species="ca">
 
         <notes>Ca channel from Boyle and Cohen 2008</notes>
 
