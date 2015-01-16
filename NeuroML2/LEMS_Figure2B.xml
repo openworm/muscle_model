@@ -38,7 +38,7 @@
     </Display>
 
 
-    <Display id="d2" title="Currents through voltage clamps (nA)" timeScale="1ms" xmin="-2" xmax="32" ymin="-2" ymax="17">
+    <Display id="d2" title="Currents through voltage clamps (nA)" timeScale="1ms" xmin="-2" xmax="32" ymin="-2" ymax="4">
 
         <Line id="-60mV" quantity="mc1[0]/vClamp1/i" scale="1nA"  color="#111fff" timeScale="1ms"/>
         <Line id="-50mV" quantity="mc2[0]/vClamp2/i" scale="1nA"  color="#222fff" timeScale="1ms"/>
@@ -53,7 +53,7 @@
         <Line id="40mV" quantity="mc11[0]/vClamp11/i" scale="1nA"  color="#bbbfff"  timeScale="1ms"/>
 
     </Display>
-  
+    
     <Display id="d3" title="Rate variables at 0mV (dimensionless)" timeScale="1ms" xmin="-2" xmax="32" ymin="-0.1" ymax="1.1">
 
         <Line id="k_slow/n" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/k_slow/n/q" scale="1"  color="#000000" timeScale="1ms"/>
@@ -63,16 +63,17 @@
         <Line id="ca_boyle/f" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/ca_boyle/f/q" scale="1"  color="#ffff00"  timeScale="1ms"/>
         <Line id="ca_boyle/h" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/ca_boyle/h/q" scale="1"  color="#ff0000" timeScale="1ms"/>
     </Display>
-   
 
-    <Display id="d4" title="Current densities at 0mV (uA/cm2)" timeScale="1ms" xmin="-2" xmax="32" ymin="-700" ymax="200">
+
+    <Display id="d4" title="Current densities at 0mV (uA/cm2)" timeScale="1ms" xmin="-2" xmax="32" ymin="-7" ymax="4">
         <Line id="Leak" quantity="mc7[0]/biophys/membraneProperties/Leak_all/iDensity" scale="1uA_per_cm2"  color="#550000"  timeScale="1ms"/>
         <Line id="k_slow" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/iDensity" scale="1uA_per_cm2"  color="#005500"  timeScale="1ms"/>
         <Line id="k_fast" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/iDensity" scale="1uA_per_cm2"  color="#000055"  timeScale="1ms"/>
         <Line id="ca_boyle" quantity="mc7[0]/biophys/membraneProperties/ca_boyle_all/iDensity" scale="1uA_per_cm2"  color="#fff555"  timeScale="1ms"/>
        
     </Display>
-
+    
+    
 </Simulation>
 
 
