@@ -10,15 +10,15 @@
 
         <gateHHtauInf id="p" instances="4">
 
-            <timeCourse type="fixedTimeCourse" tau="2.3 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="7.4 mV" midpoint="-8.1 mV"/>
+            <timeCourse type="fixedTimeCourse" tau="2.25518 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="7.42636 mV" midpoint="-8.05232 mV"/>
 
         </gateHHtauInf>
         
         <gateHHtauInf id="q" instances="1">
 
-            <timeCourse type="fixedTimeCourse" tau="150 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-10 mV" midpoint="-15.6 mV"/>
+            <timeCourse type="fixedTimeCourse" tau="149.963 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-9.97468 mV" midpoint="-15.6456 mV"/>
 
         </gateHHtauInf>
 

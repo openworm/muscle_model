@@ -10,26 +10,36 @@
 
         <gateHHtauInf id="e" instances="2">
 
-            <timeCourse type="fixedTimeCourse" tau="0.1 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="6.7 mV" midpoint="-3.4 mV"/>
+            <timeCourse type="fixedTimeCourse" tau="0.100027 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="6.74821 mV" midpoint="-3.3568 mV"/>
 
         </gateHHtauInf>
-
-        <!-- Problem!!! -->
-        <!-- This is "inactivation": B&C 2008 p172 -->
-        <!-- but the scale value from Table A1 (kf) is positive (5mV), i.e. steady state is zero for v<<midpoint and 1 for v>>midpoint -->
-        <!-- couple this with a very slow time course & the ion channel never conducts as e^2 x f is always ~0 -->
 
         <gateHHtauInf id="f" instances="1">
 
-            <timeCourse type="fixedTimeCourse" tau="151 ms"/>
-            <!--  NOTE: using -5mV NOT 5mV for k/scale to make this INACTIVATION -->
-            <!--  TODO: get to the bottom of this... -->
-            <steadyState type="HHSigmoidVariable" rate="1" scale="-5 mV" midpoint="25.2 mV"/>
+            <timeCourse type="fixedTimeCourse" tau="150.88 ms"/>
+            
+            <!-- Note!!! 
+
+                f gate is "inactivation" a/c B&C 2008 p172 
+                but the scale value from Table A1 (kf) is positive (5mV), i.e. steady 
+                state is zero for v << midpoint and 1 for v >> midpoint 
+                Couple this with a very slow time course & the ion channel never 
+                conducts as e^2 x f is always ~0 
+
+                Using -5.03176mV NOT 5mV for k/scale to make this INACTIVATION 
+                
+                This is suggested by the value used here:
+                https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/MatlabSupport/Main_Version/data/input.csv#L20
+                
+                see also
+                https://github.com/openworm/muscle_model/blob/master/BoyleCohen2008/PythonSupport/Main_Version/compareToNeuroML2.py
+            -->
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-5.03176 mV" midpoint="25.1815 mV"/>
 
         </gateHHtauInf>
 
-        <customHGate id="h" instances="1" alpha="0.283" ca_half="6.41e-5 mM" k="-0.01mM"/>
+        <customHGate id="h" instances="1" alpha="0.282473" ca_half="6.41889e-8 mM" k="-1.00056e-8 mM"/>
 
     </ionChannel>
 

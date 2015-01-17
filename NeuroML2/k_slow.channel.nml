@@ -10,8 +10,8 @@
 
         <gateHHtauInf id="n" instances="1">
 
-            <timeCourse type="fixedTimeCourse" tau="25 ms"/>
-            <steadyState type="HHSigmoidVariable" rate="1" scale="15.9 mV" midpoint="19.9 mV"/>
+            <timeCourse type="fixedTimeCourse" tau="25.0007 ms"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="15.8512 mV" midpoint="19.8741 mV"/>
             
         </gateHHtauInf>
         

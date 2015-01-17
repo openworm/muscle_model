@@ -34,5 +34,6 @@ experiments:
           columns: [0,1]
           scaling: [1000, 1]
         spike detection: 
-          method: derivative
+          method: threshold
+          threshold: 3e-6
         tolerance: 0
