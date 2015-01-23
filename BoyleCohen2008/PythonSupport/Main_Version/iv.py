@@ -22,7 +22,6 @@ for i in range(0,numpoints):
     y[0][i] = (IKF + IKS) / Cmem
     y[1][i] = ICa  / Cmem
 
-
 plt.subplot(1,2,1)
 plt.plot([round(i * 1e3, 2) for i in x], y[1], 'k', label='$I_{Ca}$')
 plt.xlim(-40,80)
