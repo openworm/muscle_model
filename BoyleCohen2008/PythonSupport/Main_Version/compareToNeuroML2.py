@@ -155,12 +155,14 @@ printout("T_f", "%s s"%T_f,  "%s "%( print_time(nml2_T_f) ))
 nml2_t_ca = ca_pool.decay_constant
 nml2_rho = ca_pool.rho
 
+nml2_thi_ca = get_si_value(nml2_rho) / area_m2 
+
 
 printout("T_Ca", "%s s"%T_Ca,  "%s "%( print_time(nml2_t_ca) ))
 
 
 printout("alphaCa", "%s (dimensionless)"%alphaCa,  "%s "%( nml2_alpha_ca ))
-printout("thiCa", "%s ??"%thiCa,  "%s ??? "%( nml2_rho ))
+printout("thiCa", "%s mM s-1 A-1??"%thiCa,  "%s mM s-1 A-1??? "%( nml2_thi_ca ))
 
 
 printout(dash, dash, dash)

@@ -28,7 +28,7 @@
         </Display>
         
         
-        <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-0.0000005" ymax="0.0000055" timeScale="1ms">
+        <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-1e-9" ymax="2e-8" timeScale="1ms">
             <Line id="Ca concentration" timeScale="1ms" quantity="muscle/0/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
         </Display>
         

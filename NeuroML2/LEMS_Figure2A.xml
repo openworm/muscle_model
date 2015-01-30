@@ -52,7 +52,7 @@
        
         </Display>
     
-        <Display id="d5" title="Ca concentration (mM)" xmin="0" xmax="50" ymin="0" ymax="4e-5" timeScale="1ms">
+        <Display id="d5" title="Ca concentration (mM)" xmin="0" xmax="50" ymin="-1e-8" ymax="9e-8" timeScale="1ms">
             <Line id="Ca concentration" timeScale="1ms" quantity="mc1/6/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
         </Display>
 

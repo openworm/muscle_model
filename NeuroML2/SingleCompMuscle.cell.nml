@@ -43,7 +43,7 @@
                 <species id="ca" 
                          ion="ca" 
                          concentrationModel="CaPool" 
-                         initialConcentration="6.41889e-8 mM" 
+                         initialConcentration="0 mM" 
                          initialExtConcentration="2E-6 mol_per_cm3"/>  <!-- Ext conc is not used here -->
 
                 <resistivity value="0.1 kohm_cm"/>

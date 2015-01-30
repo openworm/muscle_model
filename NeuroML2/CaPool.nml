@@ -6,6 +6,6 @@
 
     <notes>A simple decaying Ca pool. Not appropriate for muscle model? Needs replacing!</notes>
 
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="6.41889e-8 mM" decayConstant="11.5943 ms" rho="0.1 mol_per_m_per_A_per_s"/>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
 
 </neuroml>

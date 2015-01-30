@@ -65,7 +65,7 @@
     </Display>
 
 
-    <Display id="d4" title="Current densities at 0mV (uA/cm2)" timeScale="1ms" xmin="-2" xmax="32" ymin="-7" ymax="4">
+    <Display id="d4" title="Current densities at 0mV (uA/cm2)" timeScale="1ms" xmin="-2" xmax="32" ymin="-7" ymax="5">
         <Line id="Leak" quantity="mc7[0]/biophys/membraneProperties/Leak_all/iDensity" scale="1uA_per_cm2"  color="#550000"  timeScale="1ms"/>
         <Line id="k_slow" quantity="mc7[0]/biophys/membraneProperties/k_slow_all/iDensity" scale="1uA_per_cm2"  color="#005500"  timeScale="1ms"/>
         <Line id="k_fast" quantity="mc7[0]/biophys/membraneProperties/k_fast_all/iDensity" scale="1uA_per_cm2"  color="#000055"  timeScale="1ms"/>

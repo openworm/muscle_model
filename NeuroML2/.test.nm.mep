@@ -8,4 +8,4 @@ experiments:
       spike times: [147.2, 189.5, 233.55, 277.45]
   Muscle Ca concentration:
     expected:
-      spike times: [156.15, 198.9, 243.9, 287.85]
+      spike times: [155.7, 198.35, 243.05, 287.0]
