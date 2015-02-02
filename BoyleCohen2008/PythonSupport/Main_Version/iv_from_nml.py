@@ -1,9 +1,7 @@
 #!/usr/bin/python
 
 '''
-
 This script generates I-V plots of the Fig.3 of the Boyle & Cohen 2008 paper from NeuroML2 files
-
 '''
 
 import neuroml.loaders as loaders
