@@ -84,6 +84,10 @@ cd pylems
 git checkout development
 python setup.py install
 cd ..
+git clone https://github.com/pgleeson/pyelectro.git
+cd pyelectro
+python setup.py install
+cd ..
 git clone https://github.com/NeuroML/pyNeuroML.git
 cd pyNeuroML
 python setup.py install
