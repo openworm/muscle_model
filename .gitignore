@@ -1,3 +1,7 @@
+/BoyleCohen2008/PythonSupport/Main_Version/nm_conc.dat
+/BoyleCohen2008/PythonSupport/Main_Version/nm_v.dat
+/NeuroML2/.ipynb_checkpoints/Explore-checkpoint.ipynb
+/pyramidal_implementation/example.o
 /NeuroML2/LEMS_Test_ca_boyle.xml
 /NeuroML2/LEMS_Test_k_fast.xml
 /NeuroML2/LEMS_Test_k_slow.xml
@@ -19,4 +23,4 @@ NeuroML2/*.dat
 BoyleCohen2008/*.o
 BoyleCohen2008/program
 
-
+BoyleCohen2008/results

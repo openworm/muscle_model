@@ -25,4 +25,6 @@ Run the example cell (trying to reproduce Figure 2B in [Boyle & Cohen, 2008](htt
 
     jnml LEMS_Figure2B.xml
     
+An iPython notebook with examples of how to explore elements of the muscle model is available at [Explore.ipynb](http://nbviewer.ipython.org/github/openworm/muscle_model/blob/master/NeuroML2/Explore.ipynb).
+    
 For more details on the current status of this conversion, see issue: https://github.com/openworm/OpenWorm/issues/169

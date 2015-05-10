@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta3.xsd" 
          id="CaPool">
 
-    <notes>A simple decaying Ca pool. Not appropriate for muscle model! Needs replacing!</notes>
+    <notes>A simple decaying Ca pool. Not appropriate for muscle model? Needs replacing!</notes>
 
-    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="1e-7mM" decayConstant="11.6 ms" rho="0.1 mol_per_m_per_A_per_s"/>
+    <fixedFactorConcentrationModel id="CaPool" ion="ca" restingConc="0 mM" decayConstant="11.5943 ms" rho="0.000238919 mol_per_m_per_A_per_s"/>
 
 </neuroml>

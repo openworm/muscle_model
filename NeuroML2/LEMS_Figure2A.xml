@@ -44,7 +44,7 @@
         </Display>
    
 
-        <Display id="d4" title="Current densities at 700 pA (uA/cm2)" timeScale="1ms" xmin="0" xmax="50" ymin="-800" ymax="700">
+        <Display id="d4" title="Current densities at 700 pA (uA/cm2)" timeScale="1ms" xmin="0" xmax="50" ymin="-20" ymax="7">
             <Line id="Leak" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/Leak_all/iDensity" scale="1uA_per_cm2"  color="#550000" timeScale="1ms"/>
             <Line id="k_slow" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_slow_all/iDensity" scale="1uA_per_cm2"  color="#005500" timeScale="1ms"/>
             <Line id="k_fast" quantity="mc1/6/SingleCompMuscleCell/biophys/membraneProperties/k_fast_all/iDensity" scale="1uA_per_cm2"  color="#000055" timeScale="1ms"/>
@@ -52,7 +52,7 @@
        
         </Display>
     
-        <Display id="d5" title="Ca concentration (mM)" xmin="0" xmax="50" ymin="-0.0005" ymax="0.0055" timeScale="1ms">
+        <Display id="d5" title="Ca concentration (mM)" xmin="0" xmax="50" ymin="-1e-8" ymax="9e-8" timeScale="1ms">
             <Line id="Ca concentration" timeScale="1ms" quantity="mc1/6/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
         </Display>
 

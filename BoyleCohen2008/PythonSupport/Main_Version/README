@@ -3,6 +3,11 @@ Matplotlib. It could be more elegant, but to make things clearer and aid
 debugging, I've used the same structure as the original Matlab code where
 possible. Comments have also mostly been kept the same.
 
+Key scripts:
+ - compareToNeuroML2.py: Prints out a comparison of parameters between the BoyleCohen model and its NeuroML2 version
+ - vclamp.py: Reproduces the voltage clamp simulation in the paper
+ - iv_all.py: Plots I/V curves based on reproducing the equations directly
+
 Some scripts are available in two versions: one using floating-point
 arithmetic, the other using Python's arbitrary-precision Decimal library.
 The floating-point scripts should give results compatible with those of the

@@ -3,7 +3,9 @@
 Open Worm muscle model
 ======================
 
-Authors: Mike Vella, Alex Dibert, Padraig Gleeson
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/muscle_model?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk
 
 If you contribute to the project please add your name to the Authors field
@@ -11,77 +13,45 @@ If you contribute to the project please add your name to the Authors field
 Introduction
 ------------
 
+This repository contains several different subprojects all related to the construction of a biophysically-detailed model
+of the dynamic properties of electrical excitation of the body wall muscle of the c. elegans.
+
+![Overview of dynamics we are reproducing](https://cloud.githubusercontent.com/assets/1037756/5602898/094dd1c4-9321-11e4-9d01-bc4b73112951.png)
+
+In the figure above, you can see the basic functionality that we are seeking to reproduce.  The electrical activity of a muscle cell
+can be recorded using an electrode that is stuck into it.  Connecting the electrode to a sensitive
+amplifier and stimulator allows a researcher to either use a [current clamp](https://en.wikipedia.org/wiki/Electrophysiology#Current_clamp) or [voltage clamp](https://en.wikipedia.org/wiki/Voltage_clamp) mode to control and examine the dynamics of the voltage changes or current flow across the membrane.
+
+Ultimately, we understand from [Hodgkin and Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) that these electrical dynamics of the membrane are fully determined by the dynamics of [ion channels](https://en.wikipedia.org/wiki/Ion_channel) that sit across the membrane.
+
+In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on real data.
+
+This model was expressed as a system of equations and a set of parameters in their publication, as well as C++ and Matlab code.  
+
+Their original code has been graciously shared with the OpenWorm project under the BoyleCohen2008 directory.  In addition, a Python port of key components of the model
+has been added by OpenWorm contributors (Rayner Lucas).
+
+For the purposes of re-using the model as a component of the larger OpenWorm project, we have converted the mathematical model of Cohen & Boyle into NeuroML2, an XML-based
+description of the system of equations that make up mathematical models of biophysically-based models of excitable membranes.
+
+
+
 This repository contains the following:
 
 1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
-2. Optimization script for model above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
-3. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
-4. NeuroML 2/LEMS conversion of the muscle cell model
+2. NeuroML 2/LEMS conversion of the muscle cell model
+3. Optimization script for the above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
+4. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
 
 
 1. Simulation of C.Elegans muscle cell electrical properties
 -----------------------------------------------------------
 
-The relevant model is contained in the /pyramidal_implementation folder
+The authoritative version of the muscle cell model from Boyle & Cohen has been shared with the project under the [BoyleCohen2008/](BoyleCohen2008/) directory.  Here you will also find a Python port of some of the scripts that demonstrate the dynamics of the muscle model.
 
-This model includes the following currents:
-    - k_fast
-    - k_slow
-    - Ca
-    - leak
+A conversion of this model into the NEURON package is available in the [neuron_implementation/](neuron_implementation/) directory.
 
-### Running model
-
-
-To run model install pyramidal and its dependencies as described here: 
-http://pyramidal.readthedocs.org/en/latest/install.html
-
-The relevant model is contained in the /pyramidal_implementation folder, cd to that folder and:
-
-Then execute the command:
-
-     >>>python run.py eval_file0 40.041444758152295 0.0 4514.250191560498 35.2 0.4089 0.6 --compile --plotoverlay
-
-This will use the auto-mod file compilation feature of Pyramidal including nrnivmodl compilation and run the model with the best-optimized parameters to-date.
-
-### Running optimization
-
-To run model install Optimal Neuron and its dependencies as described here: 
-http://optimal-neuron.readthedocs.org/en/latest/installation.html
-
-Remove any mod files (such as ca.mod) from the pyramidal_implementation repository as this will interfere with the optimizer behaviour, the optimizer is designed to run with the manual_*.mod files which are located in the /mod_file directory and need to be the only mod files present in the /pyramidal directory before execution of the optimization script.
-
-The current optimization is set up to use features extracted from the data file, the feature values are:
-
-'peak_linear_gradient': 0.0126455, 'average_minimum': 32.9139683819512, 'spike_frequency_adaptation': 0.054102950823597951, 'trough_phase_adaptation': -0.032339835206814785, 'mean_spike_frequency': 170.75638755391191, 'average_maximum': 52.484330488178259, 'trough_decay_exponent': 0.082997586003614746, 'interspike_time_covar': 0.67343012507213718, 'min_peak_no': 20, 'spike_width_adaptation': 5.196371093168479e-17, 'max_peak_no': 20, 'first_spike_time': 105.37999999997665, 'peak_decay_exponent': -0.074000673186574759
-
-and corresponding weights:
-
-'peak_linear_gradient': 20,'average_minimum': 5.0, 'spike_frequency_adaptation': 0.0, 'trough_phase_adaptation': 0.0, 'mean_spike_frequency': 1.0, 'average_maximum': 2.0, 'trough_decay_exponent': 0.0, 'interspike_time_covar': 0.0, 'min_peak_no': 1.0, 'spike_width_adaptation': 0.0, 'max_peak_no': 50.0, 'first_spike_time': 1.0, 'peak_decay_exponent': 0.0
-
-Then run:
-
-     >>>python optimization.py
-
-The optimizer will execute on 64 threads and display the results. Play with optimization.py to change #threads, #population #max_evaluations etc.
-
-3. C++ Module for SPH/muscle_model integration
-----------------------------------------------
-
-NOTE: This is still at an alpha stage, but has been demonstrated to function as expected.
-
-to compile and run (temp notes with hardcoded paths - replace with your own path) 
-run the following commands from inside curdir:
- 
-$ export PYTHONPATH="/home/mike/dev/cpp_pyramidal_integration/"
-OR
-export PYTHONPATH=$PYTHONPATH:/home/mike/dev/muscle_model/pyramidal_implementation/
-$ g++ main.cpp -l python2.7 -o sim -I /usr/include/python2.7/
-$ ./sim
-
-The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
-
-4. NeuroML 2/LEMS conversion of the muscle cell model
+2. NeuroML 2/LEMS conversion of the muscle cell model
 -----------------------------------------------------
 
 This version of the muscle model reflects an initial attempt to convert the model from: http://www.sciencedirect.com/science/article/pii/S0303264708001408 into NeuroML 2 (http://www.neuroml.org/neuroml2.php).
@@ -91,5 +61,76 @@ We're in the process of updating this to match the version in: https://github.co
 See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
 
 See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
+
+
+### 2.1 Simulation of muscle cell ion channels
+
+The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the BlueBrainProjectShowcase code and its dependencies as follows:
+
+````
+INSTALLDIR=~/git
+mkdir $INSTALLDIR
+cd $INSTALLDIR
+git clone https://github.com/openworm/muscle_model
+pip install git+https://github.com/OpenSourceBrain/osb-model-validation
+pip install lxml
+git clone https://github.com/NeuralEnsemble/libNeuroML.git
+cd libNeuroML
+git checkout development
+python setup.py install
+cd ..
+git clone https://github.com/LEMS/pylems.git
+cd pylems
+git checkout development
+python setup.py install
+cd ..
+git clone https://github.com/pgleeson/pyelectro.git
+cd pyelectro
+python setup.py install
+cd ..
+git clone https://github.com/NeuroML/pyNeuroML.git
+cd pyNeuroML
+python setup.py install
+cd ..
+git clone https://github.com/OpenSourceBrain/OSB_API.git
+cd OSB_API/python
+python setup.py install
+pip install git+https://github.com/purcell/airspeed.git
+cd ../..
+````
+
+This will install the muscle model and all their dependencies into the directory defined by INSTALLDIR.
+
+To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, to create and run a simulation of the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
+
+````
+./analyse_k_fast.sh
+````
+
+
+3. Optimization script for the above model
+------------------------------------------
+
+**Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
+
+See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/README.md
+
+4. C++ Module for SPH/muscle_model integration
+----------------------------------------------
+
+**Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
+
+This is still at an alpha stage, but has been demonstrated to function as expected.
+
+to compile and run (temp notes with hardcoded paths - replace with your own path)
+run the following commands from inside curdir:
+
+$ export PYTHONPATH="/home/mike/dev/cpp_pyramidal_integration/"
+OR
+export PYTHONPATH=$PYTHONPATH:/home/mike/dev/muscle_model/pyramidal_implementation/
+$ g++ main.cpp -l python2.7 -o sim -I /usr/include/python2.7/
+$ ./sim
+
+The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
 
 [![Build Status](https://travis-ci.org/openworm/muscle_model.svg?branch=master)](https://travis-ci.org/openworm/muscle_model)

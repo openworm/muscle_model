@@ -16,53 +16,39 @@
     <Include file="CaPool.nml"/>
     <Include file="SingleCompMuscle.cell.nml"/>
     
-    <expTwoSynapse id="exc_syn_1conns" erev="0mV" gbase="16nS" tauDecay="10ms" tauRise="3ms"/>
-    
-    <iafCell id="generic_iaf_cell" reset="-70mV" C="0.2nF" thresh="-50mV" leakConductance="0.01uS" leakReversal="-70mV"/>
-    
-    <pulseGenerator id="offset_current" delay="100ms" duration="200ms" amplitude="0.3nA"/>
-    <pulseGenerator id="offsetToMin75" delay="0ms" duration="1000ms" amplitude="-520 pA" />
 
-
-    <network id="net1">
-        
-        <population id="neuron" component="generic_iaf_cell" type="populationList">
-            <instance id="0">
-                <location y="0" x="0" z="0"/>
-            </instance>
-        </population>
-        
-        <population id="muscle" component="SingleCompMuscleCell" type="populationList">
-            <instance id="0">
-                <location y="0" x="50" z="0"/>
-            </instance>
-        </population>
-        
-        <projection id="N_M" postsynapticPopulation="muscle" presynapticPopulation="neuron" synapse="exc_syn_1conns">
-            <connection preCellId="../neuron/0/generic_iaf_cell" postCellId="../muscle/0/SingleCompMuscleCell" id="0"/>
-        </projection>
-       
-        
-        <explicitInput input="offset_current" target="neuron/0/generic_iaf_cell"/>
-        <explicitInput input="offsetToMin75" target="muscle/0/SingleCompMuscleCell"/>
-        
-    
-    </network>
+    <Include file="NeuronMuscle.net.nml"/>
 
 
     <Simulation id="sim1" length="500ms" step="0.05ms" target="net1">
 
-        <Display id="d1" title="Voltage response neuron (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="40">
+        <Display id="d1" title="Voltage response neuron (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="0">
             <Line id="neuron_v" quantity="neuron/0/generic_iaf_cell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
+            <Line id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v" scale="1mV"  color="#ff0000" timeScale="1ms"/>
         </Display>
         
-        <Display id="d2" title="Voltage response muscle (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="40">
-            <Line id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
-        </Display>
-    
-        <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-0.0005" ymax="0.0055" timeScale="1ms">
+        
+        <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-1e-9" ymax="2e-8" timeScale="1ms">
             <Line id="Ca concentration" timeScale="1ms" quantity="muscle/0/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
         </Display>
+        
+        <Display id="d4" title="Current densities in muscle" timeScale="1ms" xmin="0" xmax="500" ymin="-2" ymax="2">
+            <Line id="Leak" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/Leak_all/iDensity" scale="1uA_per_cm2"  color="#550000" timeScale="1ms"/>
+            <Line id="k_slow" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/k_slow_all/iDensity" scale="1uA_per_cm2"  color="#005500" timeScale="1ms"/>
+            <Line id="k_fast" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/k_fast_all/iDensity" scale="1uA_per_cm2"  color="#000055" timeScale="1ms"/>
+            <Line id="ca_boyle" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/ca_boyle_all/iDensity" scale="1uA_per_cm2"  color="#fff555" timeScale="1ms"/>
+       
+        </Display>
+        
+        <OutputFile id="voltage" fileName="nm_v.dat">
+            <OutputColumn id="neuron_v" quantity="neuron/0/generic_iaf_cell/v"/>
+            <OutputColumn id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v"/>
+        </OutputFile>
+        
+        <OutputFile id="CaConcentration" fileName="nm_conc.dat">
+            <OutputColumn id="muscle_ca_conc" quantity="muscle/0/SingleCompMuscleCell/caConc"/>
+        </OutputFile>
+    
 
     </Simulation>
 

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta1.xsd" id="network_GranuleCell">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" 
+         id="Figure2A">
 
 
     <include href="Leak.channel.nml"/>
@@ -9,7 +12,7 @@
     <include href="SingleCompMuscle.cell.nml"/>
 
 
-    <pulseGenerator id="offsetToMin75" delay="0ms" duration="1000ms" amplitude="-520 pA" />
+    <pulseGenerator id="offsetToMin75" delay="0ms" duration="1000ms" amplitude="-120 pA" />
 
     <pulseGenerator id="pulseGen0" delay="5ms" duration="20ms" amplitude="100 pA" />
     <pulseGenerator id="pulseGen1" delay="5ms" duration="20ms" amplitude="200 pA" />
