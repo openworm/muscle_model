@@ -39,18 +39,20 @@ install:
     - python setup.py install
     # Install airspeed
     - pip install git+https://github.com/purcell/airspeed.git
+    # Install Scipy
+    - pip install scipy
     - cd $TRAVIS_BUILD_DIR
-    - git clone https://github.com/OpenSourceBrain/BlueBrainProjectShowcase
+
 
 script:
     - cd ./NeuroML2/
-    - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50  ./ca_boyle.channel.nml ca_boyle
-    - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_fast.channel.nml k_fast
-    - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_slow.channel.nml k_slow
+    # python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50  ./ca_boyle.channel.nml ca_boyle
+    # python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_fast.channel.nml k_fast
+    # python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_slow.channel.nml k_slow
     # TODO: replace above lines with pynml-channelanalysis when the dependency problem solved
-    # pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50 -norun  ./ca_boyle.channel.nml
-    # pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_fast.channel.nml
-    # pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_slow.channel.nml
+    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50 -norun  ./ca_boyle.channel.nml
+    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_fast.channel.nml
+    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_slow.channel.nml
     - omv all -V
     - pynml LEMS_Test_ca_boyle.xml -nogui    
     - pynml LEMS_Test_k_fast.xml -nogui
