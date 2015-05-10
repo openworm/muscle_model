@@ -40,6 +40,9 @@ install:
     # Install airspeed
     - pip install git+https://github.com/purcell/airspeed.git
     # Install Scipy
+    - apt-get install libblas-dev
+    - apt-get install liblapack-dev
+    - apt-get install gfortran
     - pip install scipy
     - cd $TRAVIS_BUILD_DIR
 
