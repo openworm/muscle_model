@@ -43,8 +43,9 @@ script:
     - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_fast.channel.nml
     - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_slow.channel.nml
     - omv all -V
-    - pynml LEMS_Test_ca_boyle.xml -nogui    
-    - pynml LEMS_Test_k_fast.xml -nogui
-    - pynml LEMS_Test_k_slow.xml -nogui
+    - export JNML_HOME=~/jnml/jNeuroMLJar
+    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_ca_boyle.xml -nogui
+    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_fast.xml -nogui
+    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_slow.xml -nogui
     
     
