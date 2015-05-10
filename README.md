@@ -84,15 +84,18 @@ cd pylems
 git checkout development
 python setup.py install
 cd ..
+git clone https://github.com/NeuroML/pyNeuroML.git
+cd pyNeuroML
+python setup.py install
+cd ..
 git clone https://github.com/OpenSourceBrain/OSB_API.git
 cd OSB_API/python
 python setup.py install
 pip install git+https://github.com/purcell/airspeed.git
 cd ../..
-git clone https://github.com/openworm/BlueBrainProjectShowcase
 ````
 
-This will install the muscle model, the Blue Brain Project code, and all their dependencies into the directory defined by INSTALLDIR.
+This will install the muscle model and all their dependencies into the directory defined by INSTALLDIR.
 
 To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, to create and run a simulation of the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
 

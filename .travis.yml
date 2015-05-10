@@ -23,6 +23,11 @@ install:
     - git checkout development
     - python setup.py install
     - cd
+    # Install pyNeuroML
+    - git clone https://github.com/NeuroML/pyNeuroML.git
+    - cd pyNeuroML
+    - python setup.py install
+    - cd
     # Install OSB API
     - git clone https://github.com/OpenSourceBrain/OSB_API.git
     - cd OSB_API/python
@@ -34,13 +39,12 @@ install:
 
 script:
     - cd ./NeuroML2/
-    - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50  ./ca_boyle.channel.nml ca_boyle
-    - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_fast.channel.nml k_fast
-    - python ../BlueBrainProjectShowcase/Channelpedia/NML2ChannelAnalyse.py -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55  ./k_slow.channel.nml k_slow
+    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50 -norun  ./ca_boyle.channel.nml
+    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_fast.channel.nml
+    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_slow.channel.nml
     - omv all -V
-    - export JNML_HOME=~/jnml/jNeuroMLJar
-    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_ca_boyle.xml -nogui    
-    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_fast.xml -nogui
-    - ~/jnml/jNeuroMLJar/jnml LEMS_Test_k_slow.xml -nogui
+    - pynml LEMS_Test_ca_boyle.xml -nogui    
+    - pynml LEMS_Test_k_fast.xml -nogui
+    - pynml LEMS_Test_k_slow.xml -nogui
     
     
