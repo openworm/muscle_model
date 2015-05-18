@@ -65,7 +65,7 @@ See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 
 ### 2.1 Simulation of muscle cell ion channels
 
-The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the BlueBrainProjectShowcase code and its dependencies as follows:
+The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the dependencies as follows:
 
 ````
 INSTALLDIR=~/git
