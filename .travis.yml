@@ -10,36 +10,13 @@ env:
 install: 
     - cd
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-    # Install libNeuroML (development version) & dependencies
-    - pip install lxml
-    - git clone https://github.com/NeuralEnsemble/libNeuroML.git
-    - cd libNeuroML
-    - git checkout development
-    - python setup.py install
-    - cd
-    # Install PyLEMS (development version)
-    - git clone https://github.com/LEMS/pylems.git
-    - cd pylems
-    - git checkout development
-    - python setup.py install
-    - cd
-    # Install pyelectro
-    - git clone https://github.com/pgleeson/pyelectro.git
-    - cd pyelectro
-    - python setup.py install
-    - cd
+
     # Install pyNeuroML
     - git clone https://github.com/NeuroML/pyNeuroML.git
     - cd pyNeuroML
     - python setup.py install
     - cd
-    # Install OSB API
-    - git clone https://github.com/OpenSourceBrain/OSB_API.git
-    - cd OSB_API/python
-    - python setup.py install
-    # Install airspeed
-    - pip install git+https://github.com/purcell/airspeed.git
-    - cd $TRAVIS_BUILD_DIR
+
 
 
 script:
