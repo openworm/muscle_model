@@ -3,8 +3,7 @@ C elegans muscle cell model in NeuroML 2
 
 This is a NeuroML 2 implementation of the C elegans muscle cell model of [Boyle & Cohen, 2008](http://www.sciencedirect.com/science/article/pii/S0303264708001408).
     
-To install & run this version, install either jNeuroML (for **jnml**, as outlined [here](https://github.com/NeuroML/jNeuroML/blob/master/README.md) 
-or PyNeuroML (for **pynml**, as outlined [here](https://github.com/NeuroML/pyNeuroML)).
+To install & run this version, install either jNeuroML (for **jnml**, as outlined [here](https://github.com/NeuroML/jNeuroML/blob/master/README.md)), or PyNeuroML (for **pynml**, as outlined [here](https://github.com/NeuroML/pyNeuroML)).
 
 Get a local copy of this repository with:
 
