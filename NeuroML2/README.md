@@ -19,11 +19,11 @@ Go into the directory with the NeuroML 2 version of the model:
 
 Run the example cell (trying to reproduce Figure 2A in [Boyle & Cohen, 2008](http://www.sciencedirect.com/science/article/pii/S0303264708001408)) with:
 
-    jnml LEMS_Figure2A.xml
+    pynml LEMS_Figure2A.xml
 
 Run the example cell (trying to reproduce Figure 2B in [Boyle & Cohen, 2008](http://www.sciencedirect.com/science/article/pii/S0303264708001408)) with:
 
-    jnml LEMS_Figure2B.xml
+    pynml LEMS_Figure2B.xml
     
 An iPython notebook with examples of how to explore elements of the muscle model is available at [Explore.ipynb](http://nbviewer.ipython.org/github/openworm/muscle_model/blob/master/NeuroML2/Explore.ipynb).
     
