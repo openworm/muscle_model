@@ -28,12 +28,13 @@ install:
 
 script:
     - cd ./NeuroML2/
-    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50 -norun  ./ca_boyle.channel.nml
-    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_fast.channel.nml
-    - pynml-channelanalysis -temperature 34   -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -norun  ./k_slow.channel.nml
+
+    # Test analysis of channels using pynml-channelanalysis from PyNeuroML
+    - pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50  -nogui  ./ca_boyle.channel.nml
+    - pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -nogui  ./k_fast.channel.nml
+    - pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -nogui  ./k_slow.channel.nml
+
+    # Run all tests (usually .test.*) using OMV (see https://github.com/OpenSourceBrain/osb-model-validation)
     - omv all -V
-    - pynml LEMS_Test_ca_boyle.xml -nogui    
-    - pynml LEMS_Test_k_fast.xml -nogui
-    - pynml LEMS_Test_k_slow.xml -nogui
     
     
