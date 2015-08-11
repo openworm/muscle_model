@@ -2,10 +2,10 @@ system: Testing the neuron/muscle example
 experiments:
   Neuron voltage:
     expected:
-      spike times: [21.7, 65.6, 109.5, 153.4, 197.3, 241.2, 285.1]
+      spike times: [21.75, 65.725, 109.7, 153.675, 197.65, 241.625, 285.6]
   Muscle voltage:
     expected:
-      spike times: [57.2, 99.5, 143.55, 187.45, 231.35, 275.25]
+      spike times: [57.4, 99.75, 143.85, 187.825, 231.8, 275.775]
   Muscle Ca concentration:
     expected:
-      spike times: [65.7, 108.35, 153.05, 197.0, 240.85, 284.75]
+      spike times: [65.75, 108.475, 153.3, 197.3, 241.25, 285.2]

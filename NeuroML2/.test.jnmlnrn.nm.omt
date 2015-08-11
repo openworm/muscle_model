@@ -1,0 +1,39 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+target: LEMS_NeuronMuscle.xml 
+engine: jNeuroML_NEURON
+mep: .test.nm.mep
+experiments:
+  Neuron voltage:
+    observables:
+      spike times:
+        file: 
+          path: nm_v.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -60
+        tolerance: 0
+  Muscle voltage:
+    observables:
+      spike times:
+        file: 
+          path: nm_v.dat
+          columns: [0,2]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -30
+        tolerance: 0
+  Muscle Ca concentration:
+    observables:
+      spike times:
+        file: 
+          path: nm_conc.dat
+          columns: [0,1]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 1e-8
+        tolerance: 0

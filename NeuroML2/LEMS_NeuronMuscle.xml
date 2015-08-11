@@ -20,7 +20,7 @@
     <Include file="NeuronMuscle.net.nml"/>
 
 
-    <Simulation id="sim1" length="400ms" step="0.05ms" target="net1">
+    <Simulation id="sim1" length="400ms" step="0.025ms" target="net1">
 
         <Display id="d1" title="Voltage response neuron (mV)" timeScale="1ms" xmin="-40" xmax="440" ymin="-80" ymax="0">
             <Line id="neuron_v" quantity="neuron/0/generic_iaf_cell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>

@@ -14,7 +14,7 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -60
-        tolerance: 0
+        tolerance: 0.0023
   Muscle voltage:
     observables:
       spike times:
@@ -25,7 +25,7 @@ experiments:
         spike detection: 
           method: threshold
           threshold: -30
-        tolerance: 0
+        tolerance: 0.00218
   Muscle Ca concentration:
     observables:
       spike times:
@@ -36,4 +36,4 @@ experiments:
         spike detection: 
           method: threshold
           threshold: 1e-8
-        tolerance: 0
+        tolerance: 0.00115
