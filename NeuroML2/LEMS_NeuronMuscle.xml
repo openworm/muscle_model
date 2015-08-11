@@ -20,19 +20,19 @@
     <Include file="NeuronMuscle.net.nml"/>
 
 
-    <Simulation id="sim1" length="500ms" step="0.05ms" target="net1">
+    <Simulation id="sim1" length="400ms" step="0.05ms" target="net1">
 
-        <Display id="d1" title="Voltage response neuron (mV)" timeScale="1ms" xmin="0" xmax="500" ymin="-80" ymax="0">
+        <Display id="d1" title="Voltage response neuron (mV)" timeScale="1ms" xmin="-40" xmax="440" ymin="-80" ymax="0">
             <Line id="neuron_v" quantity="neuron/0/generic_iaf_cell/v" scale="1mV"  color="#bbffbb" timeScale="1ms"/>
             <Line id="muscle_v" quantity="muscle/0/SingleCompMuscleCell/v" scale="1mV"  color="#ff0000" timeScale="1ms"/>
         </Display>
         
         
-        <Display id="d5" title="Ca concentration muscle (mM)" xmin="0" xmax="500" ymin="-1e-9" ymax="2e-8" timeScale="1ms">
+        <Display id="d5" title="Ca concentration muscle (mM)" xmin="-40" xmax="440" ymin="-1e-9" ymax="2e-8" timeScale="1ms">
             <Line id="Ca concentration" timeScale="1ms" quantity="muscle/0/SingleCompMuscleCell/caConc" scale="1 mM" color="#000000"/>
         </Display>
         
-        <Display id="d4" title="Current densities in muscle" timeScale="1ms" xmin="0" xmax="500" ymin="-2" ymax="2">
+        <Display id="d4" title="Current densities in muscle" timeScale="1ms" xmin="-40" xmax="440" ymin="-2" ymax="2">
             <Line id="Leak" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/Leak_all/iDensity" scale="1uA_per_cm2"  color="#550000" timeScale="1ms"/>
             <Line id="k_slow" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/k_slow_all/iDensity" scale="1uA_per_cm2"  color="#005500" timeScale="1ms"/>
             <Line id="k_fast" quantity="muscle/0/SingleCompMuscleCell/biophys/membraneProperties/k_fast_all/iDensity" scale="1uA_per_cm2"  color="#000055" timeScale="1ms"/>
