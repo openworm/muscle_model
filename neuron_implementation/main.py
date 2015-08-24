@@ -29,6 +29,16 @@
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 # USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
+'''
+**Note: this is an early attempt to convert the muscle model to NEURON**
+
+
+**It does not match the [MATLAB](https://github.com/openworm/muscle_model/tree/master/BoyleCohen2008/MatlabSupport/Main_Version), 
+[Python](https://github.com/openworm/muscle_model/tree/master/BoyleCohen2008/PythonSupport/Main_Version) or 
+[NeuroML](https://github.com/openworm/muscle_model/tree/master/NeuroML2) versions of the model!**
+'''
+
 from __future__ import with_statement
 """
 Simulation of C.Elegans muscle cell with three currents

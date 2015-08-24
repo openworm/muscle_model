@@ -49,14 +49,12 @@ This repository contains the following:
 
 The authoritative version of the muscle cell model from Boyle & Cohen has been shared with the project under the [BoyleCohen2008/](BoyleCohen2008/) directory.  Here you will also find a Python port of some of the scripts that demonstrate the dynamics of the muscle model.
 
-A conversion of this model into the NEURON package is available in the [neuron_implementation/](neuron_implementation/) directory.
+An early attempt to convert this model into the NEURON package is available in the [neuron_implementation/](neuron_implementation/) directory (**no longer supported**).
 
 2. NeuroML 2/LEMS conversion of the muscle cell model
 -----------------------------------------------------
 
 This version of the muscle model reflects an initial attempt to convert the model from: http://www.sciencedirect.com/science/article/pii/S0303264708001408 into NeuroML 2 (http://www.neuroml.org/neuroml2.php).
-
-We're in the process of updating this to match the version in: https://github.com/openworm/muscle_model/tree/master/neuron_implementation
 
 See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
 
@@ -67,45 +65,32 @@ See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 
 The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the dependencies as follows:
 
-````
-INSTALLDIR=~/git
-mkdir $INSTALLDIR
-cd $INSTALLDIR
-git clone https://github.com/openworm/muscle_model
-pip install git+https://github.com/OpenSourceBrain/osb-model-validation
-pip install lxml
-git clone https://github.com/NeuralEnsemble/libNeuroML.git
-cd libNeuroML
-git checkout development
-python setup.py install
-cd ..
-git clone https://github.com/LEMS/pylems.git
-cd pylems
-git checkout development
-python setup.py install
-cd ..
-git clone https://github.com/pgleeson/pyelectro.git
-cd pyelectro
-python setup.py install
-cd ..
-git clone https://github.com/NeuroML/pyNeuroML.git
-cd pyNeuroML
-python setup.py install
-cd ..
-git clone https://github.com/OpenSourceBrain/OSB_API.git
-cd OSB_API/python
-python setup.py install
-pip install git+https://github.com/purcell/airspeed.git
-cd ../..
-````
+
+    INSTALLDIR=~/git
+    mkdir $INSTALLDIR
+    cd $INSTALLDIR
+    git clone https://github.com/openworm/muscle_model
+
+    pip install lxml
+    git clone https://github.com/NeuralEnsemble/libNeuroML.git
+    cd libNeuroML
+    git checkout development
+    python setup.py install
+    cd ..
+
+    git clone https://github.com/NeuroML/pyNeuroML.git
+    cd pyNeuroML
+    python setup.py install
+    cd ../..
+
 
 This will install the muscle model and all their dependencies into the directory defined by INSTALLDIR.
 
 To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, to create and run a simulation of the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
 
-````
-./analyse_k_fast.sh
-````
+
+    ./analyse_k_fast.sh
+
 
 
 3. Optimization script for the above model
