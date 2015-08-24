@@ -1,17 +1,16 @@
-[![Build Status](https://travis-ci.org/openworm/muscle_model.png?branch=master)](https://travis-ci.org/openworm/muscle_model)
 
-Open Worm muscle model
-======================
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/muscle_model?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## Open Worm muscle model
+
+
+ [![Build Status](https://travis-ci.org/openworm/muscle_model.png?branch=master)](https://travis-ci.org/openworm/muscle_model) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/muscle_model?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk
 
 If you contribute to the project please add your name to the Authors field
 
-Introduction
-------------
+### Introduction
 
 This repository contains several different subprojects all related to the construction of a biophysically-detailed model
 of the dynamic properties of electrical excitation of the body wall muscle of the c. elegans.
@@ -44,15 +43,13 @@ This repository contains the following:
 4. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
 
 
-1. Simulation of C.Elegans muscle cell electrical properties
------------------------------------------------------------
+### 1. Simulation of C.Elegans muscle cell electrical properties
 
 The authoritative version of the muscle cell model from Boyle & Cohen has been shared with the project under the [BoyleCohen2008/](BoyleCohen2008/) directory.  Here you will also find a Python port of some of the scripts that demonstrate the dynamics of the muscle model.
 
 An early attempt to convert this model into the NEURON package is available in the [neuron_implementation/](neuron_implementation/) directory (**no longer supported**).
 
-2. NeuroML 2/LEMS conversion of the muscle cell model
------------------------------------------------------
+### 2. NeuroML 2/LEMS conversion of the muscle cell model
 
 This version of the muscle model reflects an initial attempt to convert the model from: http://www.sciencedirect.com/science/article/pii/S0303264708001408 into NeuroML 2 (http://www.neuroml.org/neuroml2.php).
 
@@ -61,7 +58,7 @@ See issue: https://github.com/openworm/OpenWorm/issues/169 for the latest.
 See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 
 
-### 2.1 Simulation of muscle cell ion channels
+#### 2.1 Simulation of muscle cell ion channels
 
 The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the dependencies as follows:
 
@@ -101,15 +98,13 @@ to run a simulation of a presynaptic neuron causing the muscle cell to spike:
 
 **Note: neither the presynaptic neuron (modelled as an Integrate and Fire neuron) nor the synapse model are physiologically constrained.**
 
-3. Optimization script for the above model
-------------------------------------------
+### 3. Optimization script for the above model
 
 **Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
 
 See https://github.com/openworm/muscle_model/blob/master/pyramidal_implementation/README.md
 
-4. C++ Module for SPH/muscle_model integration
-----------------------------------------------
+### 4. C++ Module for SPH/muscle_model integration
 
 **Note: see https://github.com/openworm/muscle_model/issues/18 for details on the current status of these subprojects.**
 
@@ -126,4 +121,3 @@ $ ./sim
 
 The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
 
-[![Build Status](https://travis-ci.org/openworm/muscle_model.svg?branch=master)](https://travis-ci.org/openworm/muscle_model)
