@@ -86,12 +86,20 @@ The muscle model contains NeuroML2 descriptions of the ion channels in the muscl
 
 This will install the muscle model and all their dependencies into the directory defined by INSTALLDIR.
 
-To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, to create and run a simulation of the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
-
+To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, 
+to create and run a simulation to analyse the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
 
     ./analyse_k_fast.sh
 
+In this directory, you can run:
 
+    pynml LEMS_NeuronMuscle.xml
+
+to run a simulation of a presynaptic neuron causing the muscle cell to spike:
+
+![NeuronMuscle.png](NeuroML2/images/NeuronMuscle.png)
+
+**Note: neither the presynaptic neuron (modelled as an Integrate and Fire neuron) nor the synapse model are physiologically constrained.**
 
 3. Optimization script for the above model
 ------------------------------------------
