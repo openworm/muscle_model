@@ -44,11 +44,18 @@ script:
     - pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -nogui  ./k_fast.channel.nml
     - pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -nogui  ./k_slow.channel.nml
     
+    
+    # Test generation of iv curve for ca channel
+    
+    - ./ivcurve_ca_boyle.sh
+    
+    
     # Test Python version of Boyle & Cohen model
     
     - cd ../BoyleCohen2008/PythonSupport/Main_Version
     - python vclamp.py -nogui
     - python vclamp_decimal.py -nogui
+    - python compareToNeuroML2.py
 
     
     
