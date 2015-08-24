@@ -4,7 +4,10 @@
 
 import sys
 import numpy as np
-import matplotlib.pyplot as plt
+
+nogui = '-nogui' in sys.argv
+if not nogui:
+    import matplotlib.pyplot as plt
 
 sys.path += '.'
 from x_inf import *
@@ -96,8 +99,11 @@ for j in range(0,numtests):
 
         I_mem[j][i] = (IKS + IKF + ICa)
 
-    plt.plot(xaxis, [x * 1e9 for x in I_mem[j]])
+    if not nogui: plt.plot(xaxis, [x * 1e9 for x in I_mem[j]])
 
-plt.ylabel('Imem (nA)')
-plt.xlabel('Time (ms)')
-plt.show()
+print('Finished simulation of %s seconds'%duration)
+
+if not nogui: 
+    plt.ylabel('Imem (nA)')
+    plt.xlabel('Time (ms)')
+    plt.show()
