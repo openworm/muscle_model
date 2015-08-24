@@ -47,7 +47,7 @@ script:
     
     # Test generation of iv curve for ca channel
     
-    - ./ivcurve_ca_boyle.sh
+    - ./ivcurve_ca_boyle.sh -nogui
     
     
     # Test Python version of Boyle & Cohen model
