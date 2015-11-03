@@ -129,7 +129,7 @@ tree = ET.parse('../../../NeuroML2/ca_boyle.channel.nml')
 
 #  There's probably a better way to do this...
 for c in tree.getroot().iter():
-    if 'customHGate' in c.tag:
+    if 'gateHHtauInf' in c.tag and c.attrib.has_key('type') and c.attrib['type'] == "customHGate":
         nml2_cahalf_h = c.attrib['ca_half']
         nml2_k_h = c.attrib['k']
         nml2_alpha_ca  = c.attrib['alpha']
