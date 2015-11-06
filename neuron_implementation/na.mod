@@ -139,7 +139,7 @@ PROCEDURE rates(vm) {
 
 
 FUNCTION trap0(v,th,a,q) {
-	if (fabs(v/th) > 1e-6) {
+	if (fabs((v-th)/q) > 1e-6){
 	        trap0 = a * (v - th) / (1 - exp(-(v - th)/q))
 	} else {
 	        trap0 = a * q
