@@ -3,6 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta2.xsd"
     id="SingleCompMuscleCell">
+    
+    <include href="ca_boyle.channel.nml"/>
+    <include href="k_fast.channel.nml"/>
+    <include href="k_slow.channel.nml"/>
+    <include href="Leak.channel.nml"/>
 
     <cell id="SingleCompMuscleCell">
 
