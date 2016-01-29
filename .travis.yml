@@ -13,21 +13,15 @@ env:
 install: 
     - cd
     
-    # Install OMV
+    # Install OMV (needed for testing onluy, not running model)
     - pip install git+https://github.com/OpenSourceBrain/osb-model-validation
 
-    # Install libNeuroML (development version) & dependencies
-
-    - git clone https://github.com/NeuralEnsemble/libNeuroML.git
-    - cd libNeuroML
-    - git checkout development
-    - python setup.py install
-    - cd
-    
-    # Install pyNeuroML
-    - pip install git+https://github.com/NeuroML/pyNeuroML.git
+    # Install python dependencies using setup.py
 
     - cd $TRAVIS_BUILD_DIR
+    - pwd
+    - ls
+    - python setup.py install
 
 script:
 
