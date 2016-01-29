@@ -42,7 +42,7 @@ setup(
         'git+https://github.com/NeuralEnsemble/libNeuroML.git@development#egg=libNeuroML',
         'git+https://github.com/OpenSourceBrain/OSB_API.git@master#egg=PyOSB',
         'git+https://github.com/purcell/airspeed.git@master#egg=airspeed',
-        'git+https://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML',
+        'git+https://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML'
     ],
 
     install_requires=[
@@ -50,7 +50,8 @@ setup(
         'pylems',
         'libNeuroML',
         'PyOSB',
-        'airspeed'
+        'airspeed',
+        'pyNeuroML'
     ],
 )
 
