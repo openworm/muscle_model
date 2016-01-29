@@ -50,7 +50,8 @@ setup(
         'pylems',
         'libNeuroML',
         'PyOSB',
-        'airspeed'
+        'airspeed',
+        'pyNeuroML'
     ],
 )
 
