@@ -24,3 +24,6 @@ BoyleCohen2008/*.o
 BoyleCohen2008/program
 
 BoyleCohen2008/results
+
+dist
+OpenWormMuscleModel.egg-info
