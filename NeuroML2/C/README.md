@@ -17,4 +17,5 @@ To plot the results, pipe the output to a file and use your favourite plotting t
     ./muscleC > results.dat
     ~/neuroConstruct/nCplot.sh -b results.dat
     
+![plot](https://raw.githubusercontent.com/openworm/muscle_model/master/NeuroML2/C/Plot.png)
     
