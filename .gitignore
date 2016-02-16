@@ -27,3 +27,5 @@ BoyleCohen2008/results
 
 dist
 OpenWormMuscleModel.egg-info
+/NeuroML2/C/muscleC
+/NeuroML2/C/results.dat
