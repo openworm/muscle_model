@@ -25,15 +25,26 @@ def shell_script_tester(file_list):
     :param file_list: contains files that are to be tested
     :return: exitcode of each file
     '''
+    returncode_list = []
     for each_script in file_list:
         file_name = ' "./' +each_script+'"'
-        result = sp.Popen(file_name, shell=True)
-        returncode = result.returncode
 
+        returncode = sp.call(file_name+' -nogui', shell=True)
+        returncode_list.append(returncode)
         if returncode == 0:
-            print(file_name+'\n Executed Successfully with code:'+str(returncode))
+            print(file_name+'\n Executed Successfully with code: '+str(returncode))
         else:
-            print(file_name+'\n Execution failed with code:'+str(returncode))
+            print(file_name+'\n Execution failed with code: '+str(returncode))
+
+    #prints the final output in the tabular format
+    print("Result.\t\tExitCode\tFile name")
+    for i in range(len(file_list)):
+        if returncode_list[i] == 0:
+            result = "Success"
+        else:
+            result = "Failed."
+        print (result+"\t\t"+str(returncode_list[i])+" \t\t "+file_list[i])
+
 
 print collect_files()
-shell_script_tester(collect_files)
+shell_script_tester(collect_files())
