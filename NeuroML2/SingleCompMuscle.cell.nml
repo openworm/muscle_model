@@ -8,6 +8,8 @@
     <include href="k_fast.channel.nml"/>
     <include href="k_slow.channel.nml"/>
     <include href="Leak.channel.nml"/>
+    <include href="CaPool.nml"/>
+    
 
     <cell id="SingleCompMuscleCell">
 
