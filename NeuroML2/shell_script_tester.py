@@ -1,5 +1,6 @@
 import os
 import subprocess as sp
+import pytest
 
 
 def collect_files(extension = ".sh"):
@@ -19,7 +20,7 @@ def collect_files(extension = ".sh"):
 
     return file_list
 
-def shell_script_tester(file_list):
+def test_shell_scripts(file_list = collect_files()):
     '''
     Tests all the shell scripts based on its exit code
     :param file_list: contains files that are to be tested
@@ -31,20 +32,8 @@ def shell_script_tester(file_list):
 
         returncode = sp.call(file_name+' -nogui', shell=True)
         returncode_list.append(returncode)
-        if returncode == 0:
-            print(file_name+'\n Executed Successfully with code: '+str(returncode))
-        else:
-            print(file_name+'\n Execution failed with code: '+str(returncode))
 
-    #prints the final output in the tabular format
-    print("Result.\t\tExitCode\tFile name")
+
     for i in range(len(file_list)):
-        if returncode_list[i] == 0:
-            result = "Success"
-        else:
-            result = "Failed."
-        print (result+"\t\t"+str(returncode_list[i])+" \t\t "+file_list[i])
-
-
-print collect_files()
-shell_script_tester(collect_files())
+        assert(returncode_list[i] == 0),"Test Failed for " + file_list[i]
+        print("test passed for " + file_list[i])
