@@ -44,6 +44,9 @@ script:
 
     - ./analyse_all.sh -nogui
     - ./analyse_ca_boyle.sh -nogui
+    - ./analyse_k_fast.sh -nogui
+    - ./analyse_k_slow.sh -nogui
+
 
 
     #Testing individual shell script
