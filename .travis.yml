@@ -43,6 +43,8 @@ script:
     # Testing shell scripts in muscle_model/NeuroML2
 
     - ./analyse_ca_boyle.sh -nogui
+    - ./analyse_all.sh -nogui
+
     #Testing individual shell script
 
     - py.test shell_script_tester.py
