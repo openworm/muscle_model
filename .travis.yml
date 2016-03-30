@@ -42,8 +42,8 @@ script:
     - pynml-channelanalysis -temperature 34 -minV -100 -maxV 100 -duration 600 -clampBaseVoltage -55 -clampDuration 580 -stepTargetVoltage 10 -erev 50 -nogui -caConc 0.001 ca_boyle.channel.nml k_fast.channel.nml k_slow.channel.nml -html -md
     # Testing shell scripts in muscle_model/NeuroML2
 
+    - ./analyse_ca_boyle.sh -nogui
     #Testing individual shell script
-    - ./analyse_all.sh -nogui
 
     - py.test shell_script_tester.py
     
