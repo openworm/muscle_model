@@ -1,8 +1,7 @@
 import os
 import subprocess as sp
 import pytest
-import matplotlib
-matplotlib.use('Agg')
+
 
 def collect_files(extension = ".sh"):
     '''
