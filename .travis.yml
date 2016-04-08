@@ -40,9 +40,9 @@ script:
 
 
     
-    # Test generation of iv curve for ca channel
+    #Testing individual shell scripts
 
-    - ./ivcurve_ca_boyle.sh -nogui
+    - py.test shell_script_tester.py
     
     
     # Test Python version of Boyle & Cohen model
@@ -52,8 +52,4 @@ script:
     - python vclamp_decimal.py -nogui
     - python compareToNeuroML2.py
 
-    
-    #Testing individual shell scripts
-
-    - py.test shell_script_tester.py
     
