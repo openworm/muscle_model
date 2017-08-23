@@ -1,5 +1,11 @@
 # Framework for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
-# Still in development, subject to change without notice!!
+sudo: false
+
+addons:
+  apt:
+    packages:
+        # Requirements for Octave
+    - octave
 
 language: python
 python: 2.7
@@ -12,6 +18,8 @@ env:
     - OMV_ENGINE=Octave
     - OMV_ENGINE=NON_OMV_TESTS
 
+virtualenv:
+    system_site_packages: true
 
 before_install:
     # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer) to imitate a display.
