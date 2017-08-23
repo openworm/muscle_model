@@ -1,0 +1,5 @@
+system: Testing the neuron/muscle example
+experiments:
+  Muscle voltage:
+    expected:
+      spike times: [ 37.61 ]

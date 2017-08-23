@@ -17,7 +17,7 @@
 
         <morphology id="morphology_SingleCompMuscleCell">
 
-            <segment id="0" name="Body">
+            <segment id="0" name="soma">
                 <proximal x="0.0" y="0.0" z="0.0" diameter="10"/>
                 <distal x="0.0" y="0.0" z="230.3459" diameter="10"/>
             </segment>

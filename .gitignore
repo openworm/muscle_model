@@ -29,3 +29,11 @@ dist
 OpenWormMuscleModel.egg-info
 /NeuroML2/C/muscleC
 /NeuroML2/C/results.dat
+/NeuroML2/LEMS_MuscleStim_pynn.py
+/NeuroML2/LEMS_MuscleStim_pynn.py_main.json
+/NeuroML2/SingleCompMuscleCell.cell.json
+/NeuroML2/SingleCompMuscleCell_celldefinition.py
+/NeuroML2/offsetToMin75.input.json
+/NeuroML2/offsetToMin75_inputdefinition.py
+/NeuroML2/stim_current.input.json
+/NeuroML2/stim_current_inputdefinition.py
