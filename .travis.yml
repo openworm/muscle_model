@@ -1,4 +1,6 @@
 # Framework for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+
+dist: trusty
 sudo: false
 
 addons:
