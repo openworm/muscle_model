@@ -6,8 +6,10 @@ sudo: false
 addons:
   apt:
     packages:
-        # Requirements for Octave
+    # Requirements for Octave
     - octave
+    # More...
+    - python-tk
 
 language: python
 python: 2.7
