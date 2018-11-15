@@ -22,12 +22,14 @@
     <network id="net1">
         
         <population id="neuron" component="generic_iaf_cell" type="populationList">
+            <property tag="color" value="1 0 .4"/>
             <instance id="0">
                 <location y="0" x="0" z="0"/>
             </instance>
         </population>
         
         <population id="muscle" component="SingleCompMuscleCell" type="populationList">
+            <property tag="color" value="0 .6 0"/>
             <instance id="0">
                 <location y="0" x="50" z="0"/>
             </instance>
