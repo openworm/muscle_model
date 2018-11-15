@@ -9,7 +9,9 @@ addons:
     # Requirements for Octave
     - octave
     # More...
-    - python-tk
+    - python-tk     
+    - python-matplotlib 
+    - python-tornado
 
 language: python
 python: 2.7
