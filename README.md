@@ -1,6 +1,4 @@
-
-
-## Open Worm muscle model
+## OpenWorm muscle model
 
 
  [![Build Status](https://travis-ci.org/openworm/muscle_model.png?branch=master)](https://travis-ci.org/openworm/muscle_model) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/muscle_model?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -120,4 +118,10 @@ $ g++ main.cpp -l python2.7 -o sim -I /usr/include/python2.7/
 $ ./sim
 
 The resultant so file will then be importable in any c++ module and present a PyramidalSimulation class with a run() method which will return the membrane potential at the end of execution of a fixed timestep.
+
+
+### Reusing this model
+
+The code in this repository is provided under the terms of the [software license](LICENSE) included with it. If you use this model in your research, we respectfully ask you to cite the references outlined in the [CITATION](CITATION.md) file.
+
 
