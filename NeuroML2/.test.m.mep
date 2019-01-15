@@ -1,4 +1,4 @@
-system: Testing the neuron/muscle example
+system: Testing the muscle only example
 experiments:
   Muscle voltage:
     expected:

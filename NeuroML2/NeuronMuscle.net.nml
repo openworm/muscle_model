@@ -39,10 +39,13 @@
             <connection preCellId="../neuron/0/generic_iaf_cell" postCellId="../muscle/0/SingleCompMuscleCell" id="0"/>
         </projection>
        
-        
-        <explicitInput input="offset_current" target="neuron/0/generic_iaf_cell"/>
-        <explicitInput input="offsetToMin75" target="muscle/0/SingleCompMuscleCell"/>
-        
+        <inputList id="offset_stim" component="offset_current" population="generic_iaf_cell">
+            <input id="0" target="../neuron/0/generic_iaf_cell" destination="synapses"/>
+        </inputList>
+
+        <inputList id="offsetToMin75_stim" component="offsetToMin75" population="muscle">
+            <input id="0" target="../muscle/0/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
     
     </network>
 </neuroml>

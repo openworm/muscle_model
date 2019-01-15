@@ -24,10 +24,15 @@
                 <location y="0" x="50" z="0"/>
             </instance>
         </population>
-        
-        <explicitInput input="offsetToMin75" target="muscle/0/SingleCompMuscleCell"/>
-        
-        <explicitInput input="stim_current" target="muscle/0/SingleCompMuscleCell"/>
+       
+
+        <inputList id="offsetToMin75_stim" component="offsetToMin75" population="muscle">
+            <input id="0" target="../muscle/0/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
+
+        <inputList id="stim_current_stim" component="stim_current" population="muscle">
+            <input id="0" target="../muscle/0/SingleCompMuscleCell" destination="synapses"/>
+        </inputList>
         
     
     </network>
