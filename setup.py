@@ -38,18 +38,11 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
     dependency_links = [
-        'git+https://github.com/LEMS/pylems.git@master#egg=pylems' ,
-        'git+https://github.com/NeuralEnsemble/libNeuroML.git@development#egg=libNeuroML',
-        'git+https://github.com/OpenSourceBrain/OSB_API.git@master#egg=PyOSB',
-        'git+https://github.com/NeuroML/pyNeuroML.git#egg=pyNeuroML'
+        'git+https://github.com/OpenSourceBrain/OSB_API.git@master#egg=PyOSB'
     ],
 
     install_requires=[
-        'lxml',
-        'pylems',
-        'libNeuroML',
         'PyOSB',
-        'airspeed==0.5.4dev-20150515',
         'pyNeuroML'
     ],
 )

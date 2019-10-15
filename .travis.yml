@@ -10,6 +10,7 @@ addons:
     - octave
     # More...
     - python-tk     
+    - python-lxml
     - python-matplotlib 
     - python-tornado
 
