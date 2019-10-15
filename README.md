@@ -8,6 +8,8 @@ email:mv333@cam.ac.uk
 
 If you contribute to the project please add your name to the Authors field
 
+<table border="2"><tr><td><b>NOTE: while the NeuroML version of this model is still supported, the most recent work using this muscle model is taking place in the <a href="https://github.com/openworm/c302">c302 repository</a>.</b> </td></tr></table>
+
 ### Introduction
 
 This repository contains several different subprojects all related to the construction of a biophysically-detailed model
