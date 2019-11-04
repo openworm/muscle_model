@@ -1,12 +1,11 @@
 repo: openworm/muscle_model
-shortDescription: "Model of c.elegans muscle"
+shortDescription: "Model of c.elegans muscle based on Boyle & Cohen 2008"
 coordinator: stephen@openworm.org
 documentation: "https://github.com/openworm/muscle_model/blob/master/README.md"
 earnable-badges: 
   - "http://www.badgelist.com/OpenWorm/Hodgkin-Huxley-Tutorial-Graduate"
   - "https://www.badgelist.com/OpenWorm/Muscle-Model-Builder"
   - "https://www.badgelist.com/OpenWorm/Muscle-Model-Explorer"
-gitter: "http://gitter.im/openworm/muscle_model"
 inputs: 
   - openworm/ChannelWorm
 keywords: 
@@ -14,12 +13,13 @@ keywords:
   - conductance model
   - muscles
   - cells
+  - channels
 languages: 
   - python
 members: 
-  - pgleeson@gmail.com
+  - p.gleeson@gmail.com
 outputs: 
-  - openworm/CElegansNeuroML
+  - openworm/c302
 parent: 
   - openworm/OpenWorm
 tests: true
