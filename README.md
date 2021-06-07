@@ -1,7 +1,7 @@
 ## OpenWorm muscle model
 
 
- [![Build Status](https://travis-ci.org/openworm/muscle_model.png?branch=master)](https://travis-ci.org/openworm/muscle_model) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openworm/muscle_model?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+ [![Build Status](https://travis-ci.com/openworm/muscle_model.png?branch=master)](https://travis-ci.com/openworm/muscle_model) 
 
 Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk
