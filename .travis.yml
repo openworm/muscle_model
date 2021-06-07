@@ -11,7 +11,9 @@ addons:
     - python-tornado
 
 language: python
-python: 2.7
+python: 
+  - 2.7
+  - 3.7
 
 env:
     - OMV_ENGINE=jNeuroML
@@ -22,8 +24,6 @@ env:
     - OMV_ENGINE=Octave
     - OMV_ENGINE=NON_OMV_TESTS
 
-virtualenv:
-    system_site_packages: true
     
     
 install: 
