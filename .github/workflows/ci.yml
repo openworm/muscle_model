@@ -26,7 +26,7 @@ jobs:
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
         pip install scipy sympy matplotlib cython pandas tables
         env
-        if [[ ${OMV_ENGINE} == "Octave" ]]; then sudo apt update; sudo apt-get install -y octave; fi
+        if [[ ${{ matrix.engine }} == "Octave" ]]; then sudo apt update; sudo apt-get install -y octave; fi
 
     - name: Run OMV tests on engine ${{ matrix.engine }}
       run: |
