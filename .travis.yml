@@ -11,7 +11,9 @@ addons:
     - python-tornado
 
 language: python
-python: 2.7
+python: 
+  - 2.7
+  - 3.7
 
 env:
     - OMV_ENGINE=jNeuroML
@@ -22,13 +24,6 @@ env:
     - OMV_ENGINE=Octave
     - OMV_ENGINE=NON_OMV_TESTS
 
-virtualenv:
-    system_site_packages: true
-
-before_install:
-    # To run tests requiring a graphical user interface on Travis CI, use xvfb (X Virtual Framebuffer) to imitate a display.
-    - "export DISPLAY=:99.0"
-    - "sh -e /etc/init.d/xvfb start"
     
     
 install: 

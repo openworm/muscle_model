@@ -1,0 +1,45 @@
+name: Non OMV tests
+
+on:
+  push:
+    branches: [ master, development, experimental ]
+  pull_request:
+    branches: [ master, development, experimental ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.7, 3.9 ]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python  ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version:  ${{ matrix.python-version }}
+
+
+    - name: Install dependencies
+      run: |
+        python setup.py install
+        pip install pytest
+    - name: Run some examples
+      run: |
+        echo "Running non OMV tests..."
+        # Test analysis of channels using pynml-channelanalysis from PyNeuroML.
+        cd ./NeuroML2/
+        pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev 50  -nogui  ./ca_boyle.channel.nml
+        pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -nogui  ./k_fast.channel.nml
+        pynml-channelanalysis -temperature 34  -minV -55  -maxV 80  -duration 600  -clampBaseVoltage -55  -clampDuration 580  -stepTargetVoltage 10  -erev -55 -nogui  ./k_slow.channel.nml
+
+        #Testing individual shell scripts
+        py.test shell_script_tester.py
+
+        # Test Python version of Boyle & Cohen model
+        cd ../BoyleCohen2008/PythonSupport/Main_Version
+        python vclamp.py -nogui
+        python vclamp_decimal.py -nogui
+        python compareToNeuroML2.py

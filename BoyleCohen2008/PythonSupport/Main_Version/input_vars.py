@@ -5,6 +5,7 @@
 # Importing data
 f = open('../../MatlabSupport/Main_Version/data/input.csv')
 data = f.read().splitlines()
+f.close()
 
 # Model parameters
 
@@ -37,4 +38,3 @@ T_f = float(data[25])
 T_Ca = float(data[26])
 alphaCa = float(data[27])
 thiCa = 6.1e-6 / (T_Ca * gCa)
-

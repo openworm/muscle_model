@@ -1,7 +1,6 @@
 ## OpenWorm muscle model
 
-
- [![Build Status](https://travis-ci.com/openworm/muscle_model.png?branch=master)](https://travis-ci.com/openworm/muscle_model) 
+[![Continuous builds - OMV tests](https://github.com/openworm/muscle_model/actions/workflows/ci.yml/badge.svg)](https://github.com/openworm/muscle_model/actions/workflows/ci.yml)
 
 Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk
