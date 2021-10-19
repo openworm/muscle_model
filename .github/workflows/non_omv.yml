@@ -25,6 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         python setup.py install
+        pip install pytest
     - name: Run some examples
       run: |
         echo "Running non OMV tests..."
