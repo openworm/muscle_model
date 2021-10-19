@@ -14,11 +14,13 @@ import neuroml.loaders as loaders
 from math import pi
 
 
-import urllib
+import urllib.request
 import tempfile
 
 link = "https://raw.githubusercontent.com/NeuroML/NeuroML2/master/NeuroML2CoreTypes/NeuroMLCoreDimensions.xml"
-nml2_dims_contents = urllib.urlopen(link).read()
+
+with urllib.request.urlopen(link) as url:
+    nml2_dims_contents = url.read()
 nml2_dims_file = tempfile.NamedTemporaryFile(delete=False)
 nml2_dims_file.write(nml2_dims_contents)
 nml2_dims_file.close()
@@ -37,7 +39,7 @@ def printout(name, bc2008, nml2):
     b = str(nml2)
     line = "|  %s  |  %s  |  %s  |"%(name+' '*(width-len(name)), a+' '*(width-len(a)), b+' '*(width-len(b)))
     print(line)
-    
+
 
 dash = '------------------------------------'
 
@@ -129,11 +131,11 @@ tree = ET.parse('../../../NeuroML2/ca_boyle.channel.nml')
 
 #  There's probably a better way to do this...
 for c in tree.getroot().iter():
-    if 'gateHHtauInf' in c.tag and c.attrib.has_key('type') and c.attrib['type'] == "customHGate":
+    if 'gateHHtauInf' in c.tag and 'type' in c.attrib and c.attrib['type'] == "customHGate":
         nml2_cahalf_h = c.attrib['ca_half']
         nml2_k_h = c.attrib['k']
         nml2_alpha_ca  = c.attrib['alpha']
-        
+
 
 
 printout("Cahalf_h", "%s mM?"%Cahalf_h,  "%s mM"%(get_si_value(nml2_cahalf_h)))
@@ -155,7 +157,7 @@ printout("T_f", "%s s"%T_f,  "%s "%( print_time(nml2_T_f) ))
 nml2_t_ca = ca_pool.decay_constant
 nml2_rho = ca_pool.rho
 
-nml2_thi_ca = get_si_value(nml2_rho) / area_m2 
+nml2_thi_ca = get_si_value(nml2_rho) / area_m2
 
 
 printout("T_Ca", "%s s"%T_Ca,  "%s "%( print_time(nml2_t_ca) ))
