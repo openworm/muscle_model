@@ -42,6 +42,7 @@ setup(
     ],
 
     install_requires=[
+        'matplotlib'
         'PyOSB',
         'pyNeuroML'
     ],
