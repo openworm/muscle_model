@@ -1,6 +1,6 @@
 ## OpenWorm muscle model
 
-[![Continuous builds - OMV tests](https://github.com/openworm/muscle_model/actions/workflows/ci.yml/badge.svg)](https://github.com/openworm/muscle_model/actions/workflows/ci.yml)
+[![Continuous builds - OMV tests](https://github.com/openworm/muscle_model/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/openworm/muscle_model/actions/workflows/omv-ci.yml) [![Non OMV tests](https://github.com/openworm/muscle_model/actions/workflows/non-omv.yml/badge.svg)](https://github.com/openworm/muscle_model/actions/workflows/non-omv.yml)
 
 Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk

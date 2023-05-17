@@ -39,3 +39,4 @@ OpenWormMuscleModel.egg-info
 /NeuroML2/stim_current_inputdefinition.py
 /NeuroML2/*_netpyne.py
 /NeuroML2/*_main.json
+arm64
