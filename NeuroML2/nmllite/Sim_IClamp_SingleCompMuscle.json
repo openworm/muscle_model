@@ -1,0 +1,12 @@
+{
+    "Sim_IClamp_SingleCompMuscle": {
+        "version": "NeuroMLlite v0.5.9",
+        "network": "IClamp_SingleCompMuscle.json",
+        "duration": 45.0,
+        "dt": 0.025,
+        "seed": 12345,
+        "record_traces": {
+            "all": "*"
+        }
+    }
+}
