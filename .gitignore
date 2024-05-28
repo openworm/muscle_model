@@ -40,3 +40,4 @@ OpenWormMuscleModel.egg-info
 /NeuroML2/*_netpyne.py
 /NeuroML2/*_main.json
 arm64
+/NeuroML2/LEMS_NeuronMuscle_eden.py

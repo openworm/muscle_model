@@ -17,11 +17,13 @@ jobs:
         engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_NetPyNE, jNeuroML_validate, jNeuroML_PyNN_NEURON, Octave ]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+
     - name: Set up Python  ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version:  ${{ matrix.python-version }}
+
     - name: Install OMV
       run: |
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
@@ -32,6 +34,7 @@ jobs:
     - name: Run OMV tests on engine ${{ matrix.engine }}
       run: |
         omv all -V --engine=${{ matrix.engine }}
+        
     - name: OMV final version info
       run: |
         omv list -V # list installed engines
