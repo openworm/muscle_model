@@ -25,8 +25,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install .
-        pip install pytest
+        pip install pyNeuroML pytest
 
     - name: Run some examples
       run: |
