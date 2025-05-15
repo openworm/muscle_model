@@ -2,6 +2,8 @@
 
 [![Continuous builds - OMV tests](https://github.com/openworm/muscle_model/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/openworm/muscle_model/actions/workflows/omv-ci.yml) [![Non OMV tests](https://github.com/openworm/muscle_model/actions/workflows/non-omv.yml/badge.svg)](https://github.com/openworm/muscle_model/actions/workflows/non-omv.yml)
 
+Mode of _C. elegans_ body wall muscle from: **Caenorhabditis elegans body wall muscles are simple actuators, Jordan H. Boyle & Netta Cohen, [Biosystems 2008](https://www.sciencedirect.com/science/article/pii/S0303264708001408?via%3Dihub)**.
+
 Authors: Mike Vella, Alex Dibert, Padraig Gleeson, Rayner Lucas
 email:mv333@cam.ac.uk
 
