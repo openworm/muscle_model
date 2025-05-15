@@ -1,0 +1,68 @@
+{
+    "IClamp_SingleCompMuscle": {
+        "version": "NeuroMLlite v0.5.9",
+        "notes": "A network model: IClamp_SingleCompMuscle",
+        "parameters": {
+            "stim_amp": "700pA",
+            "offset_stim_amp": "-120 pA"
+        },
+        "cells": {
+            "SingleCompMuscleCell": {
+                "neuroml2_source_file": "../SingleCompMuscle.cell.nml"
+            }
+        },
+        "input_sources": {
+            "iclamp_stim": {
+                "parameters": {
+                    "amplitude": "stim_amp",
+                    "delay": "5ms",
+                    "duration": "20ms"
+                },
+                "neuroml2_input": "PulseGenerator"
+            },
+            "iclamp_offset": {
+                "parameters": {
+                    "amplitude": "offset_stim_amp",
+                    "delay": "0ms",
+                    "duration": "10000ms"
+                },
+                "neuroml2_input": "PulseGenerator"
+            }
+        },
+        "regions": {
+            "Worm": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "width": 1000.0,
+                "height": 100.0,
+                "depth": 1000.0
+            }
+        },
+        "populations": {
+            "pop_SingleCompMuscleCell": {
+                "size": 1,
+                "component": "SingleCompMuscleCell",
+                "properties": {
+                    "color": "0.8 0 0"
+                },
+                "random_layout": {
+                    "region": "Worm"
+                }
+            }
+        },
+        "inputs": {
+            "Stim_iclamp_stim": {
+                "input_source": "iclamp_stim",
+                "population": "pop_SingleCompMuscleCell",
+                "percentage": 100
+            },
+            "input_offset": {
+                "input_source": "iclamp_offset",
+                "population": "pop_SingleCompMuscleCell",
+                "percentage": 100
+            }
+        },
+        "temperature": 34.0
+    }
+}

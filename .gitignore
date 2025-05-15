@@ -41,3 +41,15 @@ OpenWormMuscleModel.egg-info
 /NeuroML2/*_main.json
 arm64
 /NeuroML2/LEMS_NeuronMuscle_eden.py
+/NeuroML2/nmllite/CaPool.nml
+/NeuroML2/nmllite/IClamp_SingleCompMuscle.gv.png
+/NeuroML2/nmllite/IClamp_SingleCompMuscle.net.png
+/NeuroML2/nmllite/LEMS_Sim_IClamp_SingleCompMuscle.png
+/NeuroML2/nmllite/LEMS_Sim_IClamp_SingleCompMuscle.xml
+/NeuroML2/nmllite/Leak.channel.nml
+/NeuroML2/nmllite/*dat
+/NeuroML2/nmllite/SingleCompMuscle.cell.nml
+/NeuroML2/nmllite/ca_boyle.channel.nml
+/NeuroML2/nmllite/k_fast.channel.nml
+/NeuroML2/nmllite/k_slow.channel.nml
+/NeuroML2/nmllite/report.Sim_IClamp_SingleCompMuscle.txt
