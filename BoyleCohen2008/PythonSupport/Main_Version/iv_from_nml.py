@@ -6,7 +6,7 @@ This script generates I-V plots of the Fig.3 of the Boyle & Cohen 2008 paper fro
 
 import neuroml.loaders as loaders
 from math import pi
-import urllib
+import urllib.request
 import tempfile
 from lems.model.model import Model
 import xml.etree.ElementTree as ET
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from math import exp
 
 link = "https://raw.githubusercontent.com/NeuroML/NeuroML2/master/NeuroML2CoreTypes/NeuroMLCoreDimensions.xml"
-nml2_dims_contents = urllib.urlopen(link).read()
+nml2_dims_contents = urllib.request.urlopen(link).read()
 nml2_dims_file = tempfile.NamedTemporaryFile(delete=False)
 nml2_dims_file.write(nml2_dims_contents)
 nml2_dims_file.close()
