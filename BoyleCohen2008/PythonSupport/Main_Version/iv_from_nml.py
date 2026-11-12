@@ -98,7 +98,6 @@ for i in range(0,numpoints):
     IKS = nml2_GKS * x_inf(x[i], nml2_v_half_n, nml2_k_n) * (x[i] - nml2_VKS)
     IKF = nml2_GKF * x_inf(x[i], nml2_v_half_p, nml2_k_p)**4 * x_inf(x[i], nml2_v_half_q, nml2_k_q) * (x[i]- nml2_VKF)
     ICa = nml2_GCa * x_inf(x[i], nml2_v_half_e, nml2_k_e)**2 * (x[i] - nml2_VCa)
-
     y[0][i] = (IKF + IKS) / nml2_Cmem
     y[1][i] = ICa  / nml2_Cmem
 
