@@ -52,9 +52,9 @@ for chan_dens in membrane_properties.channel_densities:
     densities[chan_dens.id] = chan_dens.cond_density
 
 nml2_Cmem = get_si_value(cm_nml_str) * area_m2
-nml2_GKS = get_si_value(densities['k_slow_all']) * nml2_Cmem
-nml2_GKF = get_si_value(densities['k_fast_all']) * nml2_Cmem
-nml2_GCa = get_si_value(densities['ca_boyle_all']) * nml2_Cmem
+nml2_GKS = get_si_value(densities['k_slow_all']) * area_m2
+nml2_GKF = get_si_value(densities['k_fast_all']) * area_m2
+nml2_GCa = get_si_value(densities['ca_boyle_all']) * area_m2
 
 nml2_VKS = get_si_value(rev_pots['k_slow_all'])
 nml2_VKF = get_si_value(rev_pots['k_fast_all'])
@@ -103,7 +103,7 @@ for i in range(0,numpoints):
 
 
 plt.subplot(1,2,1)
-plt.plot([round(i * 1e3, 2) for i in x], [round(j * 1e2, 2) for j in y[1]], 'k', label='$I_{Ca}$')
+plt.plot(x * 1e3, y[1], 'k', label='$I_{Ca}$')
 plt.xlim(-40,80)
 plt.ylim(-8,6)
 plt.ylabel('I_Ca (A/F)')
@@ -111,7 +111,7 @@ plt.xlabel('V (mV)')
 plt.grid('on')
 
 plt.subplot(1,2,2)
-plt.plot([round(i * 1e3, 2) for i in x], [round(j * 1e2, 2) for j in y[0]], 'k', label='$I_{K}$')
+plt.plot(x * 1e3, y[0], 'k', label='$I_{K}$')
 plt.xlim(-70,50)
 plt.ylim(-5,40)
 plt.ylabel('I_K (A/F)')
