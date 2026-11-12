@@ -6,7 +6,7 @@ This script generates I-V plots of the Fig.3 of the Boyle & Cohen 2008 paper fro
 
 import neuroml.loaders as loaders
 from math import pi
-import urllib
+import urllib.request
 import tempfile
 from lems.model.model import Model
 import xml.etree.ElementTree as ET
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from math import exp
 
 link = "https://raw.githubusercontent.com/NeuroML/NeuroML2/master/NeuroML2CoreTypes/NeuroMLCoreDimensions.xml"
-nml2_dims_contents = urllib.urlopen(link).read()
+nml2_dims_contents = urllib.request.urlopen(link).read()
 nml2_dims_file = tempfile.NamedTemporaryFile(delete=False)
 nml2_dims_file.write(nml2_dims_contents)
 nml2_dims_file.close()
@@ -52,9 +52,9 @@ for chan_dens in membrane_properties.channel_densities:
     densities[chan_dens.id] = chan_dens.cond_density
 
 nml2_Cmem = get_si_value(cm_nml_str) * area_m2
-nml2_GKS = get_si_value(densities['k_slow_all']) * nml2_Cmem
-nml2_GKF = get_si_value(densities['k_fast_all']) * nml2_Cmem
-nml2_GCa = get_si_value(densities['ca_boyle_all']) * nml2_Cmem
+nml2_GKS = get_si_value(densities['k_slow_all']) * area_m2
+nml2_GKF = get_si_value(densities['k_fast_all']) * area_m2
+nml2_GCa = get_si_value(densities['ca_boyle_all']) * area_m2
 
 nml2_VKS = get_si_value(rev_pots['k_slow_all'])
 nml2_VKF = get_si_value(rev_pots['k_fast_all'])
@@ -98,13 +98,12 @@ for i in range(0,numpoints):
     IKS = nml2_GKS * x_inf(x[i], nml2_v_half_n, nml2_k_n) * (x[i] - nml2_VKS)
     IKF = nml2_GKF * x_inf(x[i], nml2_v_half_p, nml2_k_p)**4 * x_inf(x[i], nml2_v_half_q, nml2_k_q) * (x[i]- nml2_VKF)
     ICa = nml2_GCa * x_inf(x[i], nml2_v_half_e, nml2_k_e)**2 * (x[i] - nml2_VCa)
-
     y[0][i] = (IKF + IKS) / nml2_Cmem
     y[1][i] = ICa  / nml2_Cmem
 
 
 plt.subplot(1,2,1)
-plt.plot([round(i * 1e3, 2) for i in x], [round(j * 1e2, 2) for j in y[1]], 'k', label='$I_{Ca}$')
+plt.plot(x * 1e3, y[1], 'k', label='$I_{Ca}$')
 plt.xlim(-40,80)
 plt.ylim(-8,6)
 plt.ylabel('I_Ca (A/F)')
@@ -112,7 +111,7 @@ plt.xlabel('V (mV)')
 plt.grid('on')
 
 plt.subplot(1,2,2)
-plt.plot([round(i * 1e3, 2) for i in x], [round(j * 1e2, 2) for j in y[0]], 'k', label='$I_{K}$')
+plt.plot(x * 1e3, y[0], 'k', label='$I_{K}$')
 plt.xlim(-70,50)
 plt.ylim(-5,40)
 plt.ylabel('I_K (A/F)')
