@@ -14,7 +14,7 @@ If you contribute to the project please add your name to the Authors field
 ### Introduction
 
 This repository contains several different subprojects all related to the construction of a biophysically-detailed model
-of the dynamic properties of electrical excitation of the body wall muscle of the c. elegans.
+of the dynamic properties of electrical excitation of the body wall muscle of the _C. elegans_.
 
 ![Overview of dynamics we are reproducing](https://cloud.githubusercontent.com/assets/1037756/5602898/094dd1c4-9321-11e4-9d01-bc4b73112951.png)
 
@@ -24,11 +24,11 @@ amplifier and stimulator allows a researcher to either use a [current clamp](htt
 
 Ultimately, we understand from [Hodgkin and Huxley](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) that these electrical dynamics of the membrane are fully determined by the dynamics of [ion channels](https://en.wikipedia.org/wiki/Ion_channel) that sit across the membrane.
 
-In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published an article with their mathematical model of these dynamics based on real data.
+In 2008, Dr. Netta Cohen and Dr. Jordan Boyle at the University of Leeds published [an article](https://www.sciencedirect.com/science/article/pii/S0303264708001408?via%3Dihub) with their mathematical model of these dynamics based on real data.
 
 This model was expressed as a system of equations and a set of parameters in their publication, as well as C++ and Matlab code.  
 
-Their original code has been graciously shared with the OpenWorm project under the BoyleCohen2008 directory.  In addition, a Python port of key components of the model
+Their original code has been graciously shared with the OpenWorm project under the [BoyleCohen2008/](BoyleCohen2008/) directory.  In addition, a Python port of key components of the model
 has been added by OpenWorm contributors (Rayner Lucas).
 
 For the purposes of re-using the model as a component of the larger OpenWorm project, we have converted the mathematical model of Cohen & Boyle into NeuroML2, an XML-based
@@ -38,13 +38,13 @@ description of the system of equations that make up mathematical models of bioph
 
 This repository contains the following:
 
-1. Simulation of C.Elegans muscle cell electrical properties, based on Boyle & Cohen 2008.
+1. Simulation of _C. elegans_ muscle cell electrical properties, based on Boyle & Cohen 2008.
 2. NeuroML 2/LEMS conversion of the muscle cell model
 3. Optimization script for the above model, utliising Optimal Neuron package. Optimizing towards sharp electrode data obtained from lab of Michael M Francis.
 4. C++ Module for importation of arbitrary Pyramidal model into C++ program such as Palyanov et al SPH solver.
 
 
-### 1. Simulation of C.Elegans muscle cell electrical properties
+### 1. Simulation of _C. elegans_ muscle cell electrical properties
 
 The authoritative version of the muscle cell model from Boyle & Cohen has been shared with the project under the [BoyleCohen2008/](BoyleCohen2008/) directory.  Here you will also find a Python port of some of the scripts that demonstrate the dynamics of the muscle model.
 
@@ -64,25 +64,12 @@ See also http://www.opensourcebrain.org/projects/muscle_model/wiki.
 The muscle model contains NeuroML2 descriptions of the ion channels in the muscle cell. To create and run LEMS simulations of these ion channels, first install the dependencies as follows:
 
 
-    INSTALLDIR=~/git
-    mkdir $INSTALLDIR
-    cd $INSTALLDIR
     git clone https://github.com/openworm/muscle_model
 
-    pip install lxml
-    git clone https://github.com/NeuralEnsemble/libNeuroML.git
-    cd libNeuroML
-    git checkout development
-    python setup.py install
-    cd ..
-
-    git clone https://github.com/NeuroML/pyNeuroML.git
-    cd pyNeuroML
-    python setup.py install
-    cd ../..
+    pip install pyneuroml
 
 
-This will install the muscle model and all their dependencies into the directory defined by INSTALLDIR.
+This will install the muscle model and all their dependencies into the local directory.
 
 To create and run the LEMS simulations, there is a script for each of the NeuroML2 ion channel models. For example, 
 to create and run a simulation to analyse the fast potassium channel, go to the `muscle_model/NeuroML2/` subdirectory and run the command:
